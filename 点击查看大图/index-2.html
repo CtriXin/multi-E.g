@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Lightbox插件Simple Lightbox演示-自定义样式/事件_dowebok</title>
+    <link rel="stylesheet" href="css/simplelightbox.min.css">
+    <style>
+        .dowebok { width: 790px; margin: 0 auto; font-size: 0;}
+        .dowebok a { display: inline-block; width: 150px; margin: 5px;}
+        .dowebok .big { width: 300px;}
+        .dowebok img { width: 100%;}
+        .dwo-control { display: none;}
+        .dwo-control span { position: absolute; z-index: 20; cursor: pointer;}
+        .dwo-close { right: 30px; top: 30px; width: 54px; height: 54px; background: url(images/dwo.png) 0 bottom no-repeat;}
+        .dwo-prev { left: 30px; top: 45%; width: 47px; height: 93px; background: url(images/dwo.png) 0 0 no-repeat;}
+        .dwo-next { right: 30px; top: 45%; width: 47px; height: 93px; background: url(images/dwo.png) 0 -98px no-repeat;}
+    </style>
+</head>
+
+<body>
+<h1>自定义样式/事件</h1>
+
+<div class="dowebok">
+    <a href="images/image1.jpg" class="big"><img src="images/thumbs/thumb1.jpg" alt="" title="第一张图片描述"></a>
+    <a href="images/image2.jpg"><img src="images/thumbs/thumb2.jpg" alt="" title="第二张图片描述"></a>
+    <a href="images/image3.jpg"><img src="images/thumbs/thumb3.jpg" alt="" title="第三张图片描述"></a>
+    <a href="images/image4.jpg"><img src="images/thumbs/thumb4.jpg" alt="" title="第四张图片描述"></a>
+
+    <a href="images/image5.jpg"><img src="images/thumbs/thumb5.jpg" alt="" title="第五张图片描述"></a>
+    <a href="images/image6.jpg"><img src="images/thumbs/thumb6.jpg" alt="" title="第六张图片描述"></a>
+    <a href="images/image7.jpg" class="big"><img src="images/thumbs/thumb7.jpg" alt="" title="第七张图片描述"></a>
+    <a href="images/image8.jpg"><img src="images/thumbs/thumb8.jpg" alt="" title="第八张图片描述"></a>
+
+    <a href="images/image9.jpg" class="big"><img src="images/thumbs/thumb9.jpg" alt="" title="第九张图片描述"></a>
+    <a href="images/image10.jpg"><img src="images/thumbs/thumb10.jpg" alt="" title="第十张图片描述"></a>
+    <a href="images/image11.jpg"><img src="images/thumbs/thumb11.jpg" alt="" title="第十一张图片描述"></a>
+    <a href="images/image12.jpg"><img src="images/thumbs/thumb12.jpg" alt="" title="第十二张图片描述"></a>
+</div>
+<div class="dwo-control">
+    <span class="dwo-prev"></span>
+    <span class="dwo-next"></span>
+    <span class="dwo-close"></span>
+</div>
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/simple-lightbox.min.js"></script>
+<script>
+    $(function(){
+        var $dowebok = $('.dowebok a').simpleLightbox({
+            nav: false,
+            close: false
+        });
+
+        $dowebok.on('show.simplelightbox', function(){
+            $('.dwo-control').show();
+        });
+        $dowebok.on('close.simplelightbox', function(){
+            $('.dwo-control').hide();
+        });
+
+        $('.dwo-prev').on('click', function(){
+            $dowebok.prev();
+            return false;
+        });
+        $('.dwo-next').on('click', function(){
+            $dowebok.next();
+            return false;
+        });
+        $('.dwo-close').on('click', function(){
+            $dowebok.close();
+            return false;
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
