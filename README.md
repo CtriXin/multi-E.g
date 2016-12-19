@@ -35,3 +35,11 @@
 ## 验证码获取
 
 点击获取验证码，倒计时1分钟计时
+
+
+## 点击查看大图
+
+使用simple lightbox为基础js 基于 jquery的lightbox 具体参数参见<http://www.dowebok.com/186.html>
+
+
+
