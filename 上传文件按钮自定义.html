@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传文件按钮自定义</title>
+
+    <style>
+        /* 定制文件上传按钮  */
+        .u-upload{display:inline-block;*display:inline;*zoom:1;position:relative;overflow:hidden;}
+        .u-upload button{height:32px;padding:0 10px;border:1px solid #ccc;overflow:visible;font-size:14px;color:#666;background:#ddd;}
+        .u-upload input{position:absolute;top:0;right:-1px;font-size:100px;cursor:pointer;opacity:0;filter:alpha(opacity=0);}
+        .u-upload:hover button{border-color:#bbb;color:#333;background:#ccc;}
+        a.u-upload,a.u-upload:hover{text-decoration:none;}
+    </style>
+</head>
+<body>
+
+<div class="u-upload">
+    <button type="button">请选择上传文件</button>
+    <input type="file"/>
+</div>
+<span class="u-upload">
+    <button type="button">上传文件</button>
+    <input type="file"/>
+</span>
+<a href="#" class="u-upload">
+    <button type="button">上传文件</button>
+    <input type="file"/>
+</a>
+<a href="#" class="u-upload">
+    <button type="button">上传</button>
+    <input type="file"/>
+</a>
+
+<button type="submit"></button>
+
+
+</body>
+</html>
