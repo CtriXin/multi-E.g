@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传文件按钮自定义</title>
+</head>
+<body>
+
+<h1>
+    测试
+</h1>
+
+<script>
+    横竖屏判断
+
+
+    //判断手机横竖屏状态：
+    function hengshuping(){
+        if(window.orientation==180||window.orientation==0){
+//                alert("竖屏状态！")
+        }
+        if(window.orientation==90||window.orientation==-90){
+            alert("请使用竖屏状态以体验更佳效果!")
+        }
+    }
+    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+
+    //移动端的浏览器一般都支持window.orientation这个参数，通过这个参数可以判断出手机是处在横屏还是竖屏状态。
+    //从而根据实际需求而执行相应的程序。通过添加监听事件onorientationchange，进行执行就可以了。
+
+
+</script>
+
+</body>
+</html>
