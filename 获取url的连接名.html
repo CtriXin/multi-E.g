@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        var LocString=String(window.document.location.href);
+        function GetQueryString(str){
+            var rs=new RegExp("(^|)"+str+"=([^&]*)(&|$)","gi").exec(LocString),tmp;
+            if(tmp=rs)return tmp[2];
+            return "null";
+        }
+        alert("日记名称："+GetQueryString("pic"));
+        alert("分类编号："+GetQueryString("pic2"));
+        alert("所在页数："+GetQueryString("url"));
+        console.log(GetQueryString("pic2"))
+    </script>
+
+</head>
+<body>
+
+
+<a href="a.html?param=value&param1=value1&param2=value2&pic=aa">超链接</a>
+
+</body>
+</html>
