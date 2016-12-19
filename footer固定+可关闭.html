@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>吸底footer可关闭</title>
+
+
+
+    <style>
+        .footer-mobile{
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 65px;
+            background: beige;
+        }
+        .close-btn{
+            position: absolute;
+            right:0;
+        }
+    </style>
+</head>
+
+<body>
+
+<!--/container-->
+
+<div id="footer-mobile" class="footer-mobile">
+    <div class="close-btn" title="关闭" onclick="toggle()">
+        <img src="assets/img/X.png" >
+    </div>
+    <div class="footer-logo pull-left sprite-sprite-tata-with-tile-white-horizontal" id="footer-logo"></div>
+    <a href="#" id="footer-btn" class="btn btn-success pull-right" style="margin-right: 5%">去下载</a>
+</div>
+
+<div class="clearfix"></div>
+
+<!-- start: JavaScript-->
+
+
+<script>
+    //footer点击关闭
+    function toggle() {
+        theObj = document.getElementById('footer-mobile').style;
+        if ( theObj.display == "none" ) theObj.display = "block"; else theObj.display = "none";
+    }
+</script>
+
+</body>
+</html>
