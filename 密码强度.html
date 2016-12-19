@@ -1,0 +1,71 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>密码强度检测</title>
+    <style type="text/css">
+        body{font:12px/1.5 Arial;} input{float:left;font-size:12px;width:150px;font-family:arial;border:1px
+        solid #ccc;padding:3px;} input.correct{border:1px solid green;} input.error{border:1px
+        solid red;} #tips{float:left;margin:2px 0 0 20px;} #tips span{float:left;width:50px;height:20px;color:#fff;overflow:hidden;background:#ccc;margin-right:2px;line-height:20px;text-align:center;}
+        #tips.s1 .active{background:#f30;} #tips.s2 .active{background:#fc0;} #tips.s3
+                                                                              .active{background:#cc0;} #tips.s4 .active{background:#090;}
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var oTips = document.getElementById("tips");
+            var oInput = document.getElementsByTagName("input")[0];
+            var aSpan = oTips.getElementsByTagName("span");
+            var aStr = ["弱", "中", "强", "非常好"];
+            var i = 0;
+
+            oInput.onkeyup = oInput.onfocus = oInput.onblur = function() {
+                var index = checkStrong(this.value);
+                this.className = index ? "correct": "error";
+                oTips.className = "s" + index;
+                for (i = 0; i < aSpan.length; i++) aSpan[i].className = aSpan[i].innerHTML = "";
+                index && (aSpan[index - 1].className = "active", aSpan[index - 1].innerHTML = aStr[index - 1])
+            }
+        };
+        /** 强度规则
+         + ------------------------------------------------------- +
+         1) 任何少于6个字符的组合，弱；任何字符数的同类字符组合，弱；
+         2) 任何字符数的两类字符组合，中；
+         3) 12位字符数以下的三类或四类字符组合，强；
+         4) 12位字符数以上的三类或四类字符组合，非常好。
+         + ------------------------------------------------------- +
+         **/
+        //检测密码强度
+        function checkStrong(sValue) {
+            var modes = 0;
+            if (sValue.length < 6) return modes;
+            if (/\d/.test(sValue)) modes++; //数字
+            if (/[a-z]/.test(sValue)) modes++; //小写
+            if (/[A-Z]/.test(sValue)) modes++; //大写
+            if (/\W/.test(sValue)) modes++; //特殊字符
+            switch (modes) {
+                case 1:
+                    return 1;
+                    break;
+                case 2:
+                    return 2;
+                case 3:
+                case 4:
+                    return sValue.length < 12 ? 3 : 4
+                    break;
+            }
+        }
+    </script>
+</head>
+
+<body>
+<input type="password" value="" maxlength="16" />
+<div id="tips">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+</body>
+
+</html>
