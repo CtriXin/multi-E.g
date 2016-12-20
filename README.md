@@ -42,4 +42,6 @@
 使用simple lightbox为基础js 基于 jquery的lightbox 具体参数参见<http://www.dowebok.com/186.html>
 
 
+## 滚动加载
 
+基于页面高度，滚动条高度，文档高度随滚动动态插入数据
