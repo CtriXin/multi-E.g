@@ -3,8 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>字数限制</title>
+    <style>
+        .blank {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: pink; /* 方便看效果 */
+        }
+    </style>
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <script type='text/javascript'>
+        jQuery.fn.limit=function(){
+            var self = $('div[limit]');
+            self.each(function(){
+                var objString = $(this).text();
+                var objLength = $(this).text().length;
+                var num = $(this).attr('limit');
+                if(objLength > num){
+                    $(this).attr('title',objString);
+                    objString = $(this).text(objString.substring(0,num) + '...');
+                }
+            })
+        }
+        $(function(){
+            $(document.body).limit();
+        })
+    </script>
 </head>
 <body>
+<div class='blank'>
+    请按F5刷新页面。。。。
+    <div id='best'>
+        <div limit='12'>咿呀咿呀哟咿呀咿呀哟咿呀咿呀哟</div>
+        <div limit='10'>sfadfsafdfassfadfsafdfassfadfsafdfas</div>
+        <div limit='12'>sfadfsafdfassfadfsafdfassfadfsafdfas</div>
+        <div limit='12'>sfadfsafdfassfadfsafdfassfadfsafdfassfadfsafdfassfadfsafdfassfadfsafdfas</div>
+        <div limit='10'>sfadfsafdfassfadfsafdfas</div>
+    </div></div>
 
 </body>
 </html>
