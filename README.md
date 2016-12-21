@@ -34,7 +34,7 @@
 点击获取验证码，倒计时1分钟计时
 
 
-## 点击查看大图
+## 点击查看大图(lightbox)
 
 使用simple lightbox为基础js 基于 jquery的lightbox 具体参数参见<http://www.dowebok.com/186.html>
 
@@ -44,7 +44,7 @@
 基于页面高度，滚动条高度，文档高度随滚动动态插入数据
 
 
-## 全屏弹窗
+## 全屏弹窗(animatedModal)
 
 点击按钮弹窗，全屏显示，是animatedmodal.js，具体参数详见<http://joaopereirawd.github.io/animatedModal.js/>
 
