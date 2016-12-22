@@ -44,7 +44,7 @@
 基于页面高度，滚动条高度，文档高度随滚动动态插入数据
 
 
-## 全屏弹窗(animatedModal)
+## [全屏弹窗(animatedModal)](https://github.com/CtriXin/multi-E.g/tree/master/%E5%85%A8%E5%B1%8F%E5%BC%B9%E7%AA%97%EF%BC%88%E5%8A%A8%E6%95%88%EF%BC%89)
 
 点击按钮弹窗，全屏显示，是animatedmodal.js，具体参数详见<http://joaopereirawd.github.io/animatedModal.js/>
 
@@ -56,7 +56,7 @@
 
 
 
-## 图片延迟加载
+## [图片延迟加载](https://github.com/CtriXin/multi-E.g/tree/master/%E5%9B%BE%E7%89%87%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD)
 
 ### lazyload
 是用来缓冲加载图片的插件。如果一篇文章很长有很多图片的话，下载图片就需要很多时间。而这款插件，会检测你的滚动情况，只有你要看到那个图片的时候，它才会从后台请求下载图片，然后显示出来。
@@ -92,13 +92,13 @@ lightbox? 待定 尚未修改完版本
 
 
 
-## 点击查看大图
+## [点击查看大图](https://github.com/CtriXin/multi-E.g/tree/master/%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B%E5%A4%A7%E5%9B%BE)
 纯js的简单查看大图，样式修改自行制作
 
 
-## fullpage
+## [fullpage](https://github.com/CtriXin/multi-E.g/tree/master/fullpage)
 一滚一屏操作，常用，参数等自行查看浏览器收藏夹
-
+增加了纯javascript语言的支持 但是其特殊参数和设定不适用
 
 
 
