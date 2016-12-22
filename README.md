@@ -39,6 +39,11 @@
 使用simple lightbox为基础js 基于 jquery的lightbox 具体参数参见<http://www.dowebok.com/186.html>
 
 
+## [点击查看大图](https://github.com/CtriXin/multi-E.g/tree/master/%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B%E5%A4%A7%E5%9B%BE)
+纯js的简单查看大图，样式修改自行制作
+
+
+
 ## 滚动加载
 
 基于页面高度，滚动条高度，文档高度随滚动动态插入数据
@@ -92,8 +97,6 @@ lightbox? 待定 尚未修改完版本
 
 
 
-## [点击查看大图](https://github.com/CtriXin/multi-E.g/tree/master/%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B%E5%A4%A7%E5%9B%BE)
-纯js的简单查看大图，样式修改自行制作
 
 
 ## [fullpage](https://github.com/CtriXin/multi-E.g/tree/master/fullpage)
