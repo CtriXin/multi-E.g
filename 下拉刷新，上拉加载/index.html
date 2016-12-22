@@ -2,9 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>jQuery手机端上拉刷新下拉加载更多页面</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/pullToRefresh.css" />
+
+    <script type="text/javascript" src="js/iscroll.js"></script>
+    <script type="text/javascript" src="js/pullToRefresh.js"></script>
+
+    <style>
+        body, html {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            font-family: Arial, Microsoft YaHei;
+            color: #111;
+        }
+
+        li {
+            /*border-bottom: 1px #CCC solid;*/
+            text-align: center;
+            line-height: 80px;
+        }
+    </style>
 </head>
 <body>
-$END$
+
+
+<div id="wrapper">
+    <ul>
+        <li>row 10</li>
+        <li>row 9</li>
+        <li>row 8</li>
+        <li>row 7</li>
+        <li>row 6</li>
+        <li>row 5</li>
+        <li>row 4</li>
+        <li>row 3</li>
+        <li>row 2</li>
+        <li>row 1</li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+
+    refresher.init({
+        id: "wrapper",//<------------------------------------------------------------------------------------┐
+        pullDownAction: Refresh,
+        pullUpAction: Load
+    });
+    var generatedCount = 0;
+    function Refresh() {
+        var el, li, i;
+        el = document.querySelector("#wrapper ul");
+        el.innerHTML = '';
+        for (i = 0; i < 11; i++) {
+            li = document.createElement('li');
+            li.appendChild(document.createTextNode('async row ' + (++generatedCount)));
+            el.insertBefore(li, el.childNodes[0]);
+        }
+        wrapper.refresh();/****remember to refresh after  action completed！ ---yourId.refresh(); ----| ****/
+        for (var i = 0; i < document.querySelectorAll("#wrapper ul li").length; i++) {
+            document.querySelectorAll("#wrapper ul li")[i].colorfulBg();
+        };
+
+    }
+
+    function Load() {
+        var el, li, i;
+        el = document.querySelector("#wrapper ul");
+        for (i = 0; i < 2; i++) {
+            li = document.createElement('li');
+            li.appendChild(document.createTextNode('async row ' + (++generatedCount)));
+            el.appendChild(li, el.childNodes[0]);
+        }
+        wrapper.refresh();/****remember to refresh after action completed！！！   ---id.refresh(); --- ****/
+        for (var i = 0; i < document.querySelectorAll("#wrapper ul li").length; i++) {
+            document.querySelectorAll("#wrapper ul li")[i].colorfulBg();
+        };
+    }
+</script>
+
 </body>
 </html>
