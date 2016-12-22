@@ -96,12 +96,18 @@ lightbox? 待定 尚未修改完版本
 纯js代码判断登录设备，可判断是手机还是电脑
 
 
-
-
-
 ## [fullpage](https://github.com/CtriXin/multi-E.g/tree/master/fullpage)
 一滚一屏操作，常用，参数等自行查看浏览器收藏夹
 增加了纯javascript语言的支持 但是其特殊参数和设定不适用
+
+
+
+## [下拉刷新，上拉加载](https://github.com/CtriXin/multi-E.g/tree/master/%E4%B8%8B%E6%8B%89%E5%88%B7%E6%96%B0%EF%BC%8C%E4%B8%8A%E6%8B%89%E5%8A%A0%E8%BD%BD)
+简单的pullrefresh，操作注意事项已经再js中注释了
+
+
+
+
 
 
 
