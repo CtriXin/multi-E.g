@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>demo page for H5</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <div id='wx_pic' style='margin:0 auto;display:none;'>
+        <img src='http://imgcdn.tataufo.com/300x300.png' />
+    </div>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.fullPage.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/page.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/add-new.css" />
+
+
+
+    <script src="http://imgcdn.tataufo.com/tataoffical-static/js/tatajquery.js"></script>
+
+    <script type="text/javascript" src="assets/js/jquery.fullPage.js"></script>
+    <script type="text/javascript" src="assets/js/page-load.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/jQuery-slimScroll/1.3.1/jquery.slimscroll.min.js"></script> <!-- 这个是scrollOverflow属性需要的js，内容超过满屏后是否显示滚动条 -->
+    <script src="http://cdn.staticfile.org/jquery-easing/1.3/jquery.easing.min.js"></script>  <!-- 这个是回调函数的js -->
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                verticalCentered: false,
+                anchors: ['gif', 'environment', 'doggy','engin','questinary'],
+                css3: true,
+                loopHorizontal:true,
+                controlArrowColor: '#ffcf4f', //横页的导航的小圆圈颜色
+                slidesNavigation: true, //横页的导航
+                slidesNavPosition:'bottom', //横页的导航位置
+                scrollOverflow: true,
+
+//                'onLeave': function(index, nextIndex, direction){
+//                    if (index == 2 && direction == 'down'){
+//                        $('.section').eq(index -1).removeClass('moveDown').addClass('moveUp');
+//                    }
+//                    else if(index == 3 && direction == 'up'){
+//                        $('.section').eq(index -1).removeClass('moveUp').addClass('moveDown');
+//                    }
+//                    $('#staticImg').toggleClass('active', (index == 1 && direction == 'down' ) || (index == 4 && direction == 'up'));
+//                    $('#staticImg').toggleClass('moveDown', nextIndex == 3);
+//                    $('#staticImg').toggleClass('moveUp', index == 3 && direction == 'up');
+//                    $('#staticImg').toggleClass('moveDownplus', nextIndex == 4);
+//                    $('#staticImg').toggleClass('moveUpplus', index == 4 && direction == 'up');
+//                }
+//
+            });
+            $('.moveSectionDown').click(function(e){
+                e.preventDefault();
+                $.fn.fullpage.moveSectionDown();
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+
+<div id="fullpage">
+
+    <div class="section " id="section0">
+        <img class="img_3 pt-page-moveIconUp" style="" src="assets/imgs/icon_up_red.png" />
+
+    </div>
+
+    <div class="section" id="section1">
+        <div class="slide" id="slide1">
+            <div class="intro">
+                <img src="assets/imgs/richang.png" width="25%" style="float: left;margin-left: 10%;margin-bottom: 10%" alt=""/>
+                <img src="assets/imgs/body1.png" width="80%" style="margin-bottom: 8%" alt=""/>
+                <p>环境恶劣，员工每月抗议一次</p>
+            </div>
+        </div>
+        <div class="slide" id="slide2">
+            <div class="intro">
+                <img src="assets/imgs/richang.png" width="25%" style="float: left;margin-left: 10%;margin-bottom: 10%" alt=""/>
+                <img src="assets/imgs/body2.png" width="80%" style="margin-bottom: 8%" alt=""/>
+                <p>各种猫大狗大，肆意占领人类领地</p>
+            </div>
+        </div>
+        <div class="slide" id="slide3">
+            <div class="intro">
+                <img src="assets/imgs/richang.png" width="25%" style="float: left;margin-left: 10%;margin-bottom: 10%" alt=""/>
+                <img src="assets/imgs/body3.png" width="80%" style="margin-bottom: 8%" alt=""/>
+                <p>高频次头脑风暴，透支员工才华</p>
+            </div>
+        </div>
+    </div>
+    <div class="section section5" id="section5">
+        <img src="assets/imgs/top-bar.png" width="100%" alt=""/>
+        <div class="col-xs-12 lzwidth">
+            <div class="pull-left">
+                <img src="assets/imgs/avatar.jpg" class="lz-avatar" alt="">
+            </div>
+            <div class=" text-left pull-left lz-information">
+                <div class="col-xs-12 lz-name">
+                    <span class="lz-name">基本信息：</span> <br>
+                    <span class="lz-school">Luna&nbsp;清华大学&nbsp;女</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xs-12 padding-left-0 padding-right-0">
+            <div class="col-xs-12 padding-left-0 question-div" id="Q1">
+                <p class="col-xs-12 text-left question-p">Q1：你是靠颜值吃饭的吗？</p>
+                <div class="col-xs-10 pull-right text-left" style="padding-left: 0">
+                    <button class="btn btn-question">A.是</button>
+                    <button class="btn btn-question">B.不是</button>
+                </div>
+            </div>
+            <div class="col-xs-12 padding-left-0 question-div" id="Q2">
+                <p class="col-xs-12 text-left question-p">Q2：你有什么特长？</p>
+                <div class="col-xs-10 pull-right text-left" style="padding-left: 0">
+                    <button class="btn btn-question">A.腿</button>
+                    <button class="btn btn-question">B.脸</button>
+                    <button class="btn btn-question">C.舞蹈类</button>
+                    <button class="btn btn-question">D.音乐类</button>
+                    <button class="btn btn-question">E.体育类</button>
+                    <button class="btn btn-question">F.绘画类</button>
+                    <button class="btn btn-question">G.行摄类</button>
+                </div>
+            </div>
+            <div class="col-xs-12 padding-left-0 question-div" id="Q3">
+                <p class="col-xs-12 text-left question-p">Q3：选择你实习的时间？</p>
+                <div class="col-xs-10 pull-right text-left" style="padding-left: 0">
+                    <button class="btn btn-question">A.11.18 - 11.19</button>
+                    <button class="btn btn-question">B.12.08 - 12.09</button>
+                </div>
+            </div>
+            <div class="col-xs-12 padding-left-0 question-div" id="Q4">
+                <p class="col-xs-12 text-left question-p">Q4：你喜欢tataUFO吗？</p>
+                <div class="col-xs-10 pull-right text-left" style="padding-left: 0">
+                    <button class="btn btn-question">A.喜欢</button>
+                </div>
+            </div>
+        </div>
+        <button class="btn-endquestion moveSectionDown" id="final-btn">老板选我</button>
+        <br/>
+    </div>
+
+
+</div>
+
+
+<script>
+    $('.btn-question').click(function(){
+        $(this).attr('data-value',$(this).text()).css({'background': '#eb472d','border-color':'#eb472d','color':'#fff'}).siblings().removeAttr('data-value').css({'background': 'none','border-color':'#fff','color':'#fff'})
+    });
+
+    $('#final-btn').click(function(){
+        var key4 = $('#Q4').find('button[data-value]').text();
+        var key3 = $('#Q3').find('button[data-value]').text();
+        var key2 = $('#Q2').find('button[data-value]').text();
+        var key1 = $('#Q1').find('button[data-value]').text();
+        var object = {};
+        if(key1!=""&&key2!=""&&key3!=""&&key4!=""){
+            object.Q1=key1;
+            object.Q2=key2;
+            object.Q3=key3;
+            object.Q4=key4;
+        }else{
+            alert('还有问题没有回答哦~');
+            return
+        }
+        console.log(JSON.stringify(object));
+        window.location.href='index-landing.html'
+    })
+
+//    $.ajax({
+//        url:url,
+//        type:'post',
+//        data:{
+//            'jsondata' : object,
+//        },
+//        dataType:'json',
+//        async:true,
+//        beforeSend:function(XMLHttpRequest){
+//
+//        },
+//        success:function(data){
+//
+//        }
+//    })
+
+
+
+</script>
+
+</body>
+</html>

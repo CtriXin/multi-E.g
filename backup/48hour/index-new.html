@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>48小时极限实习生</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <div id='wx_pic' style='margin:0 auto;display:none;'>
+        <img src='http://imgcdn.tataufo.com/300x300.png' />
+    </div>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.fullPage.css" />
+    <link rel="stylesheet" href="http://imgcdn.tataufo.com/tataoffical-static/css/tataufo.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/page.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/add-new.css" />
+
+
+
+    <script src="http://imgcdn.tataufo.com/tataoffical-static/js/tatajquery.js"></script>
+
+    <script type="text/javascript" src="assets/js/jquery.fullPage.js"></script>
+    <script type="text/javascript" defer="defer" src="assets/js/page-load.js"></script>
+    <script type="text/javascript" defer="defer" src="assets/js/aysnc.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/jQuery-slimScroll/1.3.1/jquery.slimscroll.min.js"></script> <!-- 这个是scrollOverflow属性需要的js，内容超过满屏后是否显示滚动条 -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                verticalCentered: false,
+                anchors: ['gif', 'environment', 'doggy','engin','questinary'],
+                css3: true,
+                loopHorizontal:true,
+                controlArrowColor: '#ffcf4f', //横页的导航的小圆圈颜色
+                slidesNavigation: true, //横页的导航
+                slidesNavPosition:'bottom', //横页的导航位置
+                scrollOverflow: true,
+
+//                afterLoad: function(anchorLink, index){
+//                    if(index == 1){
+//                        $.fn.fullpage.setAllowScrolling(false);
+//                    }
+//                },
+                afterRender:function(){
+                    $.fn.fullpage.setAllowScrolling(false);
+                },
+                'onLeave': function(index, nextIndex, direction){
+                    if ((index == 1 && direction == 'down')||(index == 5 && direction == 'up')){
+                       console.log($(this).parents().find('img'));
+                        $(this).parents().find('img').addClass('loopic')
+                    }
+                    else if((index == 4 && direction == 'down')||(index == 2 && direction == 'up')){
+                        $(this).parents().find('img.loo').removeClass('loopic')
+                    }
+
+                }
+
+            });
+            $('.moveSectionDown').click(function(e){
+                e.preventDefault();
+                $.fn.fullpage.moveSectionDown();
+            });
+            $('#setAllowScrollingFalse').click(function(e){
+                e.preventDefault();
+                $.fn.fullpage.setAllowScrolling(false);
+            });
+
+            $('#setAllowScrollingTrue').click(function(e){
+                e.preventDefault();
+                $.fn.fullpage.setAllowScrolling(true);
+            });
+
+        });
+    </script>
+    <script>
+        //获取浏览器页面可见高度和宽度
+        var _PageHeight = document.documentElement.clientHeight,
+                _PageWidth = document.documentElement.clientWidth;
+        //计算loading框距离顶部和左部的距离（loading框的宽度为215px，高度为61px）
+        var _LoadingTop = _PageHeight > 61 ? (_PageHeight - 61) / 2 : 0,
+                _LoadingLeft = _PageWidth > 215 ? (_PageWidth - 215) / 2 : 0;
+        //在页面未加载完毕之前显示的loading Html自定义内容
+        var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:100%;height:' + _PageHeight + 'px;top:0;background:#eb472d;z-index:10000;"><img src="assets/imgs/grid.svg" style="vertical-align: middle;width: 20%;position: fixed;top: 30%;left: 40%;" alt=""/><p style="position: fixed;top: 50%;width: 100%;text-align: center;font-size: 1em;">请稍等，服务器正在飞速运转</p></div>';
+        //呈现loading效果
+        document.write(_LoadingHtml);
+
+        //window.onload = function () {
+        //    var loadingMask = document.getElementById('loadingDiv');
+        //    loadingMask.parentNode.removeChild(loadingMask);
+        //};
+
+        //监听加载状态改变
+        document.onreadystatechange = completeLoading;
+
+        //加载状态为complete时移除loading效果
+        function completeLoading() {
+            if (document.readyState == "complete") {
+                var loadingMask = document.getElementById('loadingDiv');
+                loadingMask.parentNode.removeChild(loadingMask);
+                $('#section0').css({'background':'url(assets/imgs/555.gif) no-repeat','background-size':'100% 100%'})
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+<img src="assets/imgs/richang.png" width="25%" class="loo" style="float: left;margin-left: 10%;margin-bottom: 10%" alt=""/>
+
+
+<div id="fullpage">
+
+    <div class="section " id="section0">
+        <button id="setAllowScrollingTrue" style="display: none"></button>
+        <img class="img_3 pt-page-moveIconUp" style="" src="assets/imgs/icon_up_red.png" />
+
+    </div>
+    <div class="section" id="section1">
+        <div class="intro">
+            <img src="http://imgcdn.tataufo.com/bitmap/bitmap80.png" id="body1" width="80%" style="margin-left: 10%;margin-bottom: 8%" alt=""/>
+            <p>环境恶劣，员工每月抗议一次</p>
+        </div>
+    </div>
+    <div class="section" id="section2">
+        <div class="intro">
+            <img src="http://imgcdn.tataufo.com/bitmap/bitmap80.png" id="body2" width="80%" style="margin-left: 10%;margin-bottom: 8%" alt=""/>
+            <p>各种猫大狗大，肆意占领人类领地</p>
+        </div>
+    </div>
+    <div class="section" id="section3">
+        <div class="intro">
+            <img src="http://imgcdn.tataufo.com/bitmap/bitmap80.png" id="body3" width="80%" style="margin-left: 10%;margin-bottom: 8%" alt=""/>
+            <p>高频次头脑风暴，透支员工才华</p>
+        </div>
+    </div>
+    <div class="section section4" id="section4">
+        <img src="http://imgcdn.tataufo.com/bitmap/bitmap-long.png" id="long-pic" width="100%" alt=""/>
+        <div class="col-xs-12 lzwidth">
+            <div class="pull-left">
+                <img src="assets/imgs/avatar.jpg" class="lz-avatar" alt="">
+            </div>
+            <div class=" text-left pull-left lz-information">
+                <div class="col-xs-12 lz-name">
+                    <span class="lz-name">基本信息：</span> <br>
+                    <span class="lz-school">Luna&nbsp;清华大学&nbsp;女</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xs-12 padding-left-0 padding-right-0">
+            <div class="col-xs-12 padding-left-0 question-div" id="Q1">
+                <p class="col-xs-12 text-left question-p">Q1：你是靠颜值吃饭的吗？</p>
+                <div class="col-xs-10 pull-right text-left" style="padding-left: 0">
+                    <button class="btn btn-question">A.是</button>
+                    <button class="btn btn-question">B.不是</button>
+                </div>
+            </div>
+            <div class="col-xs-12 padding-left-0 question-div" id="Q2">
+                <p class="col-xs-12 text-left question-p">Q2：你有什么特长？</p>
+                <div class="col-xs-10 pull-right text-left" style="padding-left: 0">
+                    <button class="btn btn-question">A.腿</button>
+                    <button class="btn btn-question">B.脸</button>
+                    <button class="btn btn-question">C.舞蹈类</button>
+                    <button class="btn btn-question">D.音乐类</button>
+                    <button class="btn btn-question">E.体育类</button>
+                    <button class="btn btn-question">F.绘画类</button>
+                    <button class="btn btn-question">G.行摄类</button>
+                </div>
+            </div>
+            <div class="col-xs-12 padding-left-0 question-div" id="Q3">
+                <p class="col-xs-12 text-left question-p">Q3：选择你实习的时间？</p>
+                <div class="col-xs-10 pull-right text-left" style="padding-left: 0">
+                    <button class="btn btn-question">A.11.18 - 11.19</button>
+                    <button class="btn btn-question">B.12.08 - 12.09</button>
+                </div>
+            </div>
+            <div class="col-xs-12 padding-left-0 question-div" id="Q4">
+                <p class="col-xs-12 text-left question-p">Q4：你喜欢tataUFO吗？</p>
+                <div class="col-xs-10 pull-right text-left" style="padding-left: 0">
+                    <button class="btn btn-question">A.喜欢</button>
+                </div>
+            </div>
+        </div>
+        <button class="btn-endquestion moveSectionDown" id="final-btn">老板选我</button>
+        <br/>
+    </div>
+
+
+</div>
+
+
+
+</body>
+</html>

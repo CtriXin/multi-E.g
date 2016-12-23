@@ -1,0 +1,41 @@
+
+/* Style for our header texts
+* --------------------------------------- */
+body{
+    background: #eb472d;
+}
+p{
+	color: #fff;
+}
+
+/* Centered texts in each section
+* --------------------------------------- */
+.section{
+	text-align:center;
+}
+
+
+/*这是第一种效果 切换页面*/
+/* Backgrounds will cover all the section
+* ---------------------------------------*/
+.section{
+	background-size: cover;
+}
+
+/* Defining each section background and styles
+* --------------------------------------- */
+#section0{
+    background: #eb472d;
+}
+
+
+.btn-normal{
+	background: none;
+	border-radius: 31px;
+	border: 2px solid white;
+	padding: 3px 51px;
+	color: white;
+	font-weight: 600;
+	font-size: 1.2em;
+	margin-top: 10%;
+}

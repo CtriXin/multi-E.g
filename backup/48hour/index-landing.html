@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>48小时极限实习生</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <div id='wx_pic' style='margin:0 auto;display:none;'>
+        <img src='http://imgcdn.tataufo.com/300x300.png' />
+    </div>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.fullPage.css" />
+    <link rel="stylesheet" href="http://imgcdn.tataufo.com/tataoffical-static/css/tataufo.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/page-landing.css" />
+
+
+
+    <script src="http://imgcdn.tataufo.com/tataoffical-static/js/tatajquery.js"></script>
+
+    <script type="text/javascript" src="assets/js/jquery.fullPage.js"></script>
+    <script type="text/javascript" src="assets/js/page-load.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                anchors: ['firstPage'],
+                sectionsColor: ['#eb472d'],
+                autoScrolling: false,
+                css3: true,
+                verticalCentered:false,
+                fitToSection: false
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+
+<div id="fullpage">
+    <div class="section " id="section0">
+        <button class="btn-last" onclick="shareDialog()">点击分享</button>
+    </div>
+
+
+</div>
+<div id="share" onClick="closeDialog()">
+    <div class="shareImg"></div>
+</div>
+<script type="text/javascript">
+    function shareDialog(){
+        $("#share").show();
+    }
+    function closeDialog(){
+        $("#share").hide();
+    }
+</script>
+</body>
+</html>

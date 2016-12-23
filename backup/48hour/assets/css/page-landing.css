@@ -1,0 +1,65 @@
+/* Style for our header texts
+* --------------------------------------- */
+body{
+    background: #eb472d;
+}
+
+p {
+    color: #fff;
+}
+
+/* Centered texts in each section
+* --------------------------------------- */
+.section {
+    text-align: center;
+}
+
+/*这是第一种效果 切换页面*/
+/* Backgrounds will cover all the section
+* ---------------------------------------*/
+.section {
+    background-size: cover;
+}
+
+.slide {
+    background-size: cover;
+}
+
+/* Defining each section background and styles
+* --------------------------------------- */
+#section0 {
+    background: url(http://imgcdn.tataufo.com/intership/imgs/finish.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#share {
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 99998
+}
+
+.shareImg {
+    background: url(http://imgcdn.tataufo.com/intership/imgs/share.png) right top no-repeat;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 165px;
+    height: 114px;
+    background-size: cover;
+    z-index: 99999
+}
+.btn-last{
+    background: none;
+    position: relative;
+    top: 90%;
+    border-radius: 31px;
+    border: 2px solid white;
+    padding: 3px 51px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2em;
+}

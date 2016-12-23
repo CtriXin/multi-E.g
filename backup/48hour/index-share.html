@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>48小时极限实习生</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <div id='wx_pic' style='margin:0 auto;display:none;'>
+        <img src='http://imgcdn.tataufo.com/300x300.png' />
+    </div>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.fullpage.min.css" />
+    <link rel="stylesheet" href="http://imgcdn.tataufo.com/tataoffical-static/css/tataufo.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/page-first.css" />
+
+
+
+    <script src="http://imgcdn.tataufo.com/tataoffical-static/js/tatajquery.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.fullPage.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                anchors: ['firstPage'],
+                sectionsColor: ['#eb472d'],
+                autoScrolling: false,
+                css3: true,
+                fitToSection: false
+            });
+        });
+    </script>
+    <script>
+        //获取浏览器页面可见高度和宽度
+        var _PageHeight = document.documentElement.clientHeight,
+                _PageWidth = document.documentElement.clientWidth;
+        //计算loading框距离顶部和左部的距离（loading框的宽度为215px，高度为61px）
+        var _LoadingTop = _PageHeight > 61 ? (_PageHeight - 61) / 2 : 0,
+                _LoadingLeft = _PageWidth > 215 ? (_PageWidth - 215) / 2 : 0;
+        //在页面未加载完毕之前显示的loading Html自定义内容
+        var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:100%;height:' + _PageHeight + 'px;top:0;background:#eb472d;z-index:10000;"><img src="assets/imgs/grid.svg" style="vertical-align: middle;width: 20%;position: fixed;top: 30%;left: 40%;" alt=""/><p style="position: fixed;top: 50%;width: 100%;text-align: center;font-size: 1em;">请稍等，服务器正在飞速运转</p></div>';
+        //呈现loading效果
+        document.write(_LoadingHtml);
+
+        //window.onload = function () {
+        //    var loadingMask = document.getElementById('loadingDiv');
+        //    loadingMask.parentNode.removeChild(loadingMask);
+        //};
+
+        //监听加载状态改变
+        document.onreadystatechange = completeLoading;
+
+        //加载状态为complete时移除loading效果
+        function completeLoading() {
+            if (document.readyState == "complete") {
+                var loadingMask = document.getElementById('loadingDiv');
+                loadingMask.parentNode.removeChild(loadingMask);
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+
+<div id="fullpage">
+    <div class="section " id="section0">
+        <img src="assets/imgs/share-content.png" width="80%" alt=""/>
+        <button class="btn-normal" onclick="location='index-gif.html'">下载报名</button>
+    </div>
+
+
+</div>
+</body>
+</html>

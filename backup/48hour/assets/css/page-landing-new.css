@@ -1,0 +1,208 @@
+/* Style for our header texts
+* --------------------------------------- */
+h1 {
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    color: #fff;
+}
+
+/* Centered texts in each section
+* --------------------------------------- */
+.section {
+    text-align: center;
+}
+
+/*这是第一种效果 切换页面*/
+/* Backgrounds will cover all the section
+* ---------------------------------------*/
+.section {
+    background-size: cover;
+}
+
+.slide {
+    background-size: cover;
+}
+
+/*这是第二种效果 切换页面*/
+/* Backgrounds will cover all the section
+	* ---------------------------------------
+#section0,
+#section1,
+#section2,
+#section3{
+    background-size: cover;
+    background-attachment: fixed;
+}*/
+
+/* Video
+	* --------------------------------------- */
+/*#myVideo{*/
+/*position: absolute;*/
+/*right: 0;*/
+/*bottom: 0;*/
+/*top:0;*/
+/*right:0;*/
+/*width: 100%;*/
+/*height: 100%;*/
+/*background-size: 100% 100%;*/
+/*background-color: black; /!* in case the video doesn't fit the whole page*!/*/
+/*background-image: /!* our video *!/;*/
+/*background-position: center center;*/
+/*background-size: contain;*/
+/*object-fit: cover; /!*cover video background *!/*/
+/*z-index:3;*/
+/*}*/
+
+/* Defining each section background and styles
+* --------------------------------------- */
+#section0 {
+    background: #eb472d;
+    padding: 0;
+}
+
+#section1 {
+    background: #eb472d;
+    /*background: #eb472d  url(http://imgcdn.tataufo.com/intership/imgs/555.gif) no-repeat;*/
+    background-size: 100% 100%;
+    padding: 0% 0 0 0;
+}
+
+#section2, #section3, #section4 {
+    background: #eb472d;
+    padding: 0% 0 0 0;
+}
+
+#section5 {
+    background: #eb472d;
+    padding: 0;
+}
+
+.intro{
+    margin-top: 15%;
+}
+
+/*#section4{*/
+/*background: url(http://imgcdn.tataufo.com/intership/imgs/bg4.png) no-repeat;*/
+/*background-size: 100% 100%;*/
+/*}*/
+/*#section3 h1{*/
+/*color: #000;*/
+/*}*/
+
+/*Adding background for the slides
+* --------------------------------------- */
+#slide1 {
+    background: #eb472d;
+    padding: 2% 0;
+}
+
+#slide2 {
+    background: #eb472d;
+    padding: 2% 0;
+}
+
+#slide3 {
+    background: #eb472d;
+    padding: 2% 0;
+}
+
+/* Bottom menu
+* --------------------------------------- */
+#infoMenu li a {
+    color: #fff;
+}
+
+.img_3 {
+    height: auto;
+    width: 25px;
+    position: absolute;
+    left: 50%;
+    top: 93%;
+    margin-left: -12px;
+}
+
+.img_4 {
+    height: auto;
+    width: 25px;
+    margin: 1em 0 2em -12px;
+}
+
+#staticImg {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    width: 25%;
+    min-width: 980px;
+    height: 100%;
+
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+}
+
+#staticImg.moveDown {
+    -webkit-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+}
+
+#staticImg.moveUp {
+
+    -webkit-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+#staticImg.moveDownplus {
+    -webkit-transform: translate3d(0, 200%, 0);
+    -ms-transform: translate3d(0, 200%, 0);
+    transform: translate3d(0, 200%, 0);
+}
+
+#staticImg.moveUpplus {
+
+    -webkit-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+}
+
+#staticImg.moveDown .imgsContainer {
+    top: 50%;
+}
+
+.loo {
+    position: fixed;
+    z-index: 1;
+    top: 5%;
+    opacity: 0;
+
+}
+
+.loopic {
+    animation: loo 700ms 700ms ease both;
+    -webkit-animation: loo 700ms 700ms ease both;
+}
+
+@-webkit-keyframes loo {
+    0% {
+        -webkit-opacity: 0;
+    }
+    100% {
+        -webkit-opacity: 1;
+    }
+}
+
+@keyframes loo {
+    0% {
+        -webkit-opacity: 0;
+    }
+    100% {
+        -webkit-opacity: 1;
+    }
+}
+
