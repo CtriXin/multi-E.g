@@ -1,0 +1,255 @@
+*{
+    font-size: 62.5%;
+}
+
+body {
+
+    width: 100%;
+    overflow: hidden;
+}
+
+#menu {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    list-style-type: none;
+    z-index: 70;
+}
+
+#menu li {
+    float: left;
+    margin: 0 10px 0 0;
+    font-size: 14px;
+}
+
+#menu a {
+    float: left;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #333;
+    text-decoration: none;
+}
+
+#menu .active a {
+    color: #fff;
+    background-color: #333;
+}
+
+.section {
+    text-align: center;
+    font: 50px "Microsoft Yahei";
+    color: black;
+    background: #EDEDED url(../img/bg.jpg) no-repeat center;
+    background-size: cover
+}
+
+.dowebok {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-size: 100px;
+    text-align: center;
+}
+
+.dowebok .wrap {
+    height: 500px;
+}
+
+.section1 {
+    text-align: center;
+    font: 50px "Microsoft Yahei";
+    color: black;
+    background: #0e1d31 url(../img/landing.jpg) no-repeat top;
+    background-size: 100% 95%;
+}
+.section18 {
+    text-align: center;
+    font: 50px "Microsoft Yahei";
+    color: black;
+    background: #f35f81 url(../img/win.jpg) no-repeat top;
+    background-size: 100% 95%;
+}
+.section1 .img_1 {
+    height:auto;
+    width:50%;
+    position:absolute;
+    left:55%;
+    bottom:10%;
+    margin-left:-12px;
+}
+.section1 .img_2 {
+    height: auto;
+    width: 27%;
+    position: absolute;
+    left: 62.5%;
+    bottom: 22%;
+    margin-left: -12px;
+}
+
+.section2 {
+
+}
+
+.section3 {
+
+}
+.pass{
+    background-color: yellow;
+}
+
+
+.img_17 {
+    height:auto;
+    width:20%;
+    position:absolute;
+    left:80%;
+    bottom:20%;
+    margin-left:-12px;
+    z-index: 1;
+}
+
+
+
+
+/*########################*/
+/*#######   footer #######*/
+/*########################*/
+
+#w-cup-19 {
+    position: absolute;
+    _position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: right;
+    height: 8%;
+}
+
+#w-cup-19 .close {
+    display: block; /*background:url(btn_close.gif) left center no-repeat;*/
+    float: right;
+    color: #fff;
+    cursor: pointer; /*padding:0 9px 0 18px;*/
+    line-height: 1em;
+    white-space: nowrap;
+    width: 6%;
+    position: absolute;
+    top: 0;
+    right: 1%;
+    font-size: 1.5em;
+    margin-top: 1%;
+    opacity: 1;
+}
+
+#w-cup-19 .inner {
+    /*left:50%;position:absolute;*/
+    margin-left: -285px;
+    bottom: 0;
+    height: 100%;
+}
+
+.w_cup_19 {
+    background: #3d5477;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+.footer {
+    text-align: center;
+    height: 60px;
+    position: fixed;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    background-color: #3d5477;
+
+}
+
+.footer-logo {
+    display: block;
+    /*background:url(btn_close.gif) left center no-repeat;*/
+    float: left;
+    color: #fff;
+    cursor: pointer;
+    /*padding:0 9px 0 18px;*/
+    line-height: 1em;
+    white-space: nowrap;
+    width: 8%;
+    position: absolute;
+    top: 19%;
+    left: 3%;
+}
+
+.footer-text {
+    display: block;
+    /*background:url(btn_close.gif) left center no-repeat;*/
+    float: left;
+    color: #fff;
+    cursor: pointer;
+    /*padding:0 9px 0 18px;*/
+    line-height: 1em;
+    white-space: nowrap;
+    width: 25%;
+    position: absolute;
+    top: 18%;
+    left: 15%;
+}
+
+.btn222 {
+    background: #e5e5e5 none;
+    filter: none;
+    border: 0;
+    padding: 7px 10px;
+    text-shadow: none;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 3.6em;
+    color: #333333;
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    top: 3%;
+    right: 5%;
+    width: 10%;
+
+}
+.footer-btn{
+    margin-top: 1.2%;
+    width: 10%;
+    margin-right: 4%;
+    font-size:4em !important;
+    padding: 1%;
+    background-color: #4dc3ff !important;
+    border-radius: 5px !important;
+}
+.btn.blue:hover, .btn.blue:focus, .btn.blue:active, .btn.blue.active, .btn.blue[disabled], .btn.blue.disabled{
+    background-color: #45b0e5 !important;
+}
+
+
+.black_overlay {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+}
+
+.white_content {
+    display: none;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 80%;
+
+    z-index: 1002;
+    overflow: auto;
+}

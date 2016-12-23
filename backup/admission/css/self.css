@@ -1,0 +1,580 @@
+
+.choos {
+    margin-top: 2.5%;
+    margin-left: 0 !important;
+    position: absolute;
+    top: 45%;
+}
+
+.ques {
+    text-align: left;
+    padding: 0 5%;
+    margin-top: 0;
+    color: #FFFFFF;
+    line-height: 1.2em;
+    font-size: 1.45em;
+    margin-bottom: 4%;
+}
+
+.secrow {
+    margin-bottom: 10%;
+}
+
+.ans {
+    border-radius: 5px !important;
+    text-align: left;
+    padding: 1.8%;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 3%;
+    padding-left: 3%;
+    font-size: 1em;
+
+}
+
+.secque {
+    margin-bottom: 12% !important;
+}
+
+.thirdque {
+    margin-bottom: 6% !important;
+}
+
+.abcd {
+    float: left;
+    width: 4.5%;
+    margin-top: 0.5%;
+    margin-right: 6%;
+}
+
+.imgg {
+    width: 90%;
+
+}
+.erwei{
+    position: absolute;
+    top: 24%;
+    width: 15%;
+    height: 18%;
+    left: 37%;
+    opacity: 0;
+}
+h1.guodu {
+    color: #ffffff;
+    font-size: 1em !important;
+    top: 30%;
+    padding: 10%;
+    text-align: left;
+    line-height: 1.3em;
+    position: absolute;
+}
+
+.pic1{
+    background: #EDEDED url(../img/img-1.jpg) no-repeat center;
+    background-position: 0 69;
+    background-size:cover;
+    height: 45%;
+    width: 90%;
+    position: absolute;
+}
+.pic2{
+    background: #EDEDED url(../img/img-2.jpg) no-repeat center;
+    background-position: 0 69;
+    background-size:cover;
+    height: 45%;
+    width: 90%;
+    position: absolute;
+}
+.pic3{
+    background: #EDEDED url(../img/img-3.jpg) no-repeat center;
+    background-position: 0 69;
+    background-size:cover;
+    height: 45%;
+    width: 90%;
+    position: absolute;
+}
+.pic4{
+    background: #EDEDED url(../img/img-4.jpg) no-repeat center;
+    background-position: 0 69;
+    background-size:cover;
+    height: 45%;
+    width: 90%;
+    position: absolute;
+}
+.pic5{
+    background: #EDEDED url(../img/img-5.jpg) no-repeat center;
+    background-position: 0 69;
+    background-size:cover;
+    height: 45%;
+    width: 90%;
+    position: absolute;
+}
+.pic6{
+    background: #EDEDED url(../img/img-6.jpg) no-repeat center;
+    background-position: 0 69;
+    background-size:cover;
+    height: 45%;
+    width: 90%;
+    position: absolute;
+}
+.pic7{
+    background: #EDEDED url(../img/img-7.jpg) no-repeat center;
+    background-position: 0 69;
+    background-size:cover;
+    height: 45%;
+    width: 90%;
+    position: absolute;
+}
+.FDBA{
+    background: #EDEDED url(../img/img-8.jpg) no-repeat center;
+    background-position: 0 69;
+    background-size:cover;
+    height: 45%;
+    width: 90%;
+    position: absolute;
+}
+
+.redo{
+    position: absolute;
+    top: 65%;
+    left: 15%;
+    width: 20%;
+    height: 15%;
+    border-radius: 50% !important;
+}
+.picbh{
+    position: absolute;
+}
+
+.black_overlay{
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index:1001;
+    -moz-opacity: 0.8;
+    opacity:.80;
+    filter: alpha(opacity=80);
+}
+.white_content {
+    display: none;
+    position: absolute;
+    top: 1%;
+    left: 10%;
+    width: 80%;
+    height: 90%;
+    background-color: none;
+    z-index:1002;
+    padding-top: 5%;
+    padding-right: 3%;
+    overflow: hidden;
+}
+
+.white_content span.replay{
+    position: absolute;
+    margin-top: 107%;
+    left: 12%;
+    font-size: 1.3em;
+    padding: 27% 15%;
+    padding-top: 2.8%;
+    background: #f9f9f9;
+    opacity: 0;
+    z-index: 999;
+    border-radius: 50% !important;
+}
+.white_content span.start{
+    position: absolute;
+    margin-top: 125%;
+    left: 17%;
+    font-size: 1.8em;
+    padding: 2.5% 19%;
+    /* padding-top: 2.8%; */
+    background: #f9f9f9;
+    opacity: 1;
+    font-weight: 600;
+    z-index: 999;
+    color: #f55863;
+    border-radius: 10px !important;
+    background-color: #faed62;
+}
+.white_content span.replay2{
+    position: absolute;
+    /* margin-top: 101%; */
+    top: 54%;
+    right: 13%;
+    font-size: 1.3em;
+    padding: 40% 21.5%;
+    padding-top: 2.8%;
+    background: #f9f9f9;
+     opacity: 0;
+    z-index: 999;
+    border-radius: 50% !important;
+}
+
+.sharebtt{
+    position: absolute;
+    margin-top: 101%;
+    right: 13%;
+    font-size: 1.3em;
+    padding: 40% 21.5%;
+    padding-top: 2.8%;
+    background: #f9f9f9;
+    opacity: 1;
+    z-index: 999;
+    border-radius: 50% !important;
+}
+.white_content input.nameinpu{
+    position: absolute;
+    margin-top: 35%;
+    right: 26%;
+    font-size: 1em;
+    padding: 40% 21.5%;
+    padding-top: 2.8%;
+    background: #f9f9f9;
+    opacity: 1;
+    z-index: 999;
+
+}
+.white_content p.sign{
+    position: absolute;
+    margin-top: 35%;
+    right: 74%;
+    font-size: 1.3em;
+    padding-top: 2.8%;
+    color: white;
+    opacity: 1;
+    z-index: 999;
+
+}
+.faste{
+    background-color: #ccc;
+    width: 100%;
+    padding: 100%;
+    opacity: 0;
+    z-index: 9999;
+    left: 0;
+    position: absolute;
+}
+#shareit {
+    -webkit-user-select: none;                  /*fix*/
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    text-align: center;
+    top: 0;
+    left: 0;
+    z-index: 105;
+}
+#shareit img {
+    max-width: 100%;
+}
+.arrow {
+    position: fixed;
+    right: 10%;
+    top: 5%;
+    width: 25%;
+}
+#share-text {
+    margin-top: 50%;
+    margin-left: 15%;
+    width: 70%;
+}
+.xia {
+    position: absolute;
+    /* bottom: 22.5%; */
+    margin-top: 91%;
+    right: 22.5%;
+    /* width: 40%; */
+    padding: 12% 10%;
+    opacity: 0;
+}
+.fen{
+    position: absolute;
+    /* bottom: 25%; */
+    margin-top: 94%;
+    left: 17.5%;
+    /* width: 40%; */
+    padding: 11% 10%;
+    opacity: 0;
+}
+
+.white_content h4.tilt{
+    position: absolute;
+    color: #FFFFFF;
+    margin-top: 85%;
+    /* top: 43%; */
+    left: 10%;
+    width: 80%;
+    text-align: left;
+    float: left;
+    font-size: 1.4em;
+}
+.tit{
+    position: absolute;
+    color: #FFFFFF;
+    top: 50%;
+    left: 16%;
+    width: 70%;
+    text-align: left;
+    float: left;
+}
+.fail-reply{
+    position: absolute;
+    /* margin-top: 107%; */
+    top: 63.2%;
+    right: 36%;
+    font-size: 1.3em;
+    padding: 25% 13.5%;
+    padding-top: 2.8%;
+    background: #f9f9f9;
+    opacity: 0;
+    z-index: 999;
+    border-radius: 50% !important;
+}
+.fail-share{
+    position: absolute;
+    /* margin-top: 107%; */
+    top: 63.5%;
+    left: 18%;
+    font-size: 1.3em;
+    padding: 23% 12.5%;
+    padding-top: 2.8%;
+    background: #f9f9f9;
+    opacity: 0;
+    z-index: 999;
+    border-radius: 50% !important;
+}
+.last-head{
+    position: absolute;
+    color: #FFFFFF;
+    top: 40%;
+    left: 5%;
+    width: 90%;
+    text-align: left;
+    float: left;
+    font-size: .8em;
+}
+/*##########################*/
+/*######  IPHONE 6 #########*/
+/*##########################*/
+@media (min-width: 370px) {
+    .ques {
+        text-align: left;
+        padding: 0 5%;
+        margin-top: 0;
+        color: #FFFFFF;
+        line-height: 1.2em;
+        font-size: 1.6em !important;
+        margin-bottom: 4%;
+    }
+    .ans {
+        border-radius: 10px !important;
+        text-align: left;
+        padding: 1.8%;
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 3%;
+        padding-left: 3%;
+        font-size: 1.2em;
+
+    }
+    .abcd {
+        float: left;
+        width: 4.5%;
+        margin-top: 0.2%;
+        margin-right: 6%;
+    }
+    .white_content input.nameinpu{
+        position: absolute;
+        margin-top: 36%;
+        right: 32%;
+        font-size: 1em;
+        padding: 40% 21.5%;
+        padding-top: 2.8%;
+        background: #f9f9f9;
+        opacity: 1;
+        z-index: 999;
+
+    }
+    .white_content p.sign{
+        position: absolute;
+        margin-top: 35%;
+        right: 74%;
+        font-size: 1.5em;
+        padding-top: 2.8%;
+        color: white;
+        opacity: 1;
+        z-index: 999;
+
+    }
+    .tilt{
+        font-size: 1.6em !important;
+    }
+    .last-head{
+
+        font-size: 1em !important;
+    }
+
+}
+
+
+/*##########################*/
+/*######  IPHONE 6P #########*/
+/*##########################*/
+
+@media (min-width: 414px) {
+
+    .tilt{
+        font-size: 2em !important;
+    }
+    .last-head{
+
+        font-size: 1.2em !important;
+        line-height: 1.2em;
+    }
+
+
+}
+
+/*##########################*/
+/*######  IPHONE 4 #########*/
+/*##########################*/
+
+@media (max-height: 480px){
+    .section {
+        text-align: center;
+        font: 50px "Microsoft Yahei";
+        color: black;
+        background: #EDEDED url(../img/bg.jpg) no-repeat center;
+        background-size: 100% 100% !important;
+    }
+    .section1 {
+        text-align: center;
+        font: 50px "Microsoft Yahei";
+        color: black;
+        background: #EDEDED url(../img/bg1.jpg) no-repeat center;
+        background-size: 100% 100% !important;
+    }
+    .section1 .img_1 {
+        height:auto;
+        width:50%;
+        position:absolute;
+        left:55%;
+        bottom:10%;
+        margin-left:-12px;
+    }
+    .section1 .img_2 {
+        height: auto;
+        width: 27%;
+        position: absolute;
+        left: 62.5%;
+        bottom: 25%;
+        margin-left: -12px;
+    }
+    .footer-btn{
+        margin-top: 0.5%;
+        width: 10%;
+        margin-right: 4%;
+        font-size:4em !important;
+        padding: 1%;
+        background-color: #4dc3ff !important;
+        border-radius: 5px !important;
+    }
+    .footer-logo {
+        display: block;
+        /*background:url(btn_close.gif) left center no-repeat;*/
+        float: left;
+        color: #fff;
+        cursor: pointer;
+        /*padding:0 9px 0 18px;*/
+        line-height: 1em;
+        white-space: nowrap;
+        width: 8%;
+        position: absolute;
+        top: 18%;
+        left: 3%;
+    }
+
+    .footer-text {
+        top: 21%;
+        left: 15%;
+    }
+    .ques {
+        text-align: left;
+        padding: 0 5%;
+        margin-top: 0;
+        color: #FFFFFF;
+        line-height: 1.2em;
+        font-size: 1.2em;
+        margin-bottom: 3%;
+    }
+    .ans {
+        border-radius: 5px !important;
+        text-align: left;
+        padding: 1.4%;
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 3%;
+        padding-left: 3%;
+        font-size: 0.8em;
+
+    }
+    .pic1,.pic2,.pic3,.pic4,.pic5,.pic6,.pic7{
+        background-size: cover;
+        height: 45%;
+        left: 5%;
+        width: 90% !important;
+        position: absolute;
+    }
+    .secque {
+        margin-bottom: 10% !important;
+    }
+    .thirdque {
+        margin-bottom: 5% !important;
+    }
+    .section18 {
+        text-align: center;
+        font: 50px "Microsoft Yahei";
+        color: black;
+        background: #f35f81 url(../img/win.jpg) no-repeat top;
+        background-size: 100% 95%;
+    }
+    .tilt{
+        font-size: 1em;
+    }
+    .last-head{
+        position: absolute;
+        color: #FFFFFF;
+        top: 46%;
+        left: 5%;
+        width: 90%;
+        text-align: left;
+        float: left;
+        font-size: .8em;
+    }
+    .fen {
+        position: absolute;
+        /* bottom: 25%; */
+        margin-top: 103%;
+        left: 12.5%;
+        /* width: 40%; */
+        padding: 13% 12%;
+        opacity: 0;
+    }
+    .xia {
+        position: absolute;
+        /* bottom: 22.5%; */
+        margin-top: 97%;
+        right: 14.5%;
+        width: 40%;
+        padding: 16% 13%;
+         opacity: 0;
+    }
+
+
+}

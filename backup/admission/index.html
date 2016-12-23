@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Page-Enter" content="RevealTrans(duration=5,Transitionv=23)">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <title>新生入学记</title>
+    <meta name="Keywords" content="tataufo 新生 入学 宿舍 "/>
+    <meta name="Description" content="tataufo 新生入学记"/>
+    <meta name="author" content=""/>
+    <div id='wx_pic' style='margin:0 auto;display:none;'>
+        <img src='http://imgcdn.tataufo.com/profile_enhance/single_page/unicom/img/300x300.jpg
+		'/>
+    </div>
+
+    <!-- logo icon define -->
+    <link rel="shortcut icon" href="http://imgcdn.tataufo.com/profile_enhance/new_question/image/favicon.png">
+
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style-metro.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+
+
+    <link rel="stylesheet" href="css/jquery.fullPage.css">
+    <link rel="stylesheet" href="css/type.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/self.css"/>
+
+
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.fullPage.js"></script>
+    <script src="js/jquery-audioPlay.js"></script>
+    <script>
+        $(function () {
+            $('#dowebok').fullpage({
+                anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7', 'page8', 'page9', 'page10', 'page11', 'page12', 'page13', 'page14', 'page15', 'page16', 'page17', 'page18', 'page19', 'page20', 'page21', 'page22',],
+                menu: '#menu'
+            });
+//            $('#click-from-fade').on('click',function(){
+//                setTimeout("$('#fade-before').click()",15000);
+//            });
+        });
+    </script>
+    <script type="text/javascript">
+        //弹出隐藏层
+        function ShowDiv(show_div, bg_div) {
+            document.getElementById(show_div).style.display = 'block';
+            document.getElementById(bg_div).style.display = 'block';
+            var bgdiv = document.getElementById(bg_div);
+            bgdiv.style.width = document.body.scrollWidth;
+// bgdiv.style.height = $(document).height();
+            $("#" + bg_div).height($(document).height());
+        }
+        ;
+        //关闭弹出层
+        function CloseDiv(show_div, bg_div) {
+            document.getElementById(show_div).style.display = 'none';
+            document.getElementById(bg_div).style.display = 'none';
+        }
+        ;
+    </script>
+
+</head>
+
+<body>
+
+<!-- <ul id="menu">
+	<li data-menuanchor="page1" class="active"><a href="#page1">第一屏</a></li>
+	<li data-menuanchor="page2"><a href="#page2">第二屏</a></li>
+	<li data-menuanchor="page3"><a href="#page3">第三屏</a></li>
+	<li data-menuanchor="page4"><a href="#page4">第四屏</a></li>
+</ul> -->
+
+<div id="dowebok">
+    <div class="section section1">          <!--4 个问题-->
+        <div class="row-fluid">
+
+            <img class="img_1 " src="img/board.png"/>
+            <img class="img_2 shake3 " onclick="ShowDiv('MyDiv','fade')" src="img/clickme.png"/>
+
+        </div>
+        <div id="fade" class="black_overlay">
+            <!--<img src="img/X.png" onclick="CloseDiv('MyDiv1','fade1')" style="opacity:0.8" alt="">-->
+        </div>
+
+        <div id="MyDiv" class="white_content">
+
+            <div style="text-align: right; cursor: pointer;z-index: 999">
+                <p class="sign">TO：</p>
+                <input placeholder="签上大名" class="m-wrap nameinpu small" type="text" name="sign">
+                <!--<span onclick="jump()" class="replay"></span>-->
+                <span onclick="ext()" class="start">开始游戏</span>
+
+                <!--<span onclick="share()" id="share_btn" class="share"></span>-->
+            </div>
+
+            <img src="img/tbg0.png" alt="">
+        </div>
+    </div>
+
+    <div class="section pass opacityy ">
+        <div class="span12 ">
+            <img src="img/game0.png" class="imgg" alt="">
+        </div>
+
+        <div class="span12">
+            <h1 class="guodu" id="printer7"></h1>
+
+            <h1 class="guodu" style="display: none" id="fasttxt7">这个公寓的宿管阿姨出名的凶残。这栋楼的学生毕业后，文能当段子手，武能打小怪兽。</h1>
+
+            <span class="faste" id="fasta1" name="kuaii7" data="1" onclick="fff(7, 7)"></span>
+            <img class="img_17 " name-5="next" onclick="window.location.href='#page3'" src="img/speed.png"/>
+
+            <input class="btn red" value="下一页" onclick="window.location.href='#page3'" style="display: none;" id="fade-pass7" type="submit">
+            <input class="btn green" value="上一页" onclick="window.location.href='#page1'" style="display: none;" id="fade-before7" type="submit">
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ######################################这里开始问题#####################################-->
+
+
+    <div class="section section3">          <!--4 个问题-->
+        <div class="row-fluid">
+
+            <div class="span12 pic1">
+            </div>
+
+            <div class="span12 choos">
+                <h4 class="ques">喂同学，《宿舍管理条例》都背记住了吗？以下哪一条不是条例内容：</h4>
+
+                <a href="#page4" class="btn purple ans btn-block"  name-2="pass" id="click-to-fade" name="fir"> <img src="img/A.png" class="abcd" alt=""/>一个床位只能睡一个人</a>
+                <a href="javascript:;" onclick="ShowDiv('MyDiv1','fade1')" name-1="modal" class="btn purple ans btn-block" > <img src="img/B.png" class="abcd" alt=""/>晚上11点门禁，晚归的同学自觉在外留宿</a>
+                <a href="#page4" class="btn purple ans btn-block"  name-2="pass" id="click-to-fade" name="fir"> <img src="img/C.png" class="abcd" alt=""/>严禁将未洗的袜子悬挂在通风处</a>
+                <a href="#page4" class="btn purple ans btn-block"  name-2="pass" id="click-to-fade" name="fir"> <img src="img/D.png" class="abcd" alt=""/>禁止一个人在楼道喝闷酒超过二两</a>
+
+            </div>
+
+            <div id="fade1" class="black_overlay">
+                <!--<img src="img/X.png" onclick="CloseDiv('MyDiv1','fade1')" style="opacity:0.8" alt="">-->
+            </div>
+            <div id="MyDiv1" class="white_content">
+
+                <div style="text-align: right; cursor: pointer;z-index: 999">
+                    <h4 class="tilt">XXX因为私自在外留宿，被宿管大妈关怀一小时，卒。</h4>
+                    <span onclick="jump1()" class="replay"></span>
+                    <span onclick="share()" id="share_btn" name="share" class="replay2"></span>
+                </div>
+
+                <img src="img/fail-no-h.png" alt="">
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="section pass opacityy ">
+        <div class="span12 ">
+            <img src="img/game1.png" class="imgg"  alt="">
+        </div>
+
+        <div class="span12">
+            <h1 class="guodu" id="printer"></h1>
+            <h1 class="guodu" style="display: none" id="fasttxt">宿管大妈太可怕了，还是快点滚到寝室和室友打招呼吧。咦……怎么一个人都没有？感觉好几年没人住过。</h1>
+
+            <span class="faste" id="fasta1" name="kuaii0" data="1" onclick="fff(0, 0)"></span>
+            <img class="img_17 " name-5="next" onclick="window.location.href='#page5'" src="img/speed.png" />
+
+            <input class="btn red" value="下一页" onclick="window.location.href='#page5'" style="display: none;"  id="fade-pass" type="submit">
+        </div>
+
+
+
+    </div>
+    <div class="section section5">            <!--2 个问题-->
+        <div class="row-fluid">
+
+            <div class="span12 pic2">
+
+            </div>
+
+            <div class="span12 choos">
+                <h4 class="ques secrow">寝室里一个人都没有，可是xx的枕头边放着一个古老的铜镜，这时______________?</h4>
+
+                <a href="javascript:;" onclick="ShowDiv('MyDiv2','fade2')" name-1="modal" class="btn purple ans secque btn-block"> <img src="img/A.png" class="abcd" alt=""/>是古董吧，拿起来看看！</a>
+                <a href="#page6" class="btn purple ans btn-block" name-2="pass" id="click-to-fade1"> <img src="img/B.png" class="abcd" alt=""/>留着交给国家。</a>
+
+            </div>
+
+            <div id="fade2" class="black_overlay">
+            </div>
+            <div id="MyDiv2" class="white_content">
+                <h4 class="tilt">XX因为好奇心太重，照镜子后被自己丑哭。</h4>
+                <div style="text-align: right; cursor: pointer;z-index: 999">
+                    <span onclick="jump2()" class="replay"></span>
+                    <span onclick="share()" id="share_btn" name="share" class="replay2"></span>
+                </div>
+
+                <img src="img/fail-no-h.png" alt="">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section pass opacityy ">
+        <div class="span12 ">
+            <img src="img/game2.png" class="imgg"  alt="">
+        </div>
+
+        <div class="span12">
+            <h1 class="guodu" id="printer1"></h1>
+            <h1 class="guodu" style="display: none" id="fasttxt1">XX躺在床上闻到饭菜香。听说食堂的月饼炒辣条很任性很酸爽。黑暗料理届的传说真的有这么神奇吗……</h1>
+
+            <span class="faste" id="fasta1" name="kuaii1" data="1" onclick="fff(1, 1)"></span>
+            <img class="img_17 " name-5="next" onclick="window.location.href='#page7'" src="img/speed.png" />
+
+            <input class="btn red" value="下一页" onclick="window.location.href='#page7'" style="display: none;"  id="fade-pass1" type="submit">
+        </div>
+    </div>
+
+    <div class="section section7">
+        <div class="row-fluid">
+
+            <div class="span12 pic3">
+
+            </div>
+
+            <div class="span12 choos">
+                <h4 class="ques secrow">学长们都说第一食堂王大爷的手抖，但他居然给了我满满一盘月饼炒辣条，  难道是因为……？</h4>
+
+                <a href="javascript:;" onclick="ShowDiv('MyDiv3','fade3')" name-1="modal" class="btn purple ans secque btn-block"> <img src="img/A.png" class="abcd" alt=""/>我长得像他亲孙子／孙女儿</a>
+                <a href="#page8" class="btn purple ans  btn-block"  name-2="pass" id="click-to-fade2"> <img src="img/B.png" class="abcd" alt=""/>新生入学饭菜份量都很大</a>
+
+            </div>
+
+            <div id="fade3" class="black_overlay">
+            </div>
+            <div id="MyDiv3" class="white_content">
+
+                <div style="text-align: right; cursor: pointer;z-index: 999">
+                    <h4 class="tilt">由于自恋和想太多，XX被王大爷列入食堂黑名单。</h4>
+                    <span onclick="jump3()" class="replay"></span>
+                    <span onclick="share()" id="share_btn" name="share" class="replay2"></span>
+                </div>
+
+                <img src="img/fail-no-h.png" alt="">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section pass opacityy ">
+        <div class="span12 ">
+            <img src="img/game3.png" class="imgg"  alt="">
+        </div>
+
+        <div class="span12">
+            <h1 class="guodu" id="printer2"></h1>
+            <h1 class="guodu" style="display: none" id="fasttxt2">吃完饭满嘴的辣条味儿，XX决定去小卖部买瓶水，仔细一看，尼玛居然是“农天山泉”……</h1>
+
+            <span class="faste" id="fasta1" name="kuaii2" data="1" onclick="fff(2, 2)"></span>
+            <img class="img_17 " name-5="next" onclick="window.location.href='#page9'" src="img/speed.png" />
+
+            <input class="btn red" value="下一页" onclick="window.location.href='#page9'" style="display: none;"  id="fade-pass2" type="submit">
+        </div>
+    </div>
+
+    <div class="section section9">
+        <div class="row-fluid">
+
+            <div class="span12 pic4">
+
+            </div>
+
+            <div class="span12 choos">
+                <h4 class="ques secrow">学校小卖部简直就是高仿重灾区，快来数一下到底有多少伪劣食品？</h4>
+
+                <a href="javascript:;" onclick="ShowDiv('MyDiv4','fade4')" name-1="modal" class="btn purple thirdque ans btn-block"> <img src="img/A.png" class="abcd" alt=""/>6种</a>
+                <a href="#page10" class="btn purple ans thirdque btn-block"  name-2="pass" id="click-to-fade3"> <img src="img/B.png" class="abcd" alt=""/>4种</a>
+                <a href="javascript:;" onclick="ShowDiv('MyDiv4','fade4')" name-1="modal" class="btn purple  ans btn-block"> <img src="img/C.png" class="abcd" alt=""/>无</a>
+
+            </div>
+
+            <div id="fade4" class="black_overlay">
+            </div>
+            <div id="MyDiv4" class="white_content">
+
+                <div style="text-align: right; cursor: pointer;z-index: 999">
+                    <h4 class="tilt">XX因为误食小卖部伪劣食品入院，休学一年。</h4>
+                    <span onclick="jump4()" class="replay"></span>
+                    <span onclick="share()" id="share_btn" name="share" class="replay2"></span>
+                </div>
+
+                <img src="img/fail-no-h.png" alt="">
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="section pass opacityy ">
+        <div class="span12 ">
+            <img src="img/game4.png" class="imgg"  alt="">
+        </div>
+
+        <div class="span12">
+            <h1 class="guodu" id="printer3"></h1>
+            <h1 class="guodu" style="display: none" id="fasttxt3">毛主席说过“学不成名誓不还”。12月要考英语四级，找个教室背下单词……N419教室的灯亮着，刚开学居然有人自习。</h1>
+
+            <span class="faste" id="fasta1" name="kuaii3" data="1" onclick="fff(3, 3)"></span>
+            <img class="img_17 " name-5="next" onclick="window.location.href='#page11'" src="img/speed.png" />
+
+            <input class="btn red" value="下一页" onclick="window.location.href='#page11'" style="display: none;"  id="fade-pass3" type="submit">
+        </div>
+    </div>
+
+    <div class="section section11">
+        <div class="row-fluid">
+
+            <div class="span12 pic5">
+
+            </div>
+
+            <div class="span12 choos">
+                <h4 class="ques secrow">教室里传来奇怪的声音，菜鸟xx吓出一身冷汗。是什么声音，陌生又熟悉？</h4>
+
+                <a href="#page12" class="btn purple secque ans btn-block"  name-2="pass" id="click-to-fade4"> <img src="img/A.png" class="abcd" alt=""/>打蚊子，打蚊子，打蚊子</a>
+                <a href="javascript:;" onclick="ShowDiv('MyDiv5','fade5')" name-1="modal" class="btn purple secque ans btn-block"> <img src="img/B.png" class="abcd" alt=""/>@＃¥％……&＊</a>
+
+            </div>
+
+            <div id="fade5" class="black_overlay">
+            </div>
+            <div id="MyDiv5" class="white_content">
+
+                <div style="text-align: right; cursor: pointer;z-index: 999">
+                    <h4 class="tilt">xx因为散布谣言被打蚊子的男同学和女同学起诉。</h4>
+                    <span onclick="jump5()" class="replay"></span>
+                    <span onclick="share()" id="share_btn" name="share" class="replay2"></span>
+                </div>
+
+                <img src="img/fail-no-h.png" alt="">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section pass opacityy ">
+        <div class="span12 ">
+            <img src="img/game5.png" class="imgg"  alt="">
+        </div>
+
+        <div class="span12">
+            <h1 class="guodu" id="printer4"></h1>
+            <h1 class="guodu" style="display: none" id="fasttxt4">城里人真会玩，打蚊子都这么有节奏感。还是去图书馆吧，有空调没蚊子……</h1>
+
+            <span class="faste" id="fasta1" name="kuaii4" data="1" onclick="fff(4, 4)" ></span>
+            <img class="img_17 " name-5="next" onclick="window.location.href='#page13'" src="img/speed.png" />
+
+            <input class="btn red" value="下一页" onclick="window.location.href='#page13'" style="display: none;"  id="fade-pass4" type="submit">
+        </div>
+    </div>
+
+    <div class="section section13">
+        <div class="row-fluid">
+
+            <div class="span12 pic6">
+                <img class="img_p tada pt-page-delay100" src="img/paper.png" alt=""/>
+            </div>
+
+            <div class="span12 choos">
+                <h4 class="ques secrow">菜鸟XX正在闭目养神，突然旁边的人递过来一张纸条。打开纸团，上面写着：</h4>
+
+                <a href="javascript:;" onclick="ShowDiv('MyDiv6','fade6')" name-1="modal" class="btn purple secque ans btn-block"> <img src="img/A.png" class="abcd" alt=""/>同学，你听说过安利吗？</a>
+                <a href="#page14" class="btn purple ans secque btn-block"  name-2="pass" id="click-to-fade5"> <img src="img/B.png" class="abcd" alt=""/>请下载大学生社交app—tataUFO</a>
+
+            </div>
+
+            <div id="fade6" class="black_overlay">
+            </div>
+            <div id="MyDiv6" class="white_content">
+
+                <div style="text-align: right; cursor: pointer;z-index: 999">
+                    <h4 class="tilt">被安利后xx天天参加各种分享会，第一学期多门挂科被劝退。</h4>
+                    <span onclick="jump6()" class="replay"></span>
+                    <span onclick="share()" id="share_btn" name="share" class="replay2"></span>
+                </div>
+
+                <img src="img/fail-no-h.png" alt="">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section pass opacityy ">
+        <div class="span12 ">
+            <img src="img/game6.png" class="imgg"  alt="">
+        </div>
+
+        <div class="span12">
+            <h1 class="guodu" id="printer5"></h1>
+            <h1 class="guodu" style="display: none" id="fasttxt5">这是什么APP，下载了然后呢？呀，九点了！幸好澡堂还没关门，都这个时间了澡堂还这么多人。</h1>
+            <span class="faste" id="fasta1" name="kuaii5" data="1" onclick="fff(5, 5)" ></span>
+            <img class="img_17 " name-5="next" onclick="window.location.href='#page15'" src="img/speed.png" />
+
+            <input class="btn red" value="下一页" onclick="window.location.href='#page15'" style="display: none;"  id="fade-pass5" type="submit">
+        </div>
+    </div>
+
+    <div class="section section15">
+        <div class="row-fluid">
+
+            <div class="span12 pic7">
+
+            </div>
+
+            <div class="span12 choos">
+                <h4 class="ques secrow">两天没洗澡了，身上全是泥，  要好好搓一下。卡里只有几块钱了， 如何能搓干净还省钱呢？</h4>
+
+                <a href="#page16" class="btn purple ans secque btn-block"  name-2="pass" id="click-to-fade6"> <img src="img/A.png" class="abcd" alt=""/>先玩10分钟手机当作汗蒸，再干搓最后冲水</a>
+                <a href="javascript:;" onclick="ShowDiv('MyDiv7','fade7')" name-1="modal" class="btn purple secque ans btn-block"> <img src="img/B.png" class="abcd" alt=""/>等旁边的人刷卡后，“来来同学帮我搓下背!”</a>
+
+            </div>
+
+            <div id="fade7" class="black_overlay">
+            </div>
+            <div id="MyDiv7" class="white_content">
+
+                <div style="text-align: right; cursor: pointer;z-index: 999">
+                    <h4 class="tilt">XX在澡堂多次蹭水，被人用搓澡巾致残。</h4>
+                    <span onclick="jump7()" class="replay"></span>
+                    <span onclick="share()" id="share_btn" name="share" class="replay2"></span>
+                </div>
+
+                <img src="img/fail-no-h.png" alt="">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section pass opacityy ">
+        <div class="span12 ">
+            <img src="img/game7.png" class="imgg"  alt="">
+        </div>
+
+        <div class="span12">
+            <h1 class="guodu" id="printer6"></h1>
+            <h1 class="guodu" style="display: none" id="fasttxt6">这个澡洗得孤独又伤感，全是陌生的身体。这时菜鸟XX感到肚子不舒服，一定是今天食堂的饭菜有问题！噼里啪啦，噼里啪啦……</h1>
+            <span class="faste" id="fasta1" name="kuaii6" data="1" onclick="fff(6, 6)" ></span>
+            <img class="img_17 " name-5="next" onclick="window.location.href='#page17'" src="img/speed.png" />
+
+            <input class="btn red" value="下一页" onclick="window.location.href='#page17'" style="display: none;"  id="fade-pass6" type="submit">
+        </div>
+    </div>
+
+
+
+    <div class="section section17">
+        <div class="row-fluid">
+
+            <div class="span12 FDBA">
+                <a href="http://www.tataufo.com/welcome/download" class="btn purple erwei btn-block"> 好</a>
+
+            </div>
+
+            <div class="span12 choos">
+                <h4 class="ques secrow">提上裤子，XX发现冲水按钮坏了，水箱上有个二维码写着“扫码冲水”，在没有wifi的情况下冲还是不冲呢？</h4>
+
+                <a href="#page18" name='winner' class="btn purple ans secque btn-block" > <img src="img/A.png" class="abcd" alt=""/>扫码冲水</a>
+                <a href="javascript:;" onclick="ShowDiv('MyDiv8','fade8')" name-1="modal" class="btn purple secque ans btn-block"> <img src="img/B.png" class="abcd" alt=""/>不冲水，用纸盖住就好</a>
+
+            </div>
+
+            <div id="fade8" class="black_overlay">
+            </div>
+            <div id="MyDiv8" class="white_content">
+
+                <div style="text-align: right; cursor: pointer;z-index: 999">
+                    <h4 class="tilt">xx由于上厕所不冲水被人匿名爆到网上,在这场网战中壮烈牺牲。</h4>
+                    <span onclick="jump8()" class="replay"></span>
+                    <span onclick="share()" id="share_btn" name="share" class="replay2"></span>
+                </div>
+
+                <img src="img/fail-no-h.png" alt="">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section opacityy section18 ">
+
+        <div class="span12">
+            <h4 class="tilt last-head">XXX从菜鸟变成了神雕！扫码后发现一个神奇的app，大学四年春风得意。</h4>
+            <input type="submit" onclick="window.location.href='http://www.tataufo.com/welcome/download';" class="btn xia"/>
+            <span type="submit" id="share_btn" name="share"  class="btn fen"></span>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<audio id="m_pass" controls="controls" preload="auto" style="position:absolute; visibility:hidden;">
+    <source src="music/pass.mp3">
+    <source src="music/pass.ogg">
+</audio>
+<audio id="m_win" controls="controls" preload="auto" style="position:absolute; visibility:hidden;">
+    <source src="music/last.mp3">
+    <source src="music/last.ogg">
+</audio>
+<audio id="m_fail" controls="controls" preload="auto" style="position:absolute; visibility:hidden;">
+    <source src="music/fail.mp3">
+    <source src="music/fail.ogg">
+</audio>
+
+
+<!--分享页面弹窗-->
+<script type="text/javascript">
+    function ext(){
+        CloseDiv('MyDiv','fade');
+//        var fd = $('#frontpage').click();
+//        console.log(fd)
+
+
+//        window.location.href = '#page2';
+
+
+
+        var name = $('input[name="sign"]').val();
+        console.info(name);
+        if (name) {
+            window.location.href = '#page2';
+            setTimeout('shownew_e(7);', 1000);
+        }else{
+            alert('不写姓名咋办理入住手续啊~~');}
+    }
+
+
+
+    function jump1(){
+        CloseDiv('MyDiv1','fade1');
+//        window.location.href='#page1'
+    }
+    function share(){
+//        CloseDiv('MyDiv1','fade1');
+        window.location.href='#shareit'
+    }
+    function jump2(){
+        CloseDiv('MyDiv2','fade2');
+    }
+    function jump3(){
+        CloseDiv('MyDiv3','fade3');
+    }
+    function jump4(){
+        CloseDiv('MyDiv4','fade4');
+    }
+    function jump5(){
+        CloseDiv('MyDiv5','fade5');
+    }
+    function jump6(){
+        CloseDiv('MyDiv6','fade6');
+    }
+    function jump7(){
+        CloseDiv('MyDiv7','fade7');
+    }
+    function jump8(){
+        CloseDiv('MyDiv8','fade8');
+    }
+
+
+</script>
+<!--浮动开始 -->
+<script type="text/javascript">
+    function _(id) {
+        return document.getElementById(id);
+    }
+    if (navigator.userAgent.toLowerCase().indexOf("msie 6.0") != -1) {
+        window.setInterval(function () {
+            var top = (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop) + (document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight);
+            var left = (document.documentElement.clientWidth > document.body.clientWidth) && (document.documentElement.clientWidth != 0) ? document.documentElement.clientWidth : document.body.clientWidth;
+            _('w-cup-19').style.position = "absolute";
+            _('w-cup-19').style.top = (top - 64) + " px";
+        }, 500);
+    }
+</script>
+<div id="w-cup-19" style="bottom:0;">
+    <div class="inner" id="worldcup_float">
+        <div class="w_cup_19">
+            <img src="img/tata-footer.png" class="footer-logo">
+            <img src="img/tata-footer-text.jpg" class="footer-text">
+            <a href="http://www.tataufo.com/welcome/download" class="btn footer-btn blue">立即下载</a>
+            <!--<a href="#" class="demo-button button gray footer-btn">立即下载</a>-->
+            <div class="close" title="关闭"
+                 onclick="_('worldcup_float').style.display = 'none';_('worldcup_float_hide').style.display = 'inline-block';">
+                <img src="img/X.png" width="80%;"></div>
+        </div>
+    </div>
+
+</div>
+
+<div id="shareit">
+    <img class="arrow" src="img/share-it.png">
+    <a href="#" id="follow">
+        <img id="share-text" src="img/share-text.png">
+    </a>
+</div>
+
+
+
+<script>
+    //立即分享到微信朋友圈点击事件
+
+    $('span[name="share"]').on("click", function() {
+        $("#shareit").show();
+    });
+
+
+    //    最后请注释掉
+    $("#shareit").on("click", function(){
+        $("#shareit").hide();
+    })
+</script>
+<!--浮动结束-->
+<script src="js/printer.js"></script>
+
+
+</body>
+</html>
