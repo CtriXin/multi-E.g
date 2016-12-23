@@ -1,0 +1,302 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+
+<style>
+    /*.div1{*/
+        /*float: left;*/
+        /*height: 41px;*/
+        /*background: #f5696c;*/
+        /*width: 144px;*/
+        /*position:relative;*/
+    /*}*/
+    /*.div2{*/
+        /*text-align:center;*/
+        /*padding-top:12px;*/
+        /*font-size:15px;*/
+        /*font-weight:800*/
+    /*}*/
+    .inputstyle{
+        width: 144px;
+        height: 41px;
+        cursor: pointer;
+        font-size: 30px;
+        outline: medium none;
+        position: absolute;
+        filter:alpha(opacity=0);
+        -moz-opacity:0;
+        opacity:0;
+        left:0px;
+        top: 0px;
+    }
+</style>
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>Dashboard
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-20" style="display: block;">
+                <!-- basic form -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>Uptoken_url</strong>
+                        </p>
+                        <p id="uptoken_url_p"><%= uptoken_url %></p>
+                        <p><strong>上传服务器路径</strong>
+                        </p>
+                        <p id="domain"><%= domain %></p>
+
+                    </div>
+                    <div class="large-9 columns container">
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <label>上传文件的前缀（可选）
+                                    <!--<input type="text" placeholder="例如: mkt/48hours/assets/img/" />-->
+                                    <input type="text" class="form-control" value="" placeholder="例如: mkt/48hours/assets/img/" name="dic-live" id="path-last-live">
+                                </label>
+                            </div>
+                        </div>
+                        <!--<div class="row" id="drag">-->
+                            <!--<div class="large-12 columns ">-->
+                                <!--<div class="box bg-opacity-one">-->
+                                    <!--<div class="box-body" style="display: block; min-height: 200px;">-->
+                                        <!--<h3>请拖拽你的文件到这里</h3>-->
+                                    <!--</div>-->
+                                    <!--&lt;!&ndash; end .timeline &ndash;&gt;-->
+                                <!--</div>-->
+                                <!--&lt;!&ndash; box &ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+                        <!--<div id="container">-->
+                            <!--<form action="" id="" class=""  style="margin-bottom: 20px">-->
+                                <!--<button style="margin-top:10px;" class="button small " id="submit-all"> + 上传文件<input type="file" id="pickfiles" class="inputstyle"></button>-->
+
+                                <!--&lt;!&ndash;<input type="file" id="pickfiles">&ndash;&gt;-->
+                                <!--<hr>-->
+                                <!--<button type="submit" id="uploadfiles" class="button small bg-orange round">Submit</button>-->
+                            <!--</form>-->
+
+                        <!--</div>-->
+
+                        <div class="row" id="drag">
+                            <div class="large-12 columns ">
+                                <div class="box bg-opacity-one">
+                                    <a id="pickfiles">
+                                        <div class="box-body" style="display: block; min-height: 200px;">
+                                            <h3>拖拽或点击</h3>
+                                        </div>
+                                    </a>
+                                    <!-- end .timeline -->
+                                </div>
+                                <!-- box -->
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-6">
+                            <div id="container">
+                                <form action="" id="" class="dropzone col-xs-12"  style="margin-bottom: 20px">
+
+
+                                    <button type="submit" id="uploadfiles" class="btn btn-sm btn-success">Submit</button>
+                                </form>
+
+                            </div>
+
+                            <div id="filelist">
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!-- end of basic form -->
+            </div>
+            <!-- end .timeline -->
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+
+
+<div class="row no-padding" id="upload-now" >
+
+    <div class="large-12 columns ">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-20" style="display: block;">
+                <!-- Masked Input -->
+
+                <table style="width:100%;">
+
+                    <thead>
+                    <tr>
+                        <th>上传文件名称</th>
+                        <th>新路径</th>
+                        <th>type</th>
+                        <!--<th>速度</th>-->
+                        <!--<th style="width: 10%">完成率</th>-->
+                        <!--<th>状态</th>-->
+                        <th>缩略图</th>
+                        <th>编辑</th>
+                    </tr>
+                    </thead>
+                    <tbody id="table-index">
+                    </tbody>
+                </table>
+
+
+            </div>
+            <!-- end .timeline -->
+        </div>
+        <!-- box -->
+    </div>
+</div>
+
+
+
+<!-- End of Container Begin -->
+
+
+
+
+
+<!-- start: JavaScript-->
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type="text/javascript" src="/static/js/plupload/plupload.full.min.js"></script>
+<script type="text/javascript" src="/static/js/plupload/i18n/zh_CN.js"></script>
+<script type="text/javascript" src="/static/js/qiniu.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
+
+<script src="/static/assets/js/jquery.validate.js"></script>
+<script src="/static/assets/js/jquery.bootstrap.wizard.min.js"></script>
+<!-- end: JavaScript-->
+<script src="/static/assets/js/form-wizard.js"></script>
+
+<script>
+    //原始图片
+    function imageorignal(e){
+        var srcorignal =  $(e).parents().find('.avatar_pic').attr('orignal');
+        $(e).parents().find('.avatar_pic').attr('src',srcorignal)
+    }
+    //缩略图
+    function imagelarge(e){
+        var srcorignal =  $(e).parents().find('.avatar_pic').attr('src');
+        $(e).parents().find('.avatar_pic').attr('src',srcorignal+'|imageMogr2/auto-orient/strip/thumbnail/!80p')
+    }
+    function imagemid(e){
+        var srcorignal =  $(e).parents().find('.avatar_pic').attr('src');
+        $(e).parents().find('.avatar_pic').attr('src',srcorignal+'|imageMogr2/auto-orient/strip/thumbnail/!60p')
+    }
+    function imagesmall(e){
+        var srcorignal =  $(e).parents().find('.avatar_pic').attr('src');
+        $(e).parents().find('.avatar_pic').attr('src',srcorignal+'|imageMogr2/auto-orient/strip/thumbnail/!40p')
+    }
+    //方向函数
+    function imagemogrleft(e){
+        console.log($(e))
+        var srcorignal =  $(e).parents().find('.avatar_pic').attr('src');
+        $(e).parents().find('.avatar_pic').attr('src',srcorignal+'|imageMogr2/auto-orient/strip/rotate/-90')
+    }
+    function imagemogrright(e){
+        console.log($(e))
+        var srcorignal =  $(e).parents().find('.avatar_pic').attr('src');
+        $(e).parents().find('.avatar_pic').attr('src',srcorignal+'|imageMogr2/auto-orient/strip/rotate/90')
+    }
+    function imagemogrnone(e){
+        console.log($(e))
+        var srcorignal =  $(e).parents().find('.avatar_pic').attr('orignal');
+        $(e).parents().find('.avatar_pic').attr('src',srcorignal)
+    }
+</script>
+<script type="text/javascript">
+
+    (function($) {
+        "use strict";
+
+
+//        $('a[data-imagemogr="left"]').click(function(){
+//            console.log('hah')
+//            var srcorignal = $(this).parents().find('.avatar_pic').attr('src');
+//            $(this).parents().find('.avatar_pic').attr('src',srcorignal+'|imageMogr2/auto-orient/strip/rotate/90')
+//        })
+
+
+
+
+
+        $('#upload_btn').click(function(){
+            var check1 = $('input[name=dic]:checked').val();
+            var check2 = $('#path-live').val();
+            $('#bucket_update').text('当前选择空间为: '+ check1)
+            $('#prefix_update').text('当前选择路径为: '+ check2)
+
+            $.ajax({
+                url: '/index/getvalue',
+                type: 'post',
+                data: {
+                    'dic' : check1,
+                    'path' : check2
+                },
+                success:function(data){
+                    console.log(data);
+                    if(data.dic != 'tata-prod'){
+                        $('#url-link').text('http://imagecloud.tataufo.com/')
+                    }else{
+                        $('#url-link').text('http://imagecloud.tataufo.com/')
+                    }
+                    $('#upload-now').css({'display':'block'});
+                }
+            })
+        })
+
+    })(jQuery);
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+

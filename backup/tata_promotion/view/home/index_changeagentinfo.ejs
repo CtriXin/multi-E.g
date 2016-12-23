@@ -1,0 +1,130 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>Dashboard
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-40" style="display: block;">
+                <!-- basic form -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <h3><%= userdata.name%></h3>
+                        <h5><%= userdata.university %></h5>
+
+                    </div>
+                    <div class="large-9 columns">
+                        <form data-abide method="post" action="/index/insertagentinfo?userid=<%= userdata.id %>">
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <label>支付宝账户
+                                        <input type="text" name="alipay" value="<%= userdata.alipay %>" placeholder="<%= userdata.alipay %>" />
+                                    </label>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="password-field large-12 columns">
+                                    <label>修改密码<small>（字母开头，长度在6~18之间，只能包含字母、数字和下划线）</small>
+                                        <input type="password" name="password" id="password" pattern="^[a-zA-Z]\w{5,17}$">
+                                    </label>
+                                    <small class="error">密码不合法</small>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <label>快递地址
+                                        <input type="text" name="address" value="<%= userdata.address %>" placeholder="<%= userdata.address %>" />
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="tiny button">修改</button>
+
+
+                        </form>
+
+                    </div>
+                </div>
+                <!-- end of basic form -->
+
+
+
+
+            </div>
+            <!-- end .timeline -->
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+        (function($) {
+            "use strict";
+
+
+
+        })(jQuery);
+
+    });
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

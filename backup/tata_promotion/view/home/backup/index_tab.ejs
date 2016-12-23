@@ -1,0 +1,139 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>Dashboard
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+
+<!-- Container Begin -->
+<div class="row">
+
+    <div class="large-12 columns">
+        <!-- accordion -->
+        <!-- If you are using version 5.5 or greater you can use <ul>'s and <li>'s for Accordion markup -->
+
+        <dl class="accordion" data-accordion>
+            <dd class="accordion-navigation">
+
+                <a href="#panel1b">Home</a>
+                <div id="panel1b" class="content active">
+                    标签1的详情
+                </div>
+            </dd>
+            <dd class="accordion-navigation">
+                <a href="#panel2b">Profile</a>
+                <div id="panel2b" class="content">
+                    标签2的详情
+                </div>
+            </dd>
+            <dd class="accordion-navigation">
+                <a href="#panel3b">Setting</a>
+                <div id="panel3b" class="content">
+                    标签3的详情
+                </div>
+            </dd>
+        </dl>
+        <!-- end of accordion -->
+
+
+        <br>
+        <br>
+        <br>
+
+
+        <!-- tabs -->
+        <ul class="tabs" data-tab>
+            <li class="tab-title active"><a href="#panel1">Home</a>
+            </li>
+            <li class="tab-title"><a href="#panel2">About</a>
+            </li>
+            <li class="tab-title"><a href="#panel3">Contact</a>
+            </li>
+            <li class="tab-title"><a href="#panel4">Setting</a>
+            </li>
+        </ul>
+        <div class="tabs-content edumix-tab-horz">
+            <div class="content active" id="panel1">
+                <p>
+                    标签1的详情
+                </p>
+            </div>
+            <div class="content" id="panel2">
+                <p>
+                    标签2的详情
+                </p>
+            </div>
+            <div class="content" id="panel3">
+                <p>
+                    标签3的详情
+                </p>
+            </div>
+            <div class="content" id="panel4">
+                <p>
+                    标签4的详情
+                </p>
+            </div>
+        </div>
+        <!-- end of tabs -->
+
+
+
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type="text/javascript">
+    (function($) {
+        "use strict";
+
+
+
+    })(jQuery);
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

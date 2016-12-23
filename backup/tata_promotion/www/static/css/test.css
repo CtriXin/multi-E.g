@@ -1,0 +1,190 @@
+
+// ul.mtree : root <ul> list element.
+// li.mtree-node : All <li> list items with children.
+// li.mtree-open : <li> list items that are open
+// li.mtree-closed : <li> list items that are closed
+// ul.mtree-level-1 : Style <ul> list elements at different levels (depth)
+// li.mtree-active : Class for last active <li> list item (experimental)
+
+// All classes listed, with sensible defaults applied
+ul.mtree {
+  opacity: 0; // Set to 0 and let mtree display after initialization
+  margin-left: 0; // Lets just remove default left margin on root element shall we ...
+  padding: 1.2em; // Set a nice padding if your design requires it
+  // background: #333; // Set a background for the menu
+  // Styles for all <ul> submenu list elements except ul.mtree root.
+  ul {
+    margin-left: 1em; // Set default indent level (or set 0)
+  }
+
+  // Styles for all <li> list items.
+  li {
+    list-style: none; // Lets remove default bullets for all elements
+  }
+
+  // Styles for all link elements, change to '* >:first-child' if not using anchor <a>
+  a {
+    @extend %mtree-transition;
+    display: block;
+  }
+
+  // li.mtree-node : All <li> list items that have children (node)
+  li.mtree-node {
+    // Anchor element for list elements that have children
+    > a { font-weight: bold; }
+  }
+
+  // li.mtree-open : <li> list items that are open
+  li.mtree-open {}
+
+  // li.mtree-closed : <li> list items that are closed
+  li.mtree-closed {}
+
+  // Level classes <ul> submenu elements with recursive styles.
+  ul.mtree-level-1 {
+    // smaller font-size for child elements from level 1
+    // li { font-size: .9em; }
+  }
+  ul.mtree-level-2 { }
+  ul.mtree-level-3 { }
+  //ul.mtree-level-[DEPTH] { }
+
+  // [EXPERIMENTAL] Class for last active <li> list item.
+  li.mtree-active {
+    // > a { background: #CCC; }
+  }
+}
+
+// Some simple anim for hover, better add with Bourbon or Compass perhaps
+%mtree-transition {
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+
+// ** MTREE SKINS **
+// You can style the list yourself naturally, but here are some demo examples:
+
+// bubba skin
+ul.mtree.bubba {
+  ul {margin-left:0;}
+  ul li { font-size: .9em; }
+  li.mtree-node > a:after {content: '›'; margin-left:.5em; font-weight: normal; }
+  li.mtree-node > a { font-weight: bold; text-transform: upperCase;}
+  > li {border-bottom: 1px solid #DDD;}
+  > li:last-child {border-bottom: none;}
+  li:last-child > a {border: none; }
+  > li.mtree-open > a { background: #DDD; }
+  li > a:hover { background: #DDD;}
+  li.mtree-active > a { background: #FFC000; color: #FFF; }
+  $indent: 1em;
+  a { padding: 7px 0px 7px $indent; }
+  li li > a { padding-left: $indent*2; }
+  li li li > a { padding-left: $indent*3; }
+  li li li li > a { padding-left: $indent*4; }
+  li li li li li > a { padding-left: $indent*5; }
+}
+
+// skinny skin
+ul.mtree.skinny {
+  li { font-size: .9em; }
+  a { padding: 0px 18px; color: #555; }
+  a:hover { text-decoration: underline; }
+  li.mtree-node:before { float: left; margin-left: .5em; zoom: .8; margin-top: .1em; color: #777;}
+  li.mtree-open:before { content: '-'; }
+  li.mtree-closed:before { content: '+'; }
+  ul > li:first-child { margin-top: .1em; }
+  ul > li:last-child { margin-bottom: .3em; }
+  ul a {color:#666;}
+}
+
+// transit skin
+ul.mtree.transit {
+  background: #111;
+  ul {margin-left: 0;}
+  ul > li {font-size:.9em; }
+  li.mtree-node {position:relative;}
+  li.mtree-node > a:before { color:#CCC; font-weight:normal; position: absolute; right: 20px; }
+  li.mtree-open > a:before { content: '-';}
+  li.mtree-closed > a:before { content: '+'; }
+  ul > li:first-child { margin-top: 1px; }
+  li.mtree-open > a {background: #222; }
+  li > a:hover, li.mtree-active > a {background: #333; color: #FFF; }
+  li.mtree-node > ul > li:last-child { margin-bottom: .5em; padding-bottom: .5em; border-bottom: 1px solid #333;}
+  li.mtree-node:last-child > ul > li:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none;}
+  $indent: .8em;
+  a { padding: 5px 0px 5px $indent; color: #CCC; }
+  li li > a { padding-left: $indent*2; }
+  li li li > a { padding-left: $indent*3; }
+  li li li li > a { padding-left: $indent*4; }
+  li li li li li > a { padding-left: $indent*5; }
+}
+
+// jet skin
+ul.mtree.jet {
+  ul { margin-left: 0; }
+  li { margin-bottom: 1px; }
+  li:last-child { margin-bottom: 0px; }
+  li:first-child { margin-top: 1px; }
+  li.mtree-active a { background: #E3E3E3; }
+  li.mtree-active li:last-child > a {border-radius: 0px 0px 3px 3px;}
+  li.mtree-active > a { background: #008cba; color:#FFF; border-radius: 3px 3px 0px 0px;}
+  li > a:hover { background: #FFC000; color: #FFF;}
+  $indent: 1em;
+  a { padding: 5px 0px 5px $indent; }
+  li li > a { padding-left: $indent*2; }
+  li li li > a { padding-left: $indent*3; }
+  li li li li > a { padding-left: $indent*4; }
+  li li li li li > a { padding-left: $indent*5; }
+}
+
+// nix skin / below just reverts to default list styles.
+ul.mtree.nix {
+  background: none;
+  a {display: inline;}
+  ul { margin-left: 1em; }
+  ul > li { list-style-position: inside; }
+  li {list-style: disc;}
+}
+
+
+
+// ** DEMO STUFF **
+// disregard this ...
+.mtree-demo {
+  .mtree {
+    background: #EEE;
+    margin: 20px auto;
+    max-width: 320px;
+    border-radius: 3px;
+  }
+}
+
+// Skin selector for demo
+.mtree-skin-selector {
+  text-align: center;
+  background: #EEE;
+  padding: 10px 0 15px;
+  li {
+    display: inline-block;
+    float: none;
+  }
+  button {
+    padding: 5px 10px;
+    margin-bottom: 1px;
+    background: #BBB;
+    &:hover {
+      background: #999;
+    }
+    &.active {
+      background: #999;
+      font-weight: bold;
+    }
+    &.csl.active {
+      background: #FFC000;
+    }
+  }
+}

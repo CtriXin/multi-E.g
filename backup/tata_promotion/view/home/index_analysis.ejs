@@ -1,0 +1,396 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+<link rel="stylesheet" type="text/css" href="/static/js/date-dropdown/jquery.datetimepicker.css" />
+
+<style>
+
+    .file input {
+        position: absolute;
+        font-size: 1.65rem;
+        right: 0;
+        top: 0;
+        opacity: 0;
+    }
+    .file:hover {
+        background: #AADFFD;
+        border-color: #78C3F3;
+        color: #004974;
+        text-decoration: none;
+    }
+</style>
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>Dashboard
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-40" style="display: block;">
+                <!-- Pre/Postfix Labels & Actions -->
+
+
+
+
+                <authority-check>
+
+                </authority-check>
+
+
+
+
+                <div id="firstModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+                    <h2 id="firstModalTitle">请等待</h2>
+                    <p>
+                        请耐心等待数据传输,后台在做校对工作~~~
+                    </p>
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+            <!-- end .timeline -->
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+<template id="authory-template">
+    <div class="row">
+        <div class="large-12 columns">
+            <form>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <div class="row collapse">
+                            <div class="small-10 columns">
+                                <input type="number" id="authority_number" placeholder="请输入手机号进行校对">
+                            </div>
+                            <div class="small-2 columns">
+                                <a @click="authority_number" v-if="!unbind" class="button postfix">校对</a>
+                                <a v-else class="button postfix">校对</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="large-12 columns">
+                <div class="row">
+                    <p><strong>导入导出功能</strong>
+                    </p>
+
+                    <a href="javascript:;" class="file tiny button bg-blue">批量导入
+                        <input type="file" name="" id="my_file_input">
+                    </a>
+
+                    <a href="#" class="tiny button bg-green">导出</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end of Pre/Postfix Labels & Actionss-->
+    <hr>
+
+    <!-- Defining a Fieldset -->
+    <div class="row">
+        <div class="large-12 columns">
+            <table style="width:100%;">
+
+                <tbody>
+                <tr>
+                    <th>手机号</th>
+                    <th>录入状态</th>
+                    <th>录入时间</th>
+                    <th>失败原因</th>
+                </tr>
+
+                <tr v-for="i in authority_list">
+                    <td>{{i.phone_number}}</td>
+                    <td v-if="i.state != 0">失败</td>
+                    <td v-else>成功</td>
+                    <td>{{i.addtime | timeformat}}</td>
+                    <td v-if="i.error_code == 0">
+                        成功
+                    </td>
+                    <td v-if="i.error_code == 1">
+                        有重复数据
+                    </td>
+                    <td v-if="i.error_code == 2">
+                        还差一步成功（尚未加V）
+                    </td>
+                    <td v-if="i.error_code == 3">
+                        头像未审核通过
+                    </td>
+                    <td v-if="i.error_code == 4">
+                        时间不符合
+                    </td>
+                    <td v-if="i.error_code == 5">
+                        未注册用户
+                    </td>
+                    <td v-if="i.error_code == 6">
+                        不是所管辖学校
+                    </td>
+                    <td v-if="i.error_code == 7">
+                        设备重复
+                    </td>
+                    <td v-if="i.error_code == 8">
+                        归属地错误
+                    </td>
+
+
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+    <!-- end of Defining a Fieldset -->
+</template>
+
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.date-dropdowns.min.js"></script>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.datetimepicker.js"></script>
+<script src="/static/js//xls.js"></script>
+
+
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
+<script>
+
+
+
+    //authoritydata 组件构建器(用来创建组件)
+    var authoritydata = Vue.extend({
+        template:'#authory-template',
+        data: function(){
+            return {
+                //在这里定义自己的数据,组件的数据
+                authority_list : [],  //以便下面的method方法对其赋值
+                unbind : false
+
+            }
+        },
+        ready:function(){
+            console.log('ahjkfdas');
+            var self = this;
+            $(document).ready(function() {
+
+
+                // MASKED INPUT
+                (function($) {
+                    "use strict";
+
+
+                    //excel上传
+                    var oFileIn;
+
+                    $(function() {
+                        oFileIn = document.getElementById('my_file_input');
+                        if(oFileIn.addEventListener) {
+                            oFileIn.addEventListener('change', filePicked, false);
+                        }
+                    });
+
+
+                    function filePicked(oEvent) {
+                        // Get The File From The Input
+                        $('#firstModal').foundation('reveal', 'open',{
+                            close_on_background_click: false
+                        });
+                        var oFile = oEvent.target.files[0];
+                        var sFilename = oFile.name;
+                        // Create A File Reader HTML5
+                        var reader = new FileReader();
+
+
+
+                        // Ready The Event For When A File Gets Selected
+                        reader.onload = function(e) {
+                            var data = e.target.result;
+                            var cfb = XLS.CFB.read(data, {type: 'binary'});
+                            var wb = XLS.parse_xlscfb(cfb);
+                            // Loop Over Each Sheet
+                            wb.SheetNames.forEach(function(sheetName) {
+                                // Obtain The Current Row As CSV
+                                var sCSV = XLS.utils.make_csv(wb.Sheets[sheetName]);
+                                var oJS = XLS.utils.sheet_to_row_object_array(wb.Sheets[sheetName]);
+
+                                $("#my_file_output").html(sCSV);
+                                console.log(oJS);
+
+                                var import_data = JSON.stringify(oJS);
+                                //结果：{'1':'a','2':'b','3':'c'}
+                                console.log(import_data)
+
+
+                                $.ajax({
+                                    type: "post",
+                                    url: "/index/import",
+                                    beforeSend: function(XMLHttpRequest){
+                                        //ShowLoading();
+
+                                    },
+                                    data:{
+                                        import_data: import_data
+                                    },
+                                    success: function(data, textStatus){
+                                        //Something show's here
+                                        console.log(data);
+                                        console.log('ajax 成功辣!!!');
+                                        self.authority_list = data
+                                        setTimeout(function(){
+                                            $('#firstModal').foundation('reveal', 'close');
+                                        },500)
+
+                                    },
+                                    complete: function(XMLHttpRequest, textStatus){
+                                        //HideLoading();
+                                    },
+                                    error: function(){
+                                        //请求出错处理
+                                    }
+                                })
+
+
+//                        console.log(JSON.parse(import_data)) //backbone
+                            });
+                        };
+
+                        // Tell JS To Start Reading The File.. You could delay this if desired
+                        reader.readAsBinaryString(oFile);
+                    }
+
+
+                })(jQuery);
+
+            });
+        },
+        methods:{
+            authority_number:function(){
+                var self = this;
+                var phone_number = $('#authority_number').val()
+                if(phone_number == ''){
+                    alert('不能为空')
+                    return
+                }
+                console.log(phone_number);
+                var data_updata = [];
+                data_updata.push(phone_number)
+                console.log(data_updata)
+                $('#firstModal').foundation('reveal', 'open',{
+                    close_on_background_click: false
+                });
+                self.unbind = true
+                $('#authority_number').val('')
+                $.ajax({
+                    url:'/index/numberauthoriy',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        import_data:JSON.parse(data_updata)
+                    },
+                    success:function(data){
+                        console.log(data);
+                        self.authority_list = data;
+                        setTimeout(function(){
+                            $('#firstModal').foundation('reveal', 'close');
+                        },500)
+                        self.unbind = false
+                    }
+                })
+            }
+        }
+    })
+
+    //注册组件
+    Vue.component('authority-check',authoritydata);
+
+    //增加过滤器
+    Vue.filter('timeformat', function (value) {
+        var time = parseInt(value);
+        if(time == 0) return 0;
+        time = time *1000;
+        var date = new Date(time);
+        var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+        var currentDate = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+        var hh = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+        var mm = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+        var ss = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+        return date.getFullYear() + '-' + month + '-' + currentDate + ' ' + hh + ':' + mm + ':' + ss;
+    })
+
+    //创建实根
+    new Vue({
+        el: '#app',
+        data:{
+
+        },
+        method:{
+
+        }
+    })
+
+
+
+
+
+</script>
+
+
+<%# 请在上方输入自定义页面js%>
+
+
+<% include public/ending.ejs%>
+
+

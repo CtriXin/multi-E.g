@@ -1,0 +1,197 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+<link rel="stylesheet" type="text/css" href="/static/js/date-dropdown/jquery.datetimepicker.css" />
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>Dashboard
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-40" style="display: block;">
+                <!-- basic form -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <h3><%= agent_data.name %></h3>
+                        <h5><%= agent_data.university %></h5>
+                        <ul>
+                            <li>总数: <%= total_count %> </li>
+                            <li>加V数: <%= success_count %> </li>
+                            <li>已经注册但是未加V数: <%= almost %> </li>
+                            <li>失败数: <%= total_count - success_count%> </li>
+                        </ul>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <form>
+
+                            <div class="row">
+                                <div class="large-6 columns">
+                                    <label>查看数据从:
+                                        <input type="text" value="" id="datetimepicker" placeholder="2016/5/1" />
+                                    </label>
+                                </div>
+                                <div class="large-6 columns">
+                                    <label>至:
+                                        <input type="text" value="" id="datetimepicker2" placeholder="2016/5/1" />
+                                    </label>
+                                </div>
+
+                            </div>
+                            <a href="#" class="tiny button bg-blue">导出到Excel</a>
+
+                        </form>
+
+                    </div>
+                </div>
+                <!-- end of basic form -->
+                <hr>
+
+                <!-- Defining a Fieldset -->
+                <div class="row">
+                    <table style="width:100%;">
+
+                        <tbody>
+                        <tr>
+                            <th>手机号</th>
+                            <th>录入状态</th>
+                            <th>录入时间</th>
+                            <th>失败原因</th>
+                        </tr>
+
+                        <% for(i in agent_insert_data){%>
+
+                        <tr>
+                            <td><%= agent_insert_data[i].phone_number %></td>
+                            <td><%if(agent_insert_data[i].state !=1 && agent_insert_data[i].error_code ==0){%> 成功 <%}else{%> 失败 <%}%></td>
+                            <td><%= formatDate(agent_insert_data[i].addtime *1000)%></td>
+                            <td>
+                                <%if(agent_insert_data[i].error_code == 0){%>
+                                    无
+                                <%}else if(agent_insert_data[i].error_code == 1){%>
+                                    有重复数据
+                                <%}else if(agent_insert_data[i].error_code == 2){%>
+                                    还差一步成功成功（尚未加V）
+                                <%}else if(agent_insert_data[i].error_code == 3){%>
+                                    头像未审核通过
+                                <%}else if(agent_insert_data[i].error_code == 4){%>
+                                    时间不符合要求
+                                <%}else if(agent_insert_data[i].error_code == 5){%>
+                                    未注册用户
+                                <%}else if(agent_insert_data[i].error_code == 6){%>
+                                    管辖区域错误
+                                <%}else if(agent_insert_data[i].error_code == 7){%>
+                                    重复设备
+                                <%}else if(agent_insert_data[i].error_code == 8){%>
+                                    归属地错误
+                                <%}%>
+                            </td>
+                        </tr>
+
+                        <%}%>
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <!-- end of Defining a Fieldset -->
+
+
+
+
+            </div>
+            <!-- end .timeline -->
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.date-dropdowns.min.js"></script>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.datetimepicker.js"></script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+        // MASKED INPUT
+        (function($) {
+            "use strict";
+
+            //默认日期时间选择
+            $('#datetimepicker').datetimepicker({
+                dayOfWeekStart: 1,
+                lang: 'ch',
+                format: 'y-m-d h:i',
+                step: '30'
+                // disabledDates: ['2016/04/08', '2016/04/09', '2016/04/10'],  //可选择某一天不可选择
+                // startDate: '2016/04/01'
+            });
+
+            //默认日期时间选择
+            $('#datetimepicker2').datetimepicker({
+                dayOfWeekStart: 1,
+                lang: 'ch',
+                format: 'y-m-d h:i',
+                step: '30',
+                // disabledDates: ['2016/04/08', '2016/04/09', '2016/04/10'],  //可选择某一天不可选择
+//              startDate: '2016/05/01'
+            });
+
+
+        })(jQuery);
+
+    });
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

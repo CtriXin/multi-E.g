@@ -1,0 +1,345 @@
+/*------------------------------------------------------------------
+[Core General Stylesheet]
+
+Project:    tataOAM
+Version:    0.1
+Last change:    14/03/2016
+Author:song
+-------------------------------------------------------------------*/
+
+//Font 
+$font-text: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+//Background Color
+$primary-color: #2f323a;
+//text color
+$main-text-color:#222;
+//master value
+$no-padding:0px!important;
+$padding:10px!important;
+$padding-20:20px!important;
+$padding-40:40px!important;
+$margin:10px!important;
+$text-right:right!important;
+$text-left:left!important;
+// Master Color
+$white:#fff;
+$gray:#777;
+$gray-blue: #EEF1F7;
+$black: #222A38;
+$black-solid: #000000;
+$red: #F20556;
+$yellow: #f39c12;
+$aqua: #0ABAEF;
+$blue:#5C9DF5;
+$light-blue: #3c8dbc;
+$dark-blue: #0F5593;
+$green: #92CD18;
+$light-green:#45B6B0;
+$navy: #001f3f;
+$teal: #B5AB8A;
+$olive:#3d9970;
+$lime: #01ff70;
+$orange: #FF884D;
+$red-orange: #e83922;
+$fuchsia: #f012be;
+$purple:#932ab6;
+$maroon: #85144b;
+$transparent: transparent;
+$opacity: rgba(0, 0, 0, 0.5);
+$opacity-one: rgba(0, 0, 0, 0.3);
+//-----------------------------------------------------------------------------//
+body {
+    font-family: $font-text!important;
+    background: $primary-color;
+    padding: 0;
+    font-size: 13px!important;
+    color: #888!important;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+p {
+    font-size: 14px!important;
+}
+blockquote {
+    margin: 0 0 1.25rem;
+    padding: 0.5625rem 1.25rem 0 1.1875rem;
+    border-left: 3px solid #8c92a3;
+    font-size: 16px;
+    font-style: italic;
+    color: $main-text-color;
+}
+ul, ol, dl {
+    font-size: 13px;
+}
+
+/*
+Value Master
+ */
+.fixed-nest{
+    position: fixed!important;
+}
+.no-padding {
+    padding: $no-padding;
+}
+.padding {
+    padding: $padding;
+}
+.padding-20 {
+    padding: $padding-20;
+}
+.padding-40 {
+    padding: $padding-40;
+}
+.margin {
+    margin: $margin;
+}
+.margin-center {
+    margin: 10px 0;
+}
+.margin-left {
+    margin: 0 40px 0 0;
+}
+.padding-content {
+    padding: 0 15%;
+}
+.height-tiny {
+    height: 8px!important;
+}
+.radius {
+    border-radius: 3px!important;
+}
+.inline {
+    display: inline;
+    width: auto;
+}
+.text-right {
+    text-align: $text-right;
+}
+.text-left {
+    text-align: $text-left;
+}
+/*
+Master Background Color
+ */
+
+.bg-light-green, .bg-dark-blue, .bg-red, .bg-yellow, .bg-aqua, .bg-blue, .bg-light-blue, .bg-green, .bg-navy, .bg-teal, .bg-olive, .bg-lime, .bg-orange, .bg-fuchsia, .bg-purple, .bg-maroon, .bg-black {
+    color: #f9f9f9 !important;
+}
+.bg-white {
+    background: $white !important;
+}
+.bg-gray {
+    background: $gray !important;
+}
+.bg-gray-blue {
+    background: $gray-blue !important;
+}
+.bg-black {
+    background: $black !important;
+}
+.bg-black-solid {
+    background: $black-solid !important;
+}
+.bg-red {
+    background: $red !important;
+}
+.bg-yellow {
+    background: $yellow !important;
+}
+.bg-aqua {
+    background-color: $aqua !important;
+}
+.bg-blue {
+    background-color: $blue !important
+}
+.bg-light-blue {
+    background-color: $light-blue !important;
+}
+.bg-dark-blue {
+    background-color: $dark-blue !important;
+}
+.bg-green {
+    background-color: $green !important;
+}
+.bg-light-green {
+    background-color: $light-green !important;
+}
+.bg-navy {
+    background-color: $navy !important;
+}
+.bg-teal {
+    background-color: $teal !important;
+}
+.bg-olive {
+    background-color: $olive !important;
+}
+.bg-lime {
+    background-color: $lime !important;
+}
+.bg-orange {
+    background-color: $orange !important;
+}
+.bg-red-orange {
+    background-color: $red-orange !important;
+}
+.bg-fuchsia {
+    background-color: $fuchsia !important;
+}
+.bg-purple {
+    background-color: $purple !important;
+}
+.bg-maroon {
+    background-color: $maroon !important;
+}
+.bg-transparent {
+    background: $transparent !important;
+}
+.bg-opacity {
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+.bg-opacity-one {
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+.bg-opacity-white {
+    background: rgba(255, 255, 255, 0.5) !important;
+}
+.bg-opacity-white-btn {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+.bg-opacity-white-btn:hover {
+    background: rgba(255, 255, 255, 0.4) !important;
+    color: white!important;
+}
+.border-gray {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2)!important;
+}
+/*
+Master Text Color
+ */
+
+.text-opacity {
+    color: rgba(0, 0, 0, 0.5) !important;
+}
+.text-black {
+    color: $black!important;
+}
+.text-red {
+    color: $red !important;
+}
+.text-gray {
+    color: $gray !important;
+}
+.text-amber {
+    color: #ffffff!important;
+}
+.text-yellow {
+    color: #f39c12 !important;
+}
+.text-aqua {
+    color: #0ABAEF!important;
+}
+.text-blue {
+    color: #5C9DF5 !important;
+}
+.text-dark-blue {
+    color: #0F5593 !important;
+}
+.text-light-blue {
+    color: #3c8dbc !important;
+}
+.text-green {
+    color: #92CD18!important;
+}
+.text-navy {
+    color: #B7C1D3 !important;
+}
+.text-teal {
+    color: #39cccc !important;
+}
+.text-olive {
+    color: #3d9970 !important;
+}
+.text-lime {
+    color: #01ff70 !important;
+}
+.text-orange {
+    color: #FF884D !important;
+}
+.text-fuchsia {
+    color: #f012be !important;
+}
+.text-purple {
+    color: #932ab6 !important;
+}
+.text-maroon {
+    color: #85144b !important;
+}
+.text-white {
+    color: #ffffff!important;
+}
+.border-green {
+    border-color: #37A8AF!important;
+}
+.border-blue {
+    border-color: #3E739D!important;
+}
+.border-aqua {
+    border-color: #0090D9!important;
+}
+.text-opacity {
+    color: rgba(255, 255, 255, 0.7)!important;
+}
+/*
+Hide elements by display none only
+*/
+
+.hide {
+    display: none !important;
+}
+/* Remove borders */
+
+.no-border {
+    border: 0px !important;
+}
+/* Remove padding */
+
+.no-padding {
+    padding: 0px !important;
+}
+/* Remove margins */
+
+.no-margin {
+    margin: 0px !important;
+}
+/* Remove box shadow */
+
+.no-shadow {
+    box-shadow: none!important;
+}
+.border {
+    border-bottom: 1px !important;
+}
+.star {
+    color: red!important;
+}
+/* font style for title */
+
+
+.font-uppercase {
+    text-transform: uppercase!important;
+}
+.font-medium {
+    font-size: 14px!important;
+}
+.margin-borrom-0{
+    margin-bottom: 0 !important;
+}
+// Top Bar Menu Stylesheet 
+@import 'topbar';
+//Side Bar stylesheet
+@import 'sidebar';
+//Side Bar stylesheet
+@import 'content';
+//blog style
+@import "blog";

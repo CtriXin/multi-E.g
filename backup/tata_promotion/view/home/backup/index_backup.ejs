@@ -1,0 +1,109 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+<link rel="stylesheet" href="/static/js/dropZone/downloads/css/dropzone.css" />
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>Dashboard
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-transparent">
+
+
+            <!-- /.box-header -->
+            <div class="box-body no-padding" style="display: block;">
+                <!-- Masked Input -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>Drop Zone</strong>
+                        </p>
+                        <p>DropzoneJS is an open source library that provides drag’n’drop file uploads with image previews.</p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <form action="js/dropZone/upload" class="dropzone" id="my-dropzone"></form>
+                        <button style="margin-top:10px;" class="btn btn-info" id="submit-all">Submit all files</button>
+
+
+                    </div>
+                </div>
+                <!-- end Masked Input -->
+
+            </div>
+            <!-- end .timeline -->
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+
+<%# 请在下方输入自定义页面js%>
+<script type='text/javascript' src="/static/js/dropZone/lib/dropzone.js"></script>
+
+
+<script type="text/javascript">
+  (function($) {
+    "use strict";
+    Dropzone.options.myDropzone = {
+
+      // Prevents Dropzone from uploading dropped files immediately
+      autoProcessQueue: false,
+
+      init: function() {
+        var submitButton = document.querySelector("#submit-all")
+        myDropzone = this; // closure
+
+        submitButton.addEventListener("click", function() {
+          myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+        });
+
+        // You might want to show the submit button only when
+        // files are dropped here:
+        this.on("addedfile", function() {
+          // Show submit button here and/or inform user to click it.
+        });
+
+      }
+    };
+  })(jQuery);
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>

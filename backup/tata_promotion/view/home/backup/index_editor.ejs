@@ -1,0 +1,106 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+<link rel="stylesheet" href="/static/js/text-editor/dist/ui/trumbowyg.css">
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>Dashboard
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+
+<!-- Container Begin -->
+<div class="row no-pad">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body pad-forty" style="display: block;">
+                <!-- Editor -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>Trumbowyg</strong>
+                        </p>
+                        <p><a href="http://alex-d.github.io/Trumbowyg/">Trumbowyg</a> 富文本编辑器,比ekeditor相比美观一些,点击名字跳转api</p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <div id="wiwiq-editor">
+                            <h4>Trumbowyg 的富文本编辑器</h4>
+                            <p>
+                                内容在这里展示
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end of Editor -->
+            </div>
+            <!-- end .timeline -->
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script src="/static/js/text-editor/dist/trumbowyg.js"></script>
+<script>
+
+</script>
+<script type="text/javascript">
+    (function($) {
+        "use strict";
+
+        /** Default editor configuration **/
+        $('#wiwiq-editor').trumbowyg();
+
+
+    })(jQuery);
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

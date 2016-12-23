@@ -1,0 +1,223 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+<link rel="stylesheet" type="text/css" href="/static/js/date-dropdown/jquery.datetimepicker.css" />
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>Dashboard
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-40" style="display: block;">
+                <!-- basic form -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <h4>数据库中存在的所有省数据</h4>
+                        <br>
+                        <p><strong>今日总数据: <%= today_total_data %></strong></p>
+                        <p>总数据: <%= total_total_data%></p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <form>
+
+                            <div class="row">
+                                <div class="large-6 columns">
+                                    <label>分类
+                                        <select>
+                                            <option value="default">省主管</option>
+                                            <option value="starbuck">选项2</option>
+                                            <option value="hotdog">选项3</option>
+                                            <option value="apollo">选项4</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="large-6 columns">
+                                    <label>省份
+                                        <select>
+                                            <option value="default">全部</option>
+                                            <option value="starbuck">选项2</option>
+                                            <option value="hotdog">选项3</option>
+                                            <option value="apollo">选项4</option>
+                                        </select>
+                                    </label>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="large-6 columns">
+                                    <div class="row collapse">
+                                        <div class="small-10 columns">
+                                            <input type="text" placeholder="输入省份关键字">
+                                        </div>
+                                        <div class="small-2 columns">
+                                            <a href="#" class="button postfix">Go</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="large-6 columns">
+                                    <label>查看数据从:
+                                        <input type="text" value="" id="datetimepicker" placeholder="2016/5/1" />
+                                    </label>
+                                </div>
+                                <div class="large-6 columns">
+                                    <label>至:
+                                        <input type="text" value="" id="datetimepicker2" placeholder="2016/5/1" />
+                                    </label>
+                                </div>
+
+                            </div>
+
+
+                            <a href="#" class="tiny button bg-green">查看</a>
+
+                        </form>
+
+                    </div>
+                </div>
+                <!-- end of basic form -->
+                <hr>
+
+                <!-- Defining a Fieldset -->
+                <div class="row">
+                    <table style="width:100%;">
+
+                        <tbody>
+                        <tr>
+                            <th>省份</th>
+                            <th>今日数据</th>
+                            <th>总数据</th>
+                            <th>操作</th>
+                        </tr>
+
+
+
+                        <%for( var i in agent_info){%>
+                        <tr>
+                            <td><%= agent_info[i].province_name %></td>
+                            <td><%= agent_info[i].today %></td>
+                            <td>
+                                <%= agent_info[i].total %>
+                            </td>
+                            <td>
+                                <a href="/index/provincedata?province=<%= agent_info[i].province_name %>" class="tiny button bg-green margin-borrom-0">查看省数据</a>
+                                <a href="/index/salary.html?province=<%= agent_info[i].province_name %>" class="tiny button bg-orange margin-borrom-0">查看工资概要</a>
+                            </td>
+                        </tr>
+                        <%}%>
+
+
+
+
+
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <!-- end of Defining a Fieldset -->
+
+
+
+
+            </div>
+            <!-- end .timeline -->
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.date-dropdowns.min.js"></script>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.datetimepicker.js"></script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+        // MASKED INPUT
+        (function($) {
+            "use strict";
+
+            //默认日期时间选择
+            $('#datetimepicker').datetimepicker({
+                dayOfWeekStart: 1,
+                lang: 'ch',
+                format: 'y-m-d h:i',
+                step: '30'
+                // disabledDates: ['2016/04/08', '2016/04/09', '2016/04/10'],  //可选择某一天不可选择
+                // startDate: '2016/04/01'
+            });
+
+            //默认日期时间选择
+            $('#datetimepicker2').datetimepicker({
+                dayOfWeekStart: 1,
+                lang: 'ch',
+                format: 'y-m-d h:i',
+                step: '30',
+                // disabledDates: ['2016/04/08', '2016/04/09', '2016/04/10'],  //可选择某一天不可选择
+//              startDate: '2016/05/01'
+            });
+
+
+        })(jQuery);
+
+    });
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

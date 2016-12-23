@@ -1,0 +1,121 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>Dashboard
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-40" style="display: block;">
+                <!-- Error -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>请在此处添加用户</strong>
+                        </p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <form data-abide method="post" action="/index/insertagent">
+                            <div class="name-field">
+                                <label><small>请输入</small>手机号
+                                    <input type="number" required pattern="^1[345678][0-9]{9}$" name="phonenumber">
+                                </label>
+                                <small class="error">请输入正确的手机号</small>
+                            </div>
+
+                            <div class="password-field">
+                                <label><small>请输入</small>密码(字母开头，长度在6~18之间，只能包含字母、数字和下划线)
+                                    <input type="password" name="password" id="password" required pattern="^[a-zA-Z]\w{5,17}$">
+                                </label>
+                                <small class="error">密码不合法</small>
+                            </div>
+                            <div class="password-confirmation-field">
+                                <label><small>请再次确认</small>密码
+                                    <input type="password" required pattern="^[a-zA-Z]\w{5,17}$" data-equalto="password">
+                                </label>
+                                <small class="error">密码不匹配</small>
+                            </div>
+
+
+                            <button type="submit" class="tiny">提交</button>
+                        </form>
+
+
+
+
+                    </div>
+                </div>
+                <!-- end of Error-->
+
+
+
+
+
+            </div>
+            <!-- end .timeline -->
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+        // MASKED INPUT
+        (function($) {
+            "use strict";
+
+
+
+        })(jQuery);
+
+    });
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

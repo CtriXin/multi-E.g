@@ -1,0 +1,272 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+<link rel="stylesheet" type="text/css" href="/static/js/date-dropdown/jquery.datetimepicker.css" />
+
+<style>
+
+    .file input {
+        position: absolute;
+        font-size: 1.65rem;
+        right: 0;
+        top: 0;
+        opacity: 0;
+    }
+    .file:hover {
+        background: #AADFFD;
+        border-color: #78C3F3;
+        color: #004974;
+        text-decoration: none;
+    }
+</style>
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>Dashboard
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-40" style="display: block;">
+                <!-- Pre/Postfix Labels & Actions -->
+                <div class="row">
+                    <div class="large-12 columns">
+                        <form>
+
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <div class="row collapse">
+                                        <div class="small-10 columns">
+                                            <input type="number" placeholder="请输入手机号进行校对">
+                                        </div>
+                                        <div class="small-2 columns">
+                                            <a href="#" class="button postfix">校对</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="large-12 columns">
+                            <div class="row">
+                                <p><strong>导入导出功能</strong>
+                                </p>
+
+                                <a href="javascript:;" class="file tiny button bg-blue">批量导入
+                                    <input type="file" name="" id="my_file_input">
+                                </a>
+
+                                <a href="#" class="tiny button bg-green">导出</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- end of Pre/Postfix Labels & Actionss-->
+                <hr>
+
+                <!-- Defining a Fieldset -->
+                <div class="row">
+                    <div class="large-12 columns">
+                        <table style="width:100%;">
+
+                            <tbody>
+                            <tr>
+                                <th>手机号</th>
+                                <th>录入状态</th>
+                                <th>录入时间</th>
+                                <th>失败原因</th>
+                            </tr>
+
+                            <tr>
+                                <td>12312323131</td>
+                                <td>失败</td>
+                                <td>2016-05-01 10:00:00</td>
+                                <td>同意设备</td>
+                            </tr>
+                            <tr>
+                                <td>12312323131</td>
+                                <td>成功</td>
+                                <td>2016-05-01 10:00:00</td>
+                                <td>无</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+                <!-- end of Defining a Fieldset -->
+
+
+
+                <a href="#" data-reveal-id="firstModal">Click Me For A Modal</a>
+
+
+
+                <div id="firstModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+                    <h2 id="firstModalTitle">请等待</h2>
+                    <p>
+                        请耐心等待数据传输,后台在做校对工作~~~
+                    </p>
+                </div>
+
+
+
+
+
+
+
+            </div>
+            <!-- end .timeline -->
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.date-dropdowns.min.js"></script>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.datetimepicker.js"></script>
+<script src="/static/js//xls.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+        // MASKED INPUT
+        (function($) {
+            "use strict";
+
+
+            //excel上传
+            var oFileIn;
+
+            $(function() {
+                oFileIn = document.getElementById('my_file_input');
+                if(oFileIn.addEventListener) {
+                    oFileIn.addEventListener('change', filePicked, false);
+                }
+            });
+
+
+            function filePicked(oEvent) {
+                // Get The File From The Input
+                $('#firstModal').foundation('reveal', 'open',{
+                    close_on_background_click: false
+                });
+                var oFile = oEvent.target.files[0];
+                var sFilename = oFile.name;
+                // Create A File Reader HTML5
+                var reader = new FileReader();
+
+
+
+                // Ready The Event For When A File Gets Selected
+                reader.onload = function(e) {
+                    var data = e.target.result;
+                    var cfb = XLS.CFB.read(data, {type: 'binary'});
+                    var wb = XLS.parse_xlscfb(cfb);
+                    // Loop Over Each Sheet
+                    wb.SheetNames.forEach(function(sheetName) {
+                        // Obtain The Current Row As CSV
+                        var sCSV = XLS.utils.make_csv(wb.Sheets[sheetName]);
+                        var oJS = XLS.utils.sheet_to_row_object_array(wb.Sheets[sheetName]);
+
+                        $("#my_file_output").html(sCSV);
+                        console.log(oJS);
+
+                        var import_data = JSON.stringify(oJS);
+                        //结果：{'1':'a','2':'b','3':'c'}
+                        console.log(import_data)
+
+
+                        $.ajax({
+                            type: "post",
+                            url: "/index/import",
+                            beforeSend: function(XMLHttpRequest){
+                                //ShowLoading();
+
+                            },
+                            data:{
+                                import_data: import_data
+                            },
+                            success: function(data, textStatus){
+                                //Something show's here
+                                console.log(data);
+                                setTimeout(function(){
+                                    $('#firstModal').foundation('reveal', 'close');
+
+                                },500)
+
+                            },
+                            complete: function(XMLHttpRequest, textStatus){
+                                //HideLoading();
+                            },
+                            error: function(){
+                                //请求出错处理
+                            }
+                        })
+
+
+//                        console.log(JSON.parse(import_data)) //backbone
+                    });
+                };
+
+                // Tell JS To Start Reading The File.. You could delay this if desired
+                reader.readAsBinaryString(oFile);
+            }
+
+
+        })(jQuery);
+
+    });
+</script>
+<%# 请在上方输入自定义页面js%>
+
+
+<% include public/ending.ejs%>
+
+

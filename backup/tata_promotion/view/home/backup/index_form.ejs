@@ -1,0 +1,390 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+<link rel="stylesheet" type="text/css" href="/static/js/date-dropdown/jquery.datetimepicker.css" />
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>Dashboard
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-40" style="display: block;">
+                <!-- basic form -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>基本表单</strong>
+                        </p>
+                        <p>所有表单也可以使用栅格化系统</p>
+                        <ul>
+                            <li>如<code>.large-6</code>, <code>.small-6</code>.</li>
+                            <li>可以创建一个row在form表单中，并试用栅格化</li>
+                        </ul>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <form>
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <label>输入框
+                                        <input type="text" placeholder="large-12 .columns" />
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-4 columns">
+                                    <label>输入框
+                                        <input type="text" placeholder="large-4 .columns" />
+                                    </label>
+                                </div>
+                                <div class="large-4 columns">
+                                    <label>输入框
+                                        <input type="text" placeholder="large-4 .columns" />
+                                    </label>
+                                </div>
+                                <div class="large-4 columns">
+                                    <div class="row collapse">
+                                        <label>输入框</label>
+                                        <div class="small-9 columns">
+                                            <input type="text" placeholder="small-9 columns" />
+                                        </div>
+                                        <div class="small-3 columns">
+                                            <span class="postfix">.com</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <label>选择框
+                                        <select>
+                                            <option value="husker">选项1</option>
+                                            <option value="starbuck">选项2</option>
+                                            <option value="hotdog">选项3</option>
+                                            <option value="apollo">选项4</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-6 columns">
+                                    <label>单选（radio）</label>
+                                    <input type="radio" name="pokemon" value="Red" id="radio-1">
+                                    <label for="radio-1">选项1</label>
+                                    <input type="radio" name="pokemon" value="Blue" id="radio-2">
+                                    <label for="radio-2">选项2</label>
+                                </div>
+                                <div class="large-6 columns">
+                                    <label>多选（checkbox）</label>
+                                    <input id="checkbox1" type="checkbox">
+                                    <label for="checkbox1">Checkbox 1</label>
+                                    <input id="checkbox2" type="checkbox">
+                                    <label for="checkbox2">Checkbox 2</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <label>文本输入框
+                                        <textarea rows="10" placeholder="small-12 .columns"></textarea>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <!-- end of basic form -->
+                <hr>
+
+                <!-- Defining a Fieldset -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>可注释化的输入选项框</strong>
+                        </p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <form>
+                            <fieldset>
+                                <legend>输入你的姓名</legend>
+
+                                <label>姓名：
+                                    <input type="text" placeholder="请在此输入">
+                                </label>
+                            </fieldset>
+                        </form>
+
+                    </div>
+                </div>
+                <!-- end of Defining a Fieldset -->
+                <hr>
+                <!-- Pre/Postfix Labels & Actions -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>预置的文本输入框</strong>
+                        </p>
+                    </div>
+                    <div class="large-9 columns">
+                        <form>
+                            <div class="row collapse">
+                                <div class="small-3 large-2 columns">
+                                    <span class="prefix">http://</span>
+                                </div>
+                                <div class="small-9 large-10 columns">
+                                    <input type="text" placeholder="E请输入连接地址">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <div class="row collapse">
+                                        <div class="small-10 columns">
+                                            <input type="text" placeholder="输入文本">
+                                        </div>
+                                        <div class="small-2 columns">
+                                            <a href="#" class="button postfix">Go</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <div class="row collapse prefix-radius">
+                                        <div class="small-2 columns">
+                                            <span class="prefix">Label</span>
+                                        </div>
+                                        <div class="small-10 columns">
+                                            <input type="text" placeholder="Value">
+                                        </div>
+                                    </div>
+
+                                    <div class="row collapse postfix-radius">
+                                        <div class="small-10 columns">
+                                            <input type="text" placeholder="Value">
+                                        </div>
+                                        <div class="small-2 columns">
+                                            <span class="postfix">Label</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <div class="row collapse prefix-round">
+                                        <div class="small-2 columns">
+                                            <a href="#" class="button prefix">Go</a>
+                                        </div>
+                                        <div class="small-10 columns">
+                                            <input type="text" placeholder="Value">
+                                        </div>
+                                    </div>
+
+                                    <div class="row collapse postfix-round">
+                                        <div class="small-10 columns">
+                                            <input type="text" placeholder="Value">
+                                        </div>
+                                        <div class="small-2 columns">
+                                            <a href="#" class="button postfix">Go</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <!-- end of Pre/Postfix Labels & Actionss-->
+                <hr>
+                <!-- Error -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>错误警报</strong>
+                        </p>
+                        <p>foundation自带的错误提示，可以在输入错误等情况的时候提示用户</p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <form>
+                            <div class="row">
+                                <div class="large-6 columns">
+                                    <label class="error">Error
+                                        <input type="text" class="error" />
+                                    </label>
+                                    <small class="error">错误代码：001</small>
+                                </div>
+                                <div class="large-6 columns error">
+                                    <label>Another Error
+                                        <input type="text" />
+                                    </label>
+                                    <small class="error">错误代码：002</small>
+                                </div>
+                            </div>
+                            <textarea class="error" rows="10" placeholder="Message..."></textarea>
+                            <small class="error">错误代码：003</small>
+                        </form>
+
+                    </div>
+                </div>
+                <!-- end of Error-->
+
+                <hr>
+                <!-- Error -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>带验证的文本输入框</strong>
+                        </p>
+                        <p>如需使用验证输入框，须在<code>form</code> 属性中加入 <code>data-abide</code> ， 并在<code>input</code>中输入<code>required</code>。如需特别提示则加上<code>pattern</code>属性</p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <form data-abide>
+                            <div class="name-field">
+                                <label><small>请输入</small>姓名
+                                    <input type="text" required pattern="[a-zA-Z]+">
+                                </label>
+                                <small class="error">姓名中不可带符号，需为字符串</small>
+                            </div>
+                            <div class="email-field">
+                                <label><small>请输入</small>邮箱
+                                    <input type="email" required>
+                                </label>
+                                <small class="error">请输入邮箱</small>
+                            </div>
+                            <div class="password-field">
+                                <label><small>请输入</small>密码
+                                    <input type="password" id="password" required pattern="[a-zA-Z]+">
+                                </label>
+                                <small class="error">密码不能含有字符</small>
+                            </div>
+                            <div class="password-confirmation-field">
+                                <label><small>请再次确认</small>密码
+                                    <input type="password" required pattern="[a-zA-Z]+" data-equalto="password">
+                                </label>
+                                <small class="error">密码不匹配</small>
+                            </div>
+                            <button type="submit" class="tiny">提交</button>
+                        </form>
+
+
+
+
+                    </div>
+                </div>
+                <!-- end of Error-->
+
+                <hr>
+
+                <!-- Date picker -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>Date Picker</strong>
+                        </p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <input type="text" class="form-control" id="date-dropdown" value="02-16-2012">
+                        <label>Date Time Picker</label>
+                        <input type="text" value="" id="datetimepicker" />
+                        <label>Time Picker</label>
+                        <input type="text" id="datetimepicker1" />
+                    </div>
+                </div>
+                <!-- end of Date picker -->
+
+
+
+            </div>
+            <!-- end .timeline -->
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.date-dropdowns.min.js"></script>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.datetimepicker.js"></script>
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+
+    // MASKED INPUT
+    (function($) {
+        "use strict";
+    //选择日期下拉 调用js
+    $("#date-dropdown").dateDropdowns();
+
+    //默认日期时间选择
+    $('#datetimepicker').datetimepicker({
+        dayOfWeekStart: 1,
+        lang: 'ch',
+        format: 'y-m-d h:i',
+        step: '30'
+        // disabledDates: ['2016/04/08', '2016/04/09', '2016/04/10'],  //可选择某一天不可选择
+        // startDate: '2016/04/01'
+    });
+    //时间only
+    $('#datetimepicker1').datetimepicker({
+        datepicker: false,
+        format: 'H:i',
+        step: 5
+    });
+       
+    })(jQuery);
+
+});
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

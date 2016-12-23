@@ -1,0 +1,252 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+<link rel="stylesheet" type="text/css" href="/static/js/date-dropdown/jquery.datetimepicker.css" />
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>
+        省份异常率
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-40" style="display: block;">
+                <!-- basic form -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <h4>当前城市: <%= province_name %></h4>
+
+                        <a href="#" class="tiny button bg-blue">导出到Excel</a>
+
+                    </div>
+                    <div class="large-9 columns">
+                        <form action="/index/provincedata?province=<%= province_name %>" method="post">
+
+
+                            <div class="row">
+                                <div class="large-6 columns">
+                                    <label>查看数据从:
+                                        <input type="text" v-model="message" name="fromtime" id="datetimepickerFrom" placeholder="2016/5/1" />
+                                    </label>
+                                </div>
+                                <div class="large-6 columns">
+                                    <label>至:
+                                        <input type="text" value="{{message}}" name="totime" id="datetimepickerTo" placeholder="2016/5/1" />
+                                    </label>
+                                </div>
+
+                            </div>
+
+                            <button type="submit">查看</button>
+
+                            <!--<a onclick="timeselect(this)" class="tiny button bg-green">查看</a>-->
+
+                        </form>
+
+                    </div>
+                </div>
+                <!-- end of basic form -->
+                <hr>
+
+                <!-- Defining a Fieldset -->
+                <div class="row">
+                    <table style="width:100%;">
+
+                        <tbody>
+                        <tr>
+                            <th>学校</th>
+                            <th>注册加V率</th>
+                            <th>扩散比</th>
+                        </tr>
+
+
+
+                        <%for(var i in agent_info){%>
+                        <tr>
+                            <td><%= agent_info[i].university_name %></td>
+                            <td>
+                                <a href="#" data-reveal-id="firstModal_<%= i %>" class="tiny button bg-orange margin-borrom-0">查看全部</a>
+                                <div id="firstModal_<%= i %>" class="reveal-modal" data-reveal>
+                                    <table style="width:100%;">
+
+                                        <tbody>
+                                        <tr>
+                                            <th>agent_id</th>
+                                            <th>姓名</th>
+                                            <th>注册加V率</th>
+                                        </tr>
+
+                                        <%for(var j in agent_info[i].agent_data){%>
+
+                                        <tr>
+                                            <td><%= agent_info[i].agent_data[j].agent_id%></td>
+                                            <td><%= agent_info[i].agent_data[j].agent_name%></td>
+                                            <td><%= (agent_info[i].agent_data[j].success/agent_info[i].agent_data[j].total).toFixed(4).slice(2,4)+"."+(agent_info[i].agent_data[j].success/agent_info[i].agent_data[j].total).toFixed(4).slice(4,6)+"%"  %></td>
+                                        </tr>
+                                        <%}%>
+
+
+
+                                        </tbody>
+                                    </table>
+
+
+
+                                    <a class="close-reveal-modal">&#215;</a>
+                                </div>
+                            </td>
+                            <td>
+                                <!--<%= agent_info[i].success_count%>-->
+                                <!--<%= agent_info[i].total_count%>-->
+                                <%=   (agent_info[i].success_count / agent_info[i].total_count).toFixed(4).slice(2,4)+"."+(agent_info[i].success_count / agent_info[i].total_count).toFixed(4).slice(4,6)+"%" %>
+
+                            </td>
+                        </tr>
+                        <%}%>
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <!-- end of Defining a Fieldset -->
+
+
+
+
+            </div>
+            <!-- end .timeline -->
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.date-dropdowns.min.js"></script>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.datetimepicker.js"></script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+        // MASKED INPUT
+        (function($) {
+            "use strict";
+
+            //默认日期时间选择
+            $('#datetimepickerFrom').datetimepicker({
+                dayOfWeekStart: 1,
+                lang: 'ch',
+                format: 'Y-m-d H:i',
+                step: '30'
+                // disabledDates: ['2016/04/08', '2016/04/09', '2016/04/10'],  //可选择某一天不可选择
+                // startDate: '2016/04/01'
+            });
+
+            //默认日期时间选择
+            $('#datetimepickerTo').datetimepicker({
+                dayOfWeekStart: 1,
+                lang: 'ch',
+                format: 'Y-m-d H:i',
+                step: '30',
+                // disabledDates: ['2016/04/08', '2016/04/09', '2016/04/10'],  //可选择某一天不可选择
+//                startDate: '2015-02-11'
+            });
+
+
+
+
+
+
+        })(jQuery);
+
+    });
+</script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
+<script>
+    //创建实根
+    new Vue({
+        el: '#app',
+        data: {
+            message: '<%= time%>'
+        }
+    })
+
+
+
+
+
+</script>
+
+<script>
+    function timeselect(self){
+        var fromval = $('#datetimepickerFrom').val()
+        var toval = $('#datetimepickerTo').val()
+        var datefrom = new Date(fromval).getTime() / 1000;
+        var dateto = new Date(toval).getTime() / 1000;
+        console.log(datefrom,dateto)
+        $.ajax({
+            url: '/index/selecttime',
+            type: 'post',
+            data:{
+                from: datefrom,
+                to: dateto
+            },
+            success:function(data){
+                console.log(data)
+            }
+        })
+
+    }
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

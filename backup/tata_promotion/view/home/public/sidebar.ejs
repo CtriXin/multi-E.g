@@ -1,0 +1,187 @@
+    <script src="/static/js/vendor/modernizr.js"></script>
+
+</head>
+
+<body id="app">
+<div class="off-canvas-wrap" data-offcanvas>
+    <!-- right sidebar wrapper -->
+    <div class="inner-wrap">
+
+
+        <!-- Right sidemenu -->
+        <div id="skin-select">
+            <!--  隐藏边栏按钮 -->
+            <a id="toggle">
+                <span class="fa fa-exchange"></span>
+            </a>
+            <!--  End of 隐藏边栏按钮 -->
+
+            <div class="skin-part">
+                <div id="tree-wrap">
+                    <!-- Profile -->
+                    <div class="profile">
+                        <img alt="" class="" src="/static/img/logo.png">
+                        <h3>tata地推<small><%= agent_level %></small></h3>
+
+                    </div>
+                    <!-- End of Profile -->
+
+                    <!-- Menu sidebar begin-->
+                    <div class="side-bar">
+                        <ul id="menu-showhide" class="topnav slicknav">
+                            <li>
+                                <a <% if(action == 'index'){%>id="menu-select"<%}%> class="tooltip-tip" href="index.html" title="index">
+                                    <i class="fa fa-home fa-fw"></i>
+                                    <span>Dashboard</span>
+
+                                </a>
+
+                            </li>
+
+                            <% if(agent_level == '管理员'){%>
+
+                            <li>
+                                <a <% if(action == 'admin'){%>id="menu-select"<%}%> class="tooltip-tip" href="/index/admin" title="typography">
+                                    <i class="fa fa-sort-amount-desc"></i>
+                                    <span>管理员</span>
+
+                                </a>
+                            </li>
+                            <li>
+                                <a <% if(action == 'provinceall'){%>id="menu-select"<%}%> class="tooltip-tip" href="/index/provinceall" title="provinceall">
+                                    <i class="fa fa-sort-amount-desc"></i>
+                                    <span>省数据</span>
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a <% if(action == 'city'){%>id="menu-select"<%}%> class="tooltip-tip" href="/index/city" title="tab">
+                                    <i class="fa fa-tag"></i>
+                                    <span>城市管理</span>
+
+                                </a>
+                            </li>
+                            <li>
+                                <a <% if(action == 'school'){%>id="menu-select"<%}%> class="tooltip-tip" href="/index/school" title="panel">
+                                    <i class="fa fa-file"></i>
+                                    <span>学校管理</span>
+
+                                </a>
+                            </li>
+                            <li>
+                                <a <% if(action == 'addagent'){%>id="menu-select"<%}%> class="tooltip-tip" href="/index/addagent" title="table">
+                                    <i class="fa fa-table"></i>
+                                    <span>添加用户</span>
+
+                                </a>
+                            </li>
+
+                            <%}else if(agent_level == '省主管'){%>
+
+                            <li>
+                                <a <% if(action == 'province'){%>id="menu-select" <%}%>class="tooltip-tip" href="/index/province" title="grid">
+                                    <i class="fa fa-th"></i>
+                                    <span>省主管</span>
+
+                                </a>
+                            </li>
+                            <li>
+                                <a <% if(action == 'addagent'){%>id="menu-select"<%}%> class="tooltip-tip" href="/index/addagent" title="table">
+                                    <i class="fa fa-table"></i>
+                                    <span>添加用户</span>
+
+                                </a>
+                            </li>
+
+
+
+                            <%}%>
+
+                            <li>
+                                <a <% if(action == 'agentlist'){%>id="menu-select"<%}%> class="tooltip-tip" href="/index/agentlist" title="Icons">
+                                    <i class="fa fa-keyboard-o"></i>
+                                    <span>账户/数据查看</span>
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a <% if(action == 'analysis'){%>id="menu-select"<%}%> class="tooltip-tip" href="/index/analysis" title="table">
+                                    <i class="fa fa-table"></i>
+                                    <span>校对用户</span>
+
+                                </a>
+                            </li>
+
+
+
+                        </ul>
+                    </div>
+                    <!-- end of Menu sidebar  -->
+                    <ul class="bottom-list-menu">
+                        <li>功能按钮1 <span class="icon-gear"></span>
+                        </li>
+                        <li>功能按钮2 <span class="icon-phone"></span>
+                        </li>
+                        <li>功能按钮3 <span class="icon-music"></span>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end of Rightsidemenu -->
+
+
+
+        <div class="wrap-fluid" id="paper-bg">
+            <!-- top nav -->
+            <div class="top-bar-nest">
+                <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
+                    <section class="top-bar-section ">
+                        <!-- Left Nav Section -->
+                        <ul class="left">
+
+                            <!-- Search | has-form wrapper -->
+                            <li class="has-form bg-white">
+                                <div class="row collapse">
+
+                                    <div class="large-12 columns">
+                                        <div class="dark_top"> </div>
+                                        <input class="input-top" type="text" placeholder="search">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="right">
+                            <li class=" has-dropdown bg-white">
+                                <a class="bg-white" href="#"><img alt="" class="admin-pic img-circle" src="http://imagecloud.tataufo.com/300x300.png"><span class="admin-pic-text text-gray">Hi, <%= agent_name %> </span>
+                                </a>
+
+                                <ul class="dropdown dropdown-nest profile-dropdown">
+
+
+                                    <li>
+                                        <i class="fa fa-sign-out fa-fw"></i>
+                                        <a href="/index/login.html">
+                                            <h4>Logout<span class="text-dark-blue fontello-record" ></span></h4>
+                                        </a>
+                                    </li>
+
+                                    <!--<li class="active right">-->
+                                    <!--<a href="#">-->
+                                    <!--<div class="label bg-white">More</div>-->
+                                    <!--</a>-->
+                                    <!--</li>-->
+                                </ul>
+                            </li>
+                            <li class="bg-white">
+                                <a class="right-off-canvas-toggle bg-white text-gray" href="#"><span style="font-size:13px" class="fa fa-list fa-fw" ></span></a>
+                            </li>
+                        </ul>
+                    </section>
+                </nav>
+            </div>
+            <!-- end of top nav -->

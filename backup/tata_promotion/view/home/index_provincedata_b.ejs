@@ -1,0 +1,337 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+<link rel="stylesheet" type="text/css" href="/static/js/date-dropdown/jquery.datetimepicker.css" />
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+<script>
+    //省份异常率
+    async provincedataAction(){
+        let get_String = this.get();
+        let province_name = get_String.province; // '北京'
+        console.log('搜索的省名',province_name);
+        let promotion_university_rel = this.model('promotion_university_rel',qingyun_oam);  //实例化用户的表
+        let promotion_province_rel = this.model('promotion_province_rel',qingyun_oam);  //实例化用户的表
+        let promotion_agent = this.model('promotion_agent',qingyun_oam);  //实例化用户的表
+        let university = this.model('promotion_university',qingyun_oam);  //实例化用户的表
+        let promotion_insert = this.model('promotion_insert',qingyun_oam);  //实例化用户的表
+        let user_account = this.model('user_account',qingyun_data);  //实例化用户的表
+
+
+        let agent_presidial = await promotion_university_rel.query(
+                "select university.agent_id " +
+                "from promotion_university_rel as province " +
+                "left join promotion_university_rel as university " +
+                "on province.province = university.province " +
+                "where province.province = '"+province_name+"' " +
+                "group by university.agent_id"   //批量查询
+        ); //搜索从属于此省主管的所有经理数据
+        console.log(agent_presidial);
+
+
+        let my_agent = [];
+        for(var i in agent_presidial){
+            my_agent.push(agent_presidial[i].agent_id);
+        }
+        let agent_presidial_info = await promotion_agent.query(
+                "select agent.university, agent.name,agent.id from promotion_agent as agent left join promotion_university_rel as university on university.agent_id = agent.id where university.agent_id in ("+my_agent.toString()+") group by university.agent_id"
+        ); //搜索这些经理的数据,姓名和学校
+        console.log(my_agent,agent_presidial_info,'我的小弟的信息');
+
+        var date = new Date();
+        date.setHours(0);
+        date.setMinutes(0);
+        date.setSeconds(0);
+        let secunix = Math.round(date.getTime() / 1000); //获取23:59:59的时间戳
+        console.log(secunix);
+
+        let province_data_arr = [];
+        let their_presidial_group = [];
+
+        for(var j in agent_presidial_info){
+            let their_id = agent_presidial_info[j].id;
+            let their_presidial_info = await promotion_university_rel.query(
+                    "select university_id,agent_id from promotion_university_rel where agent_id = "+their_id
+            ); //搜索这个agent的所管辖学校id
+            console.log(their_presidial_info,'aaaaaaaa');
+
+
+
+            let presidial_arr = [];
+            for(var i in their_presidial_info){
+                let presidial_info = {};
+
+                let their_presidial_university_id = their_presidial_info[i].university_id;
+                let their_name = await promotion_agent.query(
+                        "select name from promotion_agent where id = "+their_id+""
+                );
+                let their_presidial_name = await university.query(
+                        "select university_name from promotion_university where university_id = "+their_presidial_university_id+" group by university_id"
+                ); //通过这个agent的学校id 获取他们学校的名字
+                console.log('他们学校的名字',their_presidial_name[0].university_name);
+
+                let agent_insert_data = await promotion_insert.where({agent_id: their_id}).select();
+                let total_count = await promotion_insert.where({agent_id: their_id}).count();
+                let success_count = await promotion_insert.where({agent_id: their_id,state:0}).count();  //大于0:0:0 则为今日添加数据
+                let v_count = await promotion_insert.where({agent_id: their_id,error_code:0}).count();  //大于0:0:0 则为今日添加数据
+                let total_success_count = await user_account.query(
+                        "select count(1) as count " +
+                        "from user_account as a " +
+                        "left join user_info as b " +
+                        "on a.userid =  b.userid " +
+                        "where b.university_id = "+their_presidial_university_id+" and a.verify_status = 1" //搜索学校id 中 verify =1 的
+                );
+
+                console.log('数量',total_count,success_count,v_count,total_success_count[0].count);
+
+
+
+
+                presidial_info.agent_id = their_id;
+                presidial_info.agent_name = their_name[0].name;
+                presidial_info.university_name = their_presidial_name[0].university_name;
+                presidial_info.id = their_presidial_university_id;
+                presidial_info.success_count = success_count;
+                presidial_info.total_count = total_count;
+                presidial_info.v_count = v_count;
+                presidial_info.total_success_count = total_success_count[0].count;
+                console.log(presidial_info,'这个是拼的数组');
+                presidial_arr.push(presidial_info)
+            }
+
+            console.log(presidial_arr);
+            for( var g in presidial_arr){
+                their_presidial_group.push(presidial_arr[g])
+            }
+
+        }
+
+
+        console.log(their_presidial_group);
+
+        this.assign({
+            action: 'provincedata',
+            province_name: province_name,
+            agent_info :their_presidial_group
+        });
+        return this.display();
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>
+        省份异常率
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-40" style="display: block;">
+                <!-- basic form -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <h4>当前城市: <%= province_name %></h4>
+
+                        <a href="#" class="tiny button bg-blue">导出到Excel</a>
+
+                    </div>
+                    <div class="large-9 columns">
+                        <form>
+
+
+
+                            <div class="row">
+                                <div class="large-6 columns">
+                                    <label>查看数据从:
+                                        <input type="text" value="" id="datetimepicker" placeholder="2016/5/1" />
+                                    </label>
+                                </div>
+                                <div class="large-6 columns">
+                                    <label>至:
+                                        <input type="text" value="" id="datetimepicker2" placeholder="2016/5/1" />
+                                    </label>
+                                </div>
+
+                            </div>
+
+
+                            <a href="#" class="tiny button bg-green">查看</a>
+
+                        </form>
+
+                    </div>
+                </div>
+                <!-- end of basic form -->
+                <hr>
+
+                <!-- Defining a Fieldset -->
+                <div class="row">
+                    <table style="width:100%;">
+
+                        <tbody>
+                        <tr>
+                            <th>学校</th>
+                            <th>姓名</th>
+                            <th>注册加V率</th>
+                            <th>扩散比</th>
+                        </tr>
+
+
+
+                        <%for(var i in agent_info){%>
+                        <tr>
+                            <td><%= agent_info[i].university_name %></td>
+                            <td><%= agent_info[i].agent_name %></td>
+                            <td>
+                                <%=   (agent_info[i].success_count / agent_info[i].total_count).toFixed(4).slice(2,4)+"."+(agent_info[i].success_count / agent_info[i].total_count).toFixed(4).slice(4,6)+"%" %>
+                            </td>
+                            <td>
+                               120%
+                            </td>
+                        </tr>
+                        <%}%>
+
+
+
+
+
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <!-- end of Defining a Fieldset -->
+
+
+
+
+            </div>
+            <!-- end .timeline -->
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.date-dropdowns.min.js"></script>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.datetimepicker.js"></script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+        // MASKED INPUT
+        (function($) {
+            "use strict";
+
+            //默认日期时间选择
+            $('#datetimepicker').datetimepicker({
+                dayOfWeekStart: 1,
+                lang: 'ch',
+                format: 'y-m-d h:i',
+                step: '30'
+                // disabledDates: ['2016/04/08', '2016/04/09', '2016/04/10'],  //可选择某一天不可选择
+                // startDate: '2016/04/01'
+            });
+
+            //默认日期时间选择
+            $('#datetimepicker2').datetimepicker({
+                dayOfWeekStart: 1,
+                lang: 'ch',
+                format: 'y-m-d h:i',
+                step: '30',
+                // disabledDates: ['2016/04/08', '2016/04/09', '2016/04/10'],  //可选择某一天不可选择
+//              startDate: '2016/05/01'
+            });
+
+
+        })(jQuery);
+
+    });
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

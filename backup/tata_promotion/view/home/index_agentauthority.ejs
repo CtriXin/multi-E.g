@@ -1,0 +1,369 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+<link rel="stylesheet" type="text/css" href="/static/js/date-dropdown/jquery.datetimepicker.css" />
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>Dashboard
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-40" style="display: block;">
+                <!-- basic form -->
+
+                <form action="/index/agentcitylist?agent_id=<%= userdata.id %>" method="post">
+                    <div class="row">
+                        <div class="large-3 columns">
+                            <h3><%= userdata.name %></h3>
+                            <h5><%= userdata.university %></h5>
+
+                            <%if(area_from == 'province'){%>
+
+
+                                <%for( i in area){%>
+                                <li><%= area[i].province %></li>
+                                <%}%>
+
+
+                            <%}else{%>
+
+                                <%for( i in area){%>
+                                <li><%= area[i].university_name %></li>
+                                <%}%>
+
+                            <%}%>
+
+                        </div>
+                        <div class="large-9 columns">
+                            <province-list :list="provinces">
+
+                            </province-list>
+
+                            <button type="submit" class="tiny button ">提交</button>
+                            <button type="reset" class="tiny button bg-orange">清除</button>
+
+                        </div>
+                    </div>
+
+
+
+                </form>
+
+                <!-- end of basic form -->
+
+
+
+
+
+            </div>
+            <!-- end .timeline -->
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+
+<template id="province-template">
+
+    <div class="row">
+        <div class="large-4 columns">
+            <label>组别
+                <select v-model="level" name="level" required @change="agent_level">
+                    <option value="-1">全部</option>
+                    <option value="0" name="初级经理" <%if(userdata.level == 0){%> selected <%}%> >初级经理</option>
+                    <option value="1" name="高级经理" <%if(userdata.level == 1){%> selected <%}%> >高级经理</option>
+                    <option value="2" name="省主管" <%if(userdata.level == 2){%> selected <%}%> >省主管</option>
+                    <option value="3" name="管理员" <%if(userdata.level == 3){%> selected <%}%> >管理员</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="large-4 columns" v-if="is_province">
+            <label>省
+                <select v-model="province" required name="province_check" @change="province_city">
+                    <option value="省份" selected>全部省份</option>
+                    <option v-for="i in list" name="{{i}}" :value="i">{{i}}</option>
+                </select>
+            </label>
+        </div>
+        <%if(userdata.level == 3){%>
+        <div class="large-4 columns">
+            <label>城市
+                <select v-model="city" name="city" @change="city_school">
+                    <option value="-1" selected>全部城市</option>
+                    <option v-for="i in city_list" :value="i">{{i}}</option>
+                </select>
+            </label>
+        </div>
+        <div class="large-12 columns">
+            <table style="width:100%;">
+
+                <tbody>
+                <tr>
+                    <th>#</th>
+                    <th>学校</th>
+                    <th>选择</th>
+                </tr>
+
+
+                <tr v-for="i in school_list" >
+                    <td>{{ $index }}</td>
+                    <td>{{i.university_name}}</td>
+                    <td><input id="checkbox_{{$index}}" value="{{i.university_name}}" name="school_check" type="checkbox"></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <%}else{%>
+
+            <div class="large-4 columns" v-show="is_province">
+                <label>城市
+                    <select v-model="city" name="city_check" @change="city_school">
+                        <option value="-1" selected>全部城市</option>
+                        <option v-for="i in city_list" :value="i">{{i}}</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="large-12 columns" v-if="!is_province">
+                <table style="width:100%;">
+
+                    <tbody>
+                    <tr>
+                        <th>#</th>
+                        <th>省份</th>
+                        <th>选择</th>
+                    </tr>
+
+
+                    <tr v-for="i in list" >
+                        <td>{{ $index }}</td>
+                        <td>{{i}}</td>
+                        <td><input value="{{i}}" name="province_check" type="checkbox"></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="large-12 columns" v-else>
+                <table style="width:100%;">
+
+                    <tbody>
+                    <tr>
+                        <th>#</th>
+                        <th>学校</th>
+                        <th>选择</th>
+                    </tr>
+
+
+                    <tr v-for="i in school_list" >
+                        <td>{{ $index }}</td>
+                        <td>{{i.university_name}}</td>
+                        <td><input id="checkbox_{{$index}}" value="{{i.university_id}}" name="school_check" type="checkbox"></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        <%}%>
+    </div>
+
+
+
+
+</template>
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.date-dropdowns.min.js"></script>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.datetimepicker.js"></script>
+
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
+<script>
+    var arr_string = "<%- province %>";
+    var arr = arr_string.split(',');
+    console.log('<%- province %>');
+
+
+    //创建名为proviceList的 组件构建器(用来创建组件)
+    var proviceList = Vue.extend({
+        template:'#province-template',
+        props:['list'],
+        data: function(){
+            return {
+                city_list: [],
+                school_list: [],
+                <% if(userdata.level==2){%>
+                is_province:0
+                <%}else{%>
+                is_province:1
+                <%}%>
+
+
+            }
+        },
+        methods:{
+            province_city:function(){
+                let self = this;
+                console.log(self.province)
+                $.ajax({
+                    url:'/index/getcityschool',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        province:self.province
+                    },
+                    success:function(data){
+                        console.log(data);
+                        if(data.code == 'success'){
+                            self.school_list = data.school;
+                            self.city_list = data.city.split(',');
+                        }else {
+                            alert('获取信息失败!')
+                        }
+                    }
+                })
+            },
+            city_school:function(){
+                let self = this;
+                console.log(self.city)
+
+                $.ajax({
+                    url:'/index/getschool',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        province:self.province,
+                        city: self.city
+                    },
+                    success:function(data){
+                        console.log(data);
+                        if(data.code == 'success'){
+                            self.school_list = data.school;
+                        }else {
+                            alert('获取信息失败!')
+                        }
+                    }
+                })
+            },
+            agent_level:function(){
+                if(this.level < 2){
+                    this.is_province = 1;
+                    console.log('haha')
+                }else {
+                    console.log('aaaaa')
+                    this.is_province = 0;
+                }
+                console.log(this.is_province)
+                let self = this;
+
+            }
+        }
+    })
+
+    //注册组件
+    Vue.component('province-list',proviceList);
+
+    //创建实根
+    new Vue({
+        el: '#app',
+        data:{
+            provinces:arr
+        },
+        method:{
+
+        }
+    })
+
+
+
+
+
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+        // MASKED INPUT
+        (function($) {
+            "use strict";
+
+            //默认日期时间选择
+            $('#datetimepicker').datetimepicker({
+                dayOfWeekStart: 1,
+                lang: 'ch',
+                format: 'y-m-d h:i',
+                step: '30'
+                // disabledDates: ['2016/04/08', '2016/04/09', '2016/04/10'],  //可选择某一天不可选择
+                // startDate: '2016/04/01'
+            });
+
+            //默认日期时间选择
+            $('#datetimepicker2').datetimepicker({
+                dayOfWeekStart: 1,
+                lang: 'ch',
+                format: 'y-m-d h:i',
+                step: '30',
+                // disabledDates: ['2016/04/08', '2016/04/09', '2016/04/10'],  //可选择某一天不可选择
+//              startDate: '2016/05/01'
+            });
+
+
+        })(jQuery);
+
+    });
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

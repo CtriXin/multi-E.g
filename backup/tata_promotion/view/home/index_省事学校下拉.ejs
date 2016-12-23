@@ -1,0 +1,283 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+<link rel="stylesheet" type="text/css" href="/static/js/date-dropdown/jquery.datetimepicker.css" />
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>Dashboard
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-40" style="display: block;">
+                <!-- Error -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>请在此处添加用户</strong>
+                        </p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <form data-abide method="post" action="/index/insertagent">
+                            <div class="name-field">
+                                <label><small>请输入</small>手机号
+                                    <input type="number" required pattern="^1[345678][0-9]{9}$" name="phonenumber">
+                                </label>
+                                <small class="error">请输入正确的手机号</small>
+                            </div>
+
+                            <div class="name-field">
+                                <label><small>请输入</small>姓名
+                                    <input type="text" required name="name">
+                                </label>
+                            </div>
+
+                            <div class="password-field">
+                                <label><small>请输入</small>密码(字母开头，长度在6~18之间，只能包含字母、数字和下划线)
+                                    <input type="password" name="password" id="password" required pattern="^[a-zA-Z]\w{5,17}$">
+                                </label>
+                                <small class="error">密码不合法</small>
+                            </div>
+                            <div class="password-confirmation-field">
+                                <label><small>请再次确认</small>密码
+                                    <input type="password" required pattern="^[a-zA-Z]\w{5,17}$" data-equalto="password">
+                                </label>
+                                <small class="error">密码不匹配</small>
+                            </div>
+
+
+
+                            <province-list :list="provinces">
+
+                            </province-list>
+
+
+
+                            <button type="submit" class="tiny">提交</button>
+                        </form>
+
+
+
+
+                    </div>
+                </div>
+                <!-- end of Error-->
+
+
+
+
+
+            </div>
+            <!-- end .timeline -->
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+
+
+<template id="province-template">
+
+    <div class="row">
+        <div class="large-4 columns">
+            <label>省
+                <select v-model="province" required name="province" @change="province_city">
+                    <option value="省份" selected>全部省份</option>
+                    <option v-for="i in list" :value="i">{{i}}</option>
+                </select>
+            </label>
+        </div>
+        <div class="large-4 columns">
+            <label>城市
+                <select v-model="city" name="city" @change="city_school">
+                    <option value="-1" selected>全部城市</option>
+                    <option v-for="i in city_list" :value="i">{{i}}</option>
+                </select>
+            </label>
+        </div>
+        <div class="large-4 columns">
+            <label>学校
+                <select name="university" required v-model="university">
+                    <option value="-1" selected>全部学校</option>
+                    <option v-for="i in school_list" :value="i">{{i}}</option>
+                </select>
+            </label>
+        </div>
+    </div>
+
+    //promotion_insert.query(
+    //    'select phone_number,count(phone_number) as total_data from promotion_insert' +
+    //    'where phone_number in ('+1865278997+', '+18600666043+')' +
+    //'group by phone_number'
+    //);
+
+
+</template>
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.date-dropdowns.min.js"></script>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.datetimepicker.js"></script>
+
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
+<script>
+    var arr_string = "<%- province %>";
+    var arr = arr_string.split(',');
+    console.log('<%- province %>')
+
+    //创建名为proviceList的 组件构建器(用来创建组件)
+    var proviceList = Vue.extend({
+        template:'#province-template', //'#level-template',  此处模板ID绑定错了
+        props:['list'],
+        data: function(){
+            return {
+                city_list: [],
+                school_list: []
+            }
+        },
+        methods:{
+            province_city:function(){
+                let self = this;
+                console.log(self.province)
+                $.ajax({
+                    url:'/index/getcityschool',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        province:self.province
+                    },
+                    success:function(data){
+                        console.log(data);
+                        if(data.code == 'success'){
+                            self.school_list = data.school.split(',');
+                            self.city_list = data.city.split(',');
+                        }else {
+                            alert('获取信息失败!')
+                        }
+                    }
+                })
+            },
+            city_school:function(){
+                let self = this;
+                console.log(self.city)
+
+                $.ajax({
+                    url:'/index/getschool',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        province:self.province,
+                        city: self.city
+                    },
+                    success:function(data){
+                        console.log(data);
+                        if(data.code == 'success'){
+                            self.school_list = data.school.split(',');
+                        }else {
+                            alert('获取信息失败!')
+                        }
+                    }
+                })
+            }
+        }
+    })
+
+    //注册组件
+    Vue.component('province-list',proviceList);
+
+    //创建实根
+    new Vue({
+        el: '#app',
+        data:{
+            provinces:arr
+        },
+        method:{
+
+        }
+    })
+
+
+
+
+
+</script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+        // MASKED INPUT
+        (function($) {
+            "use strict";
+
+            //默认日期时间选择
+            $('#datetimepicker').datetimepicker({
+                dayOfWeekStart: 1,
+                lang: 'ch',
+                format: 'y-m-d h:i',
+                step: '30'
+                // disabledDates: ['2016/04/08', '2016/04/09', '2016/04/10'],  //可选择某一天不可选择
+                // startDate: '2016/04/01'
+            });
+
+            //默认日期时间选择
+            $('#datetimepicker2').datetimepicker({
+                dayOfWeekStart: 1,
+                lang: 'ch',
+                format: 'y-m-d h:i',
+                step: '30',
+                // disabledDates: ['2016/04/08', '2016/04/09', '2016/04/10'],  //可选择某一天不可选择
+//              startDate: '2016/05/01'
+            });
+
+
+        })(jQuery);
+
+    });
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

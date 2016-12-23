@@ -1,0 +1,266 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+<link rel="stylesheet" type="text/css" href="/static/js/date-dropdown/jquery.datetimepicker.css" />
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>Dashboard
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-40" style="display: block;">
+                <!-- basic form -->
+
+                <div class="row">
+
+                    <div class="large-12 columns">
+                        <form action="/index/searchagent" method="post">
+
+                            <div class="row">
+                                <div class="large-6 columns">
+                                    <label>级别
+                                        <select name="level">
+                                            <option value="-1">全部</option>
+                                            <option value="0">初级经理</option>
+                                            <option value="1">高级经理</option>
+                                            <%if(agent_level == '管理员'){%>
+                                                <option value="2">省主管</option>
+                                                <option value="3">管理员</option>
+                                            <%}%>
+                                        </select>
+                                        <!--<level-list :list="levels">-->
+                                        <!--</level-list>-->
+
+                                    </label>
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="large-6 columns">
+                                    <label>搜索框
+                                        <input type="text" name="search_info" placeholder="手机号/姓名">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button class="tiny button bg-blue">查看/搜索</button>
+                            <!--<a href="#" class="tiny button bg-blue">查看/搜索</a>-->
+
+                        </form>
+
+                    </div>
+                </div>
+                <!-- end of basic form -->
+                <hr>
+
+                <!-- Defining a Fieldset -->
+                <div class="row">
+                    <table style="width:100%;">
+
+                        <tbody>
+                        <tr>
+                            <th>经理id</th>
+                            <th>手机号</th>
+                            <th>级别</th>
+                            <th>姓名</th>
+                            <th>支付宝</th>
+                            <th>管辖区域</th>
+                            <th>学校</th>
+                            <th>加入时间</th>
+                            <th>加入时间操作</th>
+                        </tr>
+
+
+                        <% for(i in data){%>
+
+                        <tr>
+                            <td><%= data[i].id %></td>
+                            <td><%= data[i].agent_phone %></td>
+                            <td>
+                                <%if(data[i].level == 0){%>
+                                初级经理
+                                <%}else if(data[i].level == 1){%>
+                                高级经理
+                                <%}else if(data[i].level == 2){%>
+                                省主管
+                                <%}else if(data[i].level == 3){%>
+                                管理员
+                                <%}%>
+
+
+                            </td>
+                            <td><%= data[i].name %></td>
+                            <td><%= data[i].alipay %></td>
+                            <td><%= data[i].area %></td>
+                            <td><%= data[i].university %></td>
+                            <td><%= formatDate(data[i].addtime * 1000)%></td>
+                            <td>
+                                <button data-dropdown="drop<%= data[i].id %>" aria-controls="drop<%= data[i].id %>" aria-expanded="false" class="button dropdown tiny bg-blue radius" style="margin-bottom: 0">操作</button>
+                                <br>
+                                <ul id="drop<%= data[i].id %>" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+                                    <li>
+                                        <%if(data[i].level == 2){%>
+                                            <a href="/index/province?agent_id=<%= data[i].id %>">查看数据</a>
+                                        <%}else if(data[i].level == 3){%>
+                                            <a href="/index/admin?agent_id=<%= data[i].id %>">查看数据</a>
+                                        <%}else{%>
+                                            <a href="/index/data?agent_id=<%= data[i].id %>">查看数据</a>
+                                        <%}%>
+                                    </li>
+                                    <li><a href="/index/changeagentinfo?userid=<%= data[i].id %>">修改信息</a>
+                                    </li>
+                                    <%if(agent_level != '管理员'){%>
+                                    <%}else{%>
+
+                                    <li>
+                                        <a href="#" data-reveal-id="myModal_<%= data[i].id %>">冻结</a>
+
+                                        <div id="myModal_<%= data[i].id %>" class="reveal-modal" data-reveal aria-labelledby="modalTitle_<%= data[i].id %>" aria-hidden="true" role="dialog">
+                                            <h2 id="modalTitle_<%= data[i].id %>">是否确定冻结此用户?</h2>
+                                            <p class="lead">此操作将导致很多后果>>>>>.....</p>
+                                            <a onclick="ajaxfrozen(<%= data[i].id %>)" class="tiny button">确定</a>
+                                            <a onclick="closemodal(<%= data[i].id %>) %>" class="tiny button alert">取消</a>
+                                            <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                                        </div>
+                                        <div id="myModalalert_<%= data[i].id %>" class="reveal-modal small" data-reveal aria-labelledby="myModalalert_<%= data[i].id %>" aria-hidden="true" role="dialog">
+                                            <p id="modalTitle_<%= data[i].id %>">该用户已被冻结</p>
+                                            <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                                        </div>
+                                    </li>
+                                    <li><a href="/index/agentauthority?agent_id=<%= data[i].id %>">修改权限</a>
+                                    </li>
+                                    <%}%>
+
+
+                                </ul>
+
+                            </td>
+                        </tr>
+
+                        <%}%>
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <!-- end of Defining a Fieldset -->
+
+
+
+
+            </div>
+            <!-- end .timeline -->
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+<!--<template id="level-template">-->
+    <!--<select>-->
+        <!--<option value="{{ level.number }}" v-for="level in list">{{ level.value }}</option>-->
+    <!--</select>-->
+
+<!--</template>-->
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.date-dropdowns.min.js"></script>
+<script type="text/javascript" src="/static/js/date-dropdown/jquery.datetimepicker.js"></script>
+<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>-->
+<!--<script>-->
+    <!--Vue.component('level-list',{-->
+        <!--template:'#level-template',-->
+        <!--props:['list'],-->
+        <!--methods:{-->
+        <!--}-->
+    <!--});-->
+    <!--new Vue({-->
+        <!--el: '#app',-->
+        <!--data:{-->
+            <!--levels:[-->
+                <!--{number:'1',value:'全部'},-->
+                <!--{number:'2',value:'初级经理'},-->
+                <!--{number:'3',value:'高级经理'},-->
+                <!--{number:'4',value:'省主管'},-->
+                <!--{number:'5',value:'管理员'}-->
+            <!--]-->
+        <!--}-->
+
+    <!--})-->
+
+
+
+
+
+<!--</script>-->
+
+<script type="text/javascript">
+    function closemodal(id){
+        $('#myModal_'+id ).foundation('reveal', 'close');
+    }
+    function ajaxfrozen(id){
+        $.ajax({
+            url:'/index/frozenagent',
+            type:'post',
+            data:{
+                agentid : id
+            },
+            success: function(data, textStatus){
+                //Something show's here
+                console.log(data);
+                $('#myModal_'+id ).foundation('reveal', 'close');
+                $('#myModalalert_'+ id ).foundation('reveal', 'open');
+            }
+        })
+    }
+</script>
+
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

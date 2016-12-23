@@ -1,0 +1,215 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+<link rel="stylesheet" href="/static/js/dropZone/downloads/css/dropzone.css" />
+
+<!--<link rel="stylesheet" href="/static/css/style.css">-->
+<link rel="stylesheet" href="/static/css/fort.css">
+<script src="/static/js/fort.js"></script>
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>七牛上传
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+
+
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-20" style="display: block;">
+                <!-- basic form -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>基本表单</strong>
+                        </p>
+                        <p>所有表单也可以使用栅格化系统</p>
+                        <ul>
+                            <li>如<code>.large-6</code>, <code>.small-6</code>.</li>
+                            <li>可以创建一个row在form表单中，并试用栅格化</li>
+                            <h5 class="bk-fg-primary bk-fg-darken bk-margin-off-bottom">Uptoken_url</h5>
+                            <p id="uptoken_url_p"><%= uptoken_url %></p>
+                            <h5 class="bk-fg-primary bk-fg-darken bk-margin-off-bottom">上传服务器路径</h5>
+                            <p id="domain"><%= domain %></p>
+                            <h5 class="bk-fg-primary bk-fg-darken bk-margin-off-bottom">对应空间的访问路径</h5>
+                            <p id="url-link"></p>
+                        </ul>
+
+
+                    </div>
+                    <div class="large-9 columns container">
+                        <form action="#" class="dropzone" id="my-dropzone"></form>
+                        <button style="margin-top:10px;display: none;" class="btn btn-info" id="submit-all">Submit all files</button>
+
+
+                    </div>
+                </div>
+                <!-- end of basic form -->
+            </div>
+            <!-- end .timeline -->
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+
+
+<div class="row no-padding" id="upload-now" style="display: none">
+
+    <div class="large-12 columns ">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-20" style="display: block;">
+                <!-- Masked Input -->
+
+
+
+            </div>
+            <!-- end .timeline -->
+        </div>
+        <!-- box -->
+    </div>
+</div>
+
+
+
+
+<table class="table table-bordered table-striped table-condensed table-hover">
+    <thead>
+    <tr>
+        <th>上传文件名称</th>
+        <th>新路径</th>
+        <th>type</th>
+        <th>速度</th>
+        <th style="width: 10%">完成率</th>
+        <th>状态</th>
+        <th>缩略图</th>
+        <th>编辑</th>
+    </tr>
+    </thead>
+    <tbody id="table-index">
+    </tbody>
+</table>
+
+
+
+<!-- End of Container Begin -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type='text/javascript' src="/static/js/dropZone/lib/dropzone.js"></script>
+<script type="text/javascript" src="/static/js/plupload/plupload.full.min.js"></script>
+<script type="text/javascript" src="/static/js/plupload/i18n/zh_CN.js"></script>
+<script type='text/javascript' src="/static/js/qiniu.js"></script>
+<script type='text/javascript' src="/static/js/main.js"></script>
+
+
+<script type="text/javascript">
+    (function($) {
+        "use strict";
+        Fort.flash("#009DFF", "#6638F0");
+        Fort.config({
+            height: '20px',
+            duration: '3s',
+            alignment: 'bottom'
+        })
+        Dropzone.options.myDropzone = {
+
+            // Prevents Dropzone from uploading dropped files immediately
+            autoProcessQueue: false,
+
+            init: function() {
+                var submitButton = document.querySelector("#submit-all")
+                var myDropzone = this; // closure
+
+                submitButton.addEventListener("click", function() {
+                    myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+                });
+
+                // You might want to show the submit button only when
+                // files are dropped here:
+                this.on("addedfile", function() {
+                    // Show submit button here and/or inform user to click it.
+                    $('#submit-all').css({'display':'block'})
+                });
+
+            }
+        };
+        $('#upload_btn').click(function(){
+            var check1 = $('input[name=dic]:checked').val();
+            var check2 = $('#path-live').val();
+            $('#bucket_update').text('当前选择空间为: '+ check1)
+            $('#prefix_update').text('当前选择路径为: '+ check2)
+
+            $.ajax({
+                url: '/index/getvalue',
+                type: 'post',
+                data: {
+                    'dic' : check1,
+                    'path' : check2
+                },
+                success:function(data){
+                    console.log(data);
+                    if(data.dic != 'tata-prod'){
+                        $('#url-link').text('http://imagecloud.tataufo.com/')
+                    }else{
+                        $('#url-link').text('http://imagecloud.tataufo.com/')
+                    }
+                    $('#upload-now').css({'display':'block'});
+                }
+            })
+        })
+
+
+    })(jQuery);
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

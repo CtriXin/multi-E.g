@@ -1,0 +1,232 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>typography
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+
+<%# body 内容 %>
+<!-- Container Begin -->
+<div class="row" style="margin-top:-20px">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-40" style="display: block;">
+                <!-- heading -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>h的规则</strong>
+                        </p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <h1>h1. 这是h1的大小</h1>
+                        <h2>h2. 这是h2的大小</h2>
+                        <h3>h3. 这是h3的大小</h3>
+                        <h4>h4. 这是h4的大小</h4>
+                        <h5>h5. 这是h5的大小</h5>
+                        <h6>h6. 这是h6的大小</h6>
+
+                    </div>
+                </div>
+                <!-- end of heading -->
+                <hr>
+                <!-- Blockquote -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>引用规则</strong>
+                        </p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <blockquote>这里面是引用的文章或内容
+                            <cite>引用的名字,自带横线</cite>
+                        </blockquote>
+
+                    </div>
+                </div>
+                <!-- end of Blockquote -->
+                <hr>
+                <!-- paragraf -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>段落</strong>
+                        </p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <p>这里是段落的内容 <strong>其中的粗体</strong>. 这里是段落内容内容内容 <em>这里是斜体</em>.</p>
+
+                    </div>
+                </div>
+                <!-- end of paragraf -->
+                <hr>
+                <!-- paragraf right aligned -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>右侧对齐</strong>
+                        </p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <p class="text-right">
+                            文字将会靠右对其,class上加入text-right属性
+                        </p>
+                    </div>
+                </div>
+                <!-- end of paragraf right aligned-->
+                <hr>
+                <!-- paragraf full justified -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>Justified</strong>
+                        </p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <p class="text-justify">
+                            文字将会两段对齐,文本行的左右两端都放在父元素的内边界上,将会自动调整单词字母见得间隔,是行的长度相等
+                        </p>
+
+                    </div>
+                </div>
+                <!-- end of paragraf full justified-->
+                <hr>
+                <!-- Definition -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>注释</strong>
+                        </p>
+                    </div>
+                    <div class="large-9 columns">
+                        <p>
+                            首先dt和dd是放于dl标签内，标签dt与dd处于dl下相同级。也就是dt不能放入dd内，dd不能放入dt内。在dl下，dt与dd处于同级标签。DD标签可以若干。同时不能不加dl地单独使用dt标签或dd标签。
+                        </p>
+                        <dl>
+                            <dt>注释头</dt>
+                            <dd>注释内容</dd>
+                            <dt>注释头2</dt>
+                            <dd>注释内容2</dd>
+                        </dl>
+                    </div>
+                </div>
+                <!-- end of Definition -->
+
+                <hr>
+
+                <!-- List -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>列表</strong>
+                        </p>
+                    </div>
+                    <div class="large-9 columns">
+                        <ol>
+                            <li>次列表将会带有数字属性</li>
+                            <li>List item</li>
+                            <li>List item
+                                <ol>
+                                    <li>2级列表</li>
+                                    <li>2级列表</li>
+                                    <li>2级列表</li>
+                                </ol>
+                            </li>
+                            <li>List item</li>
+                            <li>List item</li>
+                            <li>List item</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- end of list -->
+                <hr>
+                <!-- List -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>代码</strong>
+                        </p>
+                    </div>
+                    <div class="large-9 columns">
+                        <code>&lt;span class="large-3"&gt;...&lt;/span&gt;</code>
+                        <br>
+                        <br>
+                        <code>&lt;div class="large-9 columns"&gt;...&lt;/div&gt;</code>
+                    </div>
+                </div>
+                <!-- end of list -->
+
+
+
+
+
+            </div>
+            <!-- end .timeline -->
+
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type="text/javascript">
+    (function($) {
+        "use strict";
+
+
+
+    })(jQuery);
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

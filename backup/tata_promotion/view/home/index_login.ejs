@@ -1,0 +1,156 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tataUFO</title>
+
+    <link rel="stylesheet" href="/static/css/foundation.css" />
+
+    <!-- Custom styles for this template -->
+
+
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+    <!--<link rel="stylesheet" href="/static/css/theme-blue.css">-->
+    <link rel="stylesheet" href="/static/css/theme.css">
+    <link rel="stylesheet" href="/static/css/theme-white.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+
+</head>
+
+<body>
+<!-- preloader -->
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+<!-- End of preloader -->
+<!-- right sidebar wrapper -->
+
+<div class="inner-wrap">
+    <div class="wrap-fluid">
+        <br>
+        <br>
+        <!-- Container Begin -->
+        <div class="large-offset-4 large-4 columns">
+            <div class="box bg-white">
+                <!-- Profile -->
+                <div class="profile">
+                    <img alt="" class="" src="/static/img/logo.png">
+                    <h3>tata地推 <small>v0.1</small></h3>
+
+                </div>
+                <!-- End of Profile -->
+
+                <!-- /.box-header -->
+                <div class="box-body " style="display: block;">
+                    <div class="row">
+
+                        <div class="large-12 columns">
+                            <div class="row">
+                                <div class="edumix-signup-panel" style="text-align: center">
+                                    <p class="welcome"> 欢迎使用! </p>
+                                    <div>
+                                        <div class="row collapse">
+                                            <div class="small-2  columns">
+                                                <span class="prefix bg-green"><i class="fa fa-user"></i></span>
+                                            </div>
+                                            <div class="small-10  columns">
+                                                <input type="text" id="phonenumber" placeholder="Phonenumber" name="telephone">
+                                            </div>
+                                        </div>
+                                        <div class="row collapse">
+                                            <div class="small-2 columns ">
+                                                <span class="prefix bg-green"><i class="fa fa-code"></i></span>
+                                            </div>
+                                            <div class="small-10 columns ">
+                                                <input type="password" id="password" placeholder="Password" name="password">
+                                            </div>
+                                        </div>
+                                        <p style="text-align: left">
+                                            忘记密码? 请联系管理员
+                                        </p>
+
+                                        <p style="text-align: left;color:red;display: none" id="error_code">
+                                            账户或密码错误,请从新输入!
+                                        </p>
+                                        <p style="text-align: left;color:red;display: none" id="error_code_frozen">
+                                           你已经被冻结,请尽快联系管理员!
+                                        </p>
+                                        <button onclick="check();" class="tiny radius button bg-green"><span>Sign in</span> </button>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+                <!-- end .timeline -->
+            </div>
+            <!-- box -->
+        </div>
+    </div>
+    <!-- End of Container Begin -->
+</div>
+
+<!-- end paper bg -->
+
+
+
+<!-- end of inner-wrap -->
+
+
+
+<!-- main javascript library -->
+<script type='text/javascript' src="/static/js/jquery.js"></script>
+<!-- foundation javascript -->
+<script type='text/javascript' src="/static/js/foundation.min.js"></script>
+<!-- main edumix javascript -->
+<script type='text/javascript' src='/static/js/slimscroll/jquery.slimscroll.js'></script>
+<!-- additional javascript -->
+
+
+
+<script>
+    $(document).foundation();
+    function check(){
+        console.log('jahjah')
+        $.ajax({
+            type:"post",
+            url:"/index/logincheck",
+            data:{
+                phonenumber: $('#phonenumber').val(),
+                password: $('#password').val()
+
+            },
+            success:function(data){
+                console.log(data);
+                if(data.code=='fail'){
+                    $('#error_code').css({'display':'block'})
+                }else if(data.code=='frozen'){
+                    $('#error_code').css({'display':'none'})
+                    $('#error_code_frozen').css({'display':'block'})
+                }else{
+                    window.location.href="/index";
+                }
+            },
+            error:function(){
+                alert("数据传输失败");
+            }
+        });
+    }
+</script>
+
+
+
+</body>
+
+</html>

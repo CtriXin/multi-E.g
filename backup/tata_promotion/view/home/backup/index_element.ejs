@@ -1,0 +1,404 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+<link rel="stylesheet" href="/static/js/tip/tooltipster.css">
+
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>elemnt
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+
+
+<!-- Container Begin -->
+<div class="row">
+
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body pad-forty" style="display: block;">
+                <!-- Alert -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>Alert</strong>
+                        </p>
+                        <p>
+                            提示性表格,块状
+                        </p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <!-- alert info -->
+                        <div class="box bg-aqua">
+                            <div class="box-header bg-aqua ">
+                                <!-- tools box -->
+                                <div class="pull-right box-tools">
+                                    <span class="box-btn" data-widget="collapse"><i class="fa fa-minus"></i>
+                                    </span>
+                                    <span class="box-btn" data-widget="remove"><i class="fa fa-times"></i>
+                                    </span>
+                                </div>
+                                <h3 class="box-title padding-20">
+                                    <span class="text-white">INFO</span>
+                                </h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body " style="display: block;">
+                                <p class="bg-aqua"><strong>蓝色的,class是aqua </strong> 颜色代码,去规则中找</p>
+                            </div>
+                        </div>
+                        <!-- end of alert info -->
+
+                        <!-- alert success -->
+                        <div class="box bg-light-green">
+                            <div class="box-header bg-light-green ">
+                                <!-- tools box -->
+                                <div class="pull-right box-tools">
+                                    <span class="box-btn" data-widget="collapse"><i class="fa fa-minus"></i>
+                                    </span>
+                                    <span class="box-btn" data-widget="remove"><i class="fa fa-times"></i>
+                                    </span>
+                                </div>
+                                <h3 class="box-title ">
+                                    <span class="text-white">SUCCESS</span>
+                                </h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body " style="display: block;">
+                                <p class="text-white"><strong>绿色!</strong> success规则的绿色可以自定义</p>
+                            </div>
+                        </div>
+                        <!-- end of success info -->
+                        <!-- alert warning -->
+                        <div class="box bg-yellow">
+                            <div class="box-header bg-yellow">
+                                <!-- tools box -->
+                                <div class="pull-right box-tools">
+                                    <span class="box-btn" data-widget="collapse"><i class="fa fa-minus"></i>
+                                    </span>
+                                    <span class="box-btn" data-widget="remove"><i class="fa fa-times"></i>
+                                    </span>
+                                </div>
+                                <h3 class="box-title ">
+                                    <span class="text-white">WARNING</span>
+                                </h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body " style="display: block;">
+                                <p class="text-white"><strong>橙色!</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- end of alert warning -->
+                        <!-- alert error -->
+                        <div class="box bg-red">
+                            <div class="box-header bg-red">
+                                <!-- tools box -->
+                                <div class="pull-right box-tools">
+                                    <span class="box-btn" data-widget="collapse"><i class="fa fa-minus"></i>
+                                    </span>
+                                    <span class="box-btn" data-widget="remove"><i class="fa fa-times"></i>
+                                    </span>
+                                </div>
+                                <h3 class="box-title ">
+                                    <span class="text-white">ERROR</span>
+                                </h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body " style="display: block;">
+                                <p class="text-white"><strong>红色!</strong>
+                                警告作用
+                                </p>
+                            </div>
+                        </div>
+                        <!-- end of alert error -->
+
+
+                    </div>
+                </div>
+                <!-- end alert-->
+                <!-- pagination -->
+                <hr>
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>页码规则</strong>
+                        </p>
+                        <p>
+                            页码不需要太多的样式定义
+                        </p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <br>
+                        <br>
+
+                        <ul class="pagination">
+                            <li class="arrow unavailable"><a href="">&laquo;</a>
+                            </li>
+                            <li class="current"><a href="">1</a>
+                            </li>
+                            <li><a href="">2</a>
+                            </li>
+                            <li><a href="">3</a>
+                            </li>
+                            <li><a href="">4</a>
+                            </li>
+                            <li class="unavailable"><a href="">&hellip;</a>
+                            </li>
+                            <li><a href="">12</a>
+                            </li>
+                            <li><a href="">13</a>
+                            </li>
+                            <li class="arrow"><a href="">&raquo;</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end Pagination -->
+                <hr>
+                <!-- tooltip -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>鼠标提示</strong>
+                        </p>
+                        <p>
+                            此功能依赖tootip.js 动画在下面有写
+                        </p>
+                    </div>
+                    <div class="large-9 columns">
+                        <button class=" radius tiny tooltipster-left"
+                                title="我从左侧过来!">Left
+                        </button>
+                        <button class=" radius tiny tooltipster-top"
+                                title="我从上面过来!">Top
+                        </button>
+                        <button class=" radius tiny tooltipster-bottom"
+                                title="我从下面过来!">Bottom
+                        </button>
+                        <button class=" radius tiny tooltipster-right"
+                                title="我从右边过来!">Right
+                        </button>
+
+                        <button class=" radius tiny tooltipster-fadein" title="缓动">Fade</button>
+                        <button class=" radius tiny tooltipster-growing" title="类似发光的赶脚">Grow
+                        </button>
+                        <button class=" radius tiny tooltipster-swinging" title="晃悠晃悠">Swing
+                        </button>
+                        <button class=" radius tiny tooltipster-sliding" title="滑动">Slide
+                        </button>
+                        <button class=" radius tiny tooltipster-falling" title="降落了">Fall
+                        </button>
+
+                    </div>
+                </div>
+                <!-- end tooltip -->
+                <hr>
+                <!-- modal -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>Modal</strong>
+                        </p>
+                        <P>
+                            弹窗,http://www.runoob.com/foundation/foundation-modal.html
+                        </P>
+                    </div>
+                    <div class="large-9 columns">
+                        <!-- Triggers the modals -->
+                        <a href="#" data-reveal-id="firstModal" class="radius button tiny">弹窗后还有弹窗</a>
+                        <!-- Reveal Modals begin -->
+                        <div id="firstModal" class="reveal-modal" data-reveal>
+                            <h2>这是一个弹窗</h2>
+                            <p>
+                                点击任何地方都将退出弹窗,关闭弹窗的按钮只需要加上一个class = ‘close-reveal-modal.’
+                            </p>
+
+                            <p><a href="#" data-reveal-id="secondModal" class="secondary button">第二个弹窗...</a>
+                            </p>
+                            <a class="close-reveal-modal">&#215;</a>
+                        </div>
+
+                        <div id="secondModal" class="reveal-modal" data-reveal>
+                            <h2>这是第二个弹窗.</h2>
+                            <p>就是这么简单~~~</p>
+                            <a class="close-reveal-modal">&#215;</a>
+                        </div>
+                        <!-- Reveal Modals end -->
+
+
+                    </div>
+                </div>
+                <!-- end Modal -->
+
+                <hr>
+                <!-- Switches -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>开关</strong>
+                        </p>
+                        <p>
+                            虽然估计用不上,但是页做了规则了,用不用再说吧
+                        </p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <div class="switch">
+                            <input id="exampleCheckboxSwitch" type="checkbox">
+                            <label for="exampleCheckboxSwitch"></label>
+                        </div>
+
+                        <!-- Using radio buttons – each switch turns off the other two -->
+                        <div class="switch small">
+                            <input id="exampleRadioSwitch1" type="radio" checked name="testGroup">
+                            <label for="exampleRadioSwitch1"></label>
+                        </div>
+
+                        <div class="switch radius">
+                            <input id="exampleRadioSwitch2" type="radio" name="testGroup">
+                            <label for="exampleRadioSwitch2"></label>
+                        </div>
+
+                        <div class="switch round large">
+                            <input id="exampleRadioSwitch3" type="radio" name="testGroup">
+                            <label for="exampleRadioSwitch3"></label>
+                        </div>
+                    </div>
+                </div>
+                <!-- end Switches -->
+                <hr>
+                <!-- Progress bar -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>进度条</strong>
+                        </p>
+                        <p>
+                            很简单的进度条,同上,估计也用不上呢
+                        </p>
+
+
+                    </div>
+                    <div class="large-9 columns">
+                        <div class="progress small radius">
+                            <span class="meter bg-aqua" style="width:80%"></span>
+                        </div>
+                        <div class="progress large radius">
+                            <span class="meter bg-blue" style="width:60%"></span>
+                        </div>
+
+                        <div class="progress large radius bg-aqua">
+                            <span class="meter bg-white" style="width:87%"></span>
+                        </div>
+                        <div class="progress large radius bg-dark-blue">
+                            <span class="meter bg-white" style="width:45%"></span>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!-- end of Progress bar -->
+
+            </div>
+            <!-- end .timeline -->
+        </div>
+        <!-- box -->
+    </div>
+
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+
+
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type='text/javascript' src='/static/js/tip/jquery.tooltipster.js'></script>
+<script>
+    $(document).ready(function () {
+        $('.tooltipster-top').tooltipster({
+            position: "top"
+        });
+        $('.tooltipster-left').tooltipster({
+            position: "left"
+        });
+        $('.tooltipster-right').tooltipster({
+            position: "right"
+        });
+        $('.tooltipster-bottom').tooltipster({
+            position: "bottom"
+        });
+        $('.tooltipster-fadein').tooltipster({
+            animation: "fade"
+        });
+        $('.tooltipster-growing').tooltipster({
+            animation: "grow"
+        });
+        $('.tooltipster-swinging').tooltipster({
+            animation: "swing"
+        });
+        $('.tooltipster-sliding').tooltipster({
+            animation: "slide"
+        });
+        $('.tooltipster-falling').tooltipster({
+            animation: "fall"
+        });
+
+
+    });
+</script>
+<script type="text/javascript">
+    (function($) {
+        "use strict";
+
+
+
+    })(jQuery);
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

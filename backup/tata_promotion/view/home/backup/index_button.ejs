@@ -1,0 +1,319 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>button
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+<!-- Container Begin -->
+<div class="row" style="margin-top:-20px">
+
+    <div class="large-12 columns">
+        <div class="box">
+            <div class="box-header bg-transparent">
+                <!-- tools box -->
+                <div class="pull-right box-tools">
+                    <span class="box-btn" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </span>
+                    <span class="box-btn" data-widget="remove"><i class="fa fa-times"></i>
+                    </span>
+                </div>
+                <h3 class="box-title"><i class="fa fa-list-ul fa-fw"></i>
+                    <span>BUTTON</span>
+                </h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body " style="display: block;">
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>Foundation 默认</strong>
+                        </p>
+                        <p>
+                            默认的button 按钮
+                        </p>
+                    </div>
+                    <div class="large-9 columns">
+                        <!-- Color Classes -->
+                        <a href="#" class="tiny button">Button 1</a>
+                        <a href="#" class="tiny button success">Button 2</a>
+                        <a href="#" class="tiny button secondary">Button 3</a>
+                        <a href="#" class="tiny button alert">Button 4</a>
+                        <a href="#" class="tiny button info">Button 5</a>
+                        <a href="#" class="tiny button disabled">Button 6</a>
+
+                    </div>
+                </div>
+                <hr>
+                <!-- btn radius -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>Button Radius</strong>
+                        </p>
+                        <p>
+                            圆角button()
+                        </p>
+                    </div>
+                    <div class="large-9 columns">
+                        <a href="#" class="tiny radius button bg-red">Red</a>
+                        <a href="#" class="tiny radius button bg-orange">Orange</a>
+                        <a href="#" class="tiny radius button bg-yellow">Yellow</a>
+                        <a href="#" class="tiny radius button bg-green">Green</a>
+                        <a href="#" class="tiny radius button bg-light-green">Light Green</a>
+                        <a href="#" class="tiny radius button bg-aqua">Aqua</a>
+                        <a href="#" class="tiny radius button bg-blue">Blue</a>
+                        <a href="#" class="tiny radius button bg-dark-blue">Dark blue</a>
+                        <a href="#" class="tiny radius button bg-black-solid">Dark black</a>
+                        <a href="#" class="tiny radius button bg-black">Black</a>
+
+
+                    </div>
+                </div>
+                <!-- end of btn radius -->
+                <hr>
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>不同大小的button</strong>
+                        </p>
+                    </div>
+                    <div class="large-9 columns">
+                        <!-- Color Classes -->
+                        <a href="#" class="button radius large bg-blue round">大（Large）</a>
+                        <a href="#" class="button radius bg-dark-blue round">默认（Default）</a>
+                        <a href="#" class="button radius small bg-black round">小（Small）</a>
+                        <a href="#" class="button radius tiny bg-black-solid round">超小（Tiny）</a>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <p><strong>超长button,不同大小</strong>
+                        </p>
+                    </div>
+                    <div class="large-9 columns">
+                        <a href="#" class="button radius tiny expand bg-aqua">超长（tiny）</a>
+                        <a href="#" class="button radius small expand bg-blue">超长（小）</a>
+                        <a href="#" class="button radius  expand bg-dark-aqua">超长（默认）</a>
+
+
+
+                    </div>
+                </div>
+                <hr>
+
+            </div>
+            <!-- end .timeline -->
+
+
+        </div>
+        <!-- box -->
+    </div>
+
+
+    <div class="large-12 columns">
+        <div class="box">
+            <div class="box-header bg-transparent">
+                <!-- tools box -->
+                <div class="pull-right box-tools">
+                    <span class="box-btn" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </span>
+                    <span class="box-btn" data-widget="remove"><i class="fa fa-times"></i>
+                    </span>
+                </div>
+                <h3 class="box-title"><i class="fa fa-ellipsis-v"></i>
+                    <span>组团出发的button</span>
+                </h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body " style="display: block;">
+                <div class="row">
+                    <div class="large-4 columns">
+                        <!-- Radius Button Group -->
+                        <p><strong>圆角button</strong>
+                        </p>
+                        <ul class="button-group radius tiny">
+                            <li><a href="#" class="tiny button bg-aqua">Button 1</a>
+                            </li>
+                            <li><a href="#" class="tiny button bg-aqua">Button 2</a>
+                            </li>
+                            <li><a href="#" class="tiny button bg-aqua">Button 3</a>
+                            </li>
+                            <li><a href="#" class="tiny button bg-aqua">Button 4</a>
+                            </li>
+                        </ul>
+                        <p><strong>圆形</strong>
+                        </p>
+                        <!-- Rounded Button Group -->
+                        <ul class="button-group round ">
+                            <li><a href="#" class="tiny button bg-blue">Button 1</a>
+                            </li>
+                            <li><a href="#" class="tiny button bg-blue">Button 2</a>
+                            </li>
+                            <li><a href="#" class="tiny button bg-blue">Button 3</a>
+                            </li>
+                            <li><a href="#" class="tiny button bg-blue">Button 4</a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <div class="large-8 columns">
+                        <p><strong>横向居中</strong>
+                        </p>
+
+                        <ul class="button-group radius  even-3">
+                            <li><a href="#" class="button tiny bg-dark-blue">Button 1</a>
+                            </li>
+                            <li><a href="#" class="button tiny bg-dark-blue">Button 2</a>
+                            </li>
+                            <li><a href="#" class="button tiny bg-dark-blue">Button 3</a>
+                            </li>
+
+                        </ul>
+                        <p><strong>垂直居中</strong>
+                        </p>
+                        <!-- Rounded Button Group -->
+                        <ul class="stack button-group radius">
+                            <li><a href="#" class="button tiny bg-light-green">Button 1</a>
+                            </li>
+                            <li><a href="#" class="button tiny bg-light-green">Button 2</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+
+                    <div class="large-12 columns">
+                        <p><strong>分离的</strong>
+                        </p>
+                        <a class="button tiny radius bg-light-green split">Split Button <span data-dropdown="drop"></span></a>
+                        <br>
+                        <ul id="drop" class="f-dropdown" data-dropdown-content>
+                            <li><a href="#">This is a link</a>
+                            </li>
+                            <li><a href="#">This is another</a>
+                            </li>
+                            <li><a href="#">Yet another</a>
+                            </li>
+                        </ul>
+
+                        <button data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small bg-blue radius">下拉</button>
+                        <br>
+                        <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+                            <li><a href="#">This is a link</a>
+                            </li>
+                            <li><a href="#">This is another</a>
+                            </li>
+                            <li><a href="#">Yet another</a>
+                            </li>
+                        </ul>
+
+                        <button data-dropdown="drop2" aria-controls="drop1" aria-expanded="false" class="large button dropdown expand bg-dark-blue radius">超大下拉</button>
+                        <br>
+                        <ul id="drop2" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+                            <li><a href="#">This is a link</a>
+                            </li>
+                            <li><a href="#">This is another</a>
+                            </li>
+                            <li><a href="#">Yet another</a>
+                            </li>
+                        </ul>
+                        <p><strong>可以用作标签按钮</strong>
+                        </p>
+                        <a href="#" class="button tiny bg-light-green radius"><i class="fontello-skype"></i></a>
+                        <a href="#" class="button tiny bg-light-aqua radius"><i class="fontello-twitter"></i></a>
+                        <a href="#" class="button tiny bg-light-blue radius"><i class="fontello-chart-alt"></i></a>
+                        <a href="#" class="button tiny bg-dark-blue radius"><i class="fontello-wifi"></i></a>
+                        <a href="#" class="button tiny bg-black radius"><i class="fontello-upload-cloud"></i></a>
+                        <a href="#" class="button tiny bg-black-solid radius"><i class="fontello-lock-filled"></i></a>
+                        <p><strong>可以用作标签按钮（圆形）</strong>
+                        </p>
+                        <a href="#" class="button small bg-light-green round"><i class="fontello-giraffe"></i></a>
+                        <a href="#" class="button small bg-green round"><i class="fontello-garden"></i></a>
+                        <a href="#" class="button small bg-yellow round"><i class="fontello-harbor"></i></a>
+                        <a href="#" class="button small bg-orange round"><i class="fontello-basketball"></i></a>
+                        <a href="#" class="button small bg-red round"><i class="fontello-golf"></i></a>
+
+
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+            <!-- end .timeline -->
+
+
+        </div>
+        <!-- box -->
+    </div>
+
+
+</div>
+<!-- End of Container Begin -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script type="text/javascript">
+    (function($) {
+        "use strict";
+
+
+
+    })(jQuery);
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+

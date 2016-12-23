@@ -1,0 +1,298 @@
+<% include public/head.ejs %>
+<%# 请在下方输入自定义页面css%>
+
+
+
+<%# 请在上方输入自定义页面css%>
+
+<!--左侧目录,顶部搜索,用户下拉-->
+<% include public/sidebar.ejs %>
+
+
+
+
+
+
+
+
+
+<%# 页面导航 自己修改 %>
+<!-- breadcrumbs -->
+<ul class="breadcrumbs">
+    <li><a href="#"><span class="fa fa-home fa-fw"></span></a>
+    </li>
+    <li>
+        查看工资概要
+    </li>
+</ul>
+<!-- end of breadcrumbs -->
+
+
+
+
+<%# body 内容 %>
+<!-- Container Begin -->
+<div class="row no-padding">
+
+    <div class="large-12 columns">
+        <div class="box bg-white">
+
+
+            <!-- /.box-header -->
+            <div class="box-body padding-40" style="display: block;">
+                <!-- basic form -->
+
+                <div class="row">
+                    <div class="large-3 columns">
+                        <h4>当前省名: <%= province%></h4>
+                        <a href="#" class="tiny button bg-blue">导出到Excel</a>
+
+
+
+
+                    </div>
+
+
+
+                    <province-list :list="city" >
+
+                    </province-list>
+
+
+
+                </div>
+                <!-- end of basic form -->
+
+
+
+
+
+            </div>
+            <!-- end .timeline -->
+
+        </div>
+        <!-- box -->
+    </div>
+</div>
+<!-- End of Container Begin -->
+
+
+
+<template  id="province-template">
+    <div class="large-9 columns">
+        <form>
+            <div class="row">
+                <div class="large-6 columns">
+                    <div class="row collapse">
+                        <div class="small-10 columns">
+                            <input type="text" placeholder="搜索">
+                        </div>
+                        <div class="small-2 columns">
+                            <a href="#" class="button postfix">Go</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>城市
+                        <select v-model="city" required name="city" @change="province_city">
+                            <option value="城市" selected>全部城市</option>
+                            <option v-for="i in list" name="{{i}}" :value="i">{{i}}</option>
+                        </select>
+                    </label>
+                </div>
+
+
+            </div>
+
+
+            <a href="#" class="tiny button bg-green">查看</a>
+
+        </form>
+
+    </div>
+
+    <hr>
+
+    <!-- Defining a Fieldset -->
+    <div class="row">
+        <table style="width:100%;">
+
+            <tbody>
+            <tr>
+                <th>姓名</th>
+                <th>学校</th>
+                <th>级别</th>
+                <th>支付宝账户</th>
+                <th>推广数据</th>
+                <th>工资</th>
+            </tr>
+
+
+            <tr v-for="i in salary_list">
+                <td>{{i.data.info[0].name}}</td>
+                <td>{{i.data.info[0].university}}</td>
+                <td v-if="i.data.info[0].level == 0">
+                    初级经理
+                </td>
+                <td v-if="i.data.info[0].level == 1">
+                    高级经理
+                </td>
+                <td>{{i.data.info[0].alipay}}</td>
+                <td>{{i.data.total}}</td>
+                <td>{{i.data.salary}}</td>
+            </tr>
+
+
+
+            </tbody>
+        </table>
+
+    </div>
+    <!-- end of Defining a Fieldset -->
+</template>
+
+
+
+
+<!--main js-->
+<% include public/footer.ejs %>
+
+<%# 请在下方输入自定义页面js%>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
+<script>
+
+</script>
+<script>
+
+    var arr_string = "<%- city %>";
+    var arr = arr_string.split(',');
+    console.log('<%- city %>');
+
+
+    //创建名为proviceList的 组件构建器(用来创建组件)
+    var proviceList = Vue.extend({
+        template:'#province-template',
+        props:['list'],
+        data: function(){
+            return {
+                city_list: [],
+                school_list: [],
+                salary_list : []
+
+            }
+        },
+        ready:function(){
+            var self = this
+            $.ajax({
+                url:'/index/agentsalary',
+                type:'post',
+                dataType:'json',
+                data:{
+                    province: '-1'
+                },
+                success:function(data){
+                    console.log(data);
+                    self.salary_list = data
+
+                }
+            })
+        },
+        methods:{
+            province_city:function(){
+                let self = this;
+                console.log(self.city)
+                $.ajax({
+                    url:'/index/agentsalary',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        province:self.city
+                    },
+                    success:function(data){
+                        console.log(data);
+                        self.salary_list = data
+
+                    }
+                })
+            },
+            city_school:function(){
+                let self = this;
+                console.log(self.city)
+
+                $.ajax({
+                    url:'/index/getschool',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        province:self.province,
+                        city: self.city
+                    },
+                    success:function(data){
+                        console.log(data);
+                        if(data.code == 'success'){
+                            self.school_list = data.school;
+                        }else {
+                            alert('获取信息失败!')
+                        }
+                    }
+                })
+            },
+            agent_level:function(){
+                if(this.level < 2){
+                    this.is_province = 1;
+                    console.log('haha')
+                }else {
+                    console.log('aaaaa')
+                    this.is_province = 0;
+                }
+                console.log(this.is_province)
+                let self = this;
+
+            }
+        }
+    })
+
+    //注册组件
+    Vue.component('province-list',proviceList);
+
+    //创建实根
+    new Vue({
+        el: '#app',
+        data:{
+            city: arr,
+        },
+        method:{
+
+        }
+    })
+
+
+
+
+
+</script>
+
+
+<script type="text/javascript">
+    (function($) {
+        "use strict";
+
+
+
+    })(jQuery);
+</script>
+<%# 请在上方输入自定义页面js%>
+
+<% include public/ending.ejs%>
+
+
+
+
+
