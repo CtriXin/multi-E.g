@@ -1,0 +1,34 @@
+带有日历功能那几页—数据报表 没有jquery-1.10.1.min.js 用1.8.3替换，在页头有那几页的css和js
+
+	<li class="start active ">     <!--------这个
+
+		<a href="javascript:;">
+		<i class="icon-edit"></i> <span class="title">TaTa官方</span>
+		
+		<span class="selected"></span>    <!--------这个
+
+		<span class="arrow open"></span>    !--------这个   delete open
+
+
+		<li class="active ">              <!--------这个
+			<a href="official-edit.html">
+				编辑官方帖
+			</a>
+		</li>
+
+
+
+
+	<!-- BEGIN FOOTER -->
+	<div class="footer">
+		<div class="footer-inner">
+			2015 &copy; TaTaufo后台服务系统. <a href="http://manager.tataufo.com" style="font-size:1.2em;color:#4dc3ff;text-decoration:none;">审核平台</a> <a href="http://tataufo.com/manager" style="font-size:1.2em;color:#4dc3ff;text-decoration:none;">管理平台</a>
+		</div>
+		<div class="footer-tools">
+			<span class="go-top">
+			<i class="icon-angle-up"></i>
+			</span>
+		</div>
+	</div>
+
+	<!-- END FOOTER -->

@@ -1,0 +1,61 @@
+.m-wrap.textarea-large {
+	width: 510px !important;
+}
+.img-team {
+	margin: 5px;
+	margin-left: 0;
+}
+.input-mini {
+	width: 70px
+}
+.sub {
+	color: #4095de;
+}
+.subtxt {
+	color: black;
+	font-weight: 800;
+}
+@font-face {
+	font-family: myFont;
+	src: url(../font/cuyuan.ttf)
+}
+* {
+	font-family: 'STHeiti';
+}
+@media(max-width:767px) {
+	.go-top {
+		display: none !important;
+	}
+	a.brand {
+		width: 200px !important;
+	}
+}
+
+.hide-1{
+	margin-left: 5%;
+}
+
+.pt-1{
+	margin-bottom: 0%;
+	border-bottom: 0px;
+}
+.collacp{
+	font-size: 13px !important;
+	margin-bottom: 0 !important;
+}
+.collaport{
+	margin-bottom: 0;
+}
+.smalltools{
+	margin-top: 0 !important;
+}
+
+.ul-ans{
+	margin: 5px 0;
+}
+.ul-pic{
+	text-align: center;
+}
+.amount{
+    font-size: 20px;
+}

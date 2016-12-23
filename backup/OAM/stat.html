@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- BEGIN HEAD -->
+<head>
+	<meta charset="utf-8" />
+	<title>TaTa 后台服务系统</title>
+
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+	<meta content="" name="description" />
+
+	<meta content="" name="author" />
+
+	<!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+	<link href="media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+	<link href="media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+
+	<link href="media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+	<link href="media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+
+	<link href="media/css/style.css" rel="stylesheet" type="text/css"/>
+
+	<link href="media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+
+	<link href="media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+
+	<link href="media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+
+	<!-- END GLOBAL MANDATORY STYLES -->
+
+	<!-- BEGIN PAGE LEVEL STYLES -->
+
+	<link rel="stylesheet" type="text/css" href="media/css/select2_metro.css" />
+
+	<link rel="stylesheet" href="media/css/DT_bootstrap.css" />
+
+	<!-- END PAGE LEVEL STYLES -->
+
+	<link rel="shortcut icon" href="media/image/favicon.png" />
+
+
+</head>
+
+<!-- END HEAD -->
+
+	<!-- BEGIN BODY -->
+
+	<body class="page-header-fixed">
+		<!-- BEGIN HEADER -->
+		<div class="header navbar navbar-inverse navbar-fixed-top">
+			<!-- BEGIN TOP NAVIGATION BAR -->
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<!-- BEGIN LOGO -->
+					<a class="brand" href="index.html">
+						<img src="media/image/tata.png" alt="logo" width="60%" /> </a>
+					<!-- END LOGO -->
+					<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+					<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+						<img src="media/image/menu-toggler.png" alt="" /> </a>
+					<!-- END RESPONSIVE MENU TOGGLER -->
+					<!-- BEGIN TOP NAVIGATION MENU -->
+					<ul class="nav pull-right">
+						<!-- BEGIN TODO DROPDOWN -->
+						<li class="dropdown" id="header_task_bar">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-tasks"></i> <span class="badge"></span> </a>
+							<ul class="dropdown-menu extended tasks">
+								<li>
+									<p>你今天有三项未完成工作</p>
+								</li>
+								<li>
+									<a href="#"> <span class="task">
+											<span class="desc">New release v1.2</span> <span class="percent">30%</span> </span> <span class="progress progress-success ">
+											<span style="width: 30%;" class="bar"></span> </span>
+									</a>
+								</li>
+								<li>
+									<a href="#"> <span class="task">
+											<span class="desc">A工作进度</span> <span class="percent">65%</span> </span> <span class="progress progress-danger progress-striped active">
+											<span style="width: 65%;" class="bar"></span> </span>
+									</a>
+								</li>
+								<li>
+									<a href="#"> <span class="task">
+											<span class="desc">B工作进度</span> <span class="percent">98%</span> </span> <span class="progress progress-success">
+											<span style="width: 98%;" class="bar"></span> </span>
+									</a>
+								</li>
+								<li class="external"> <a href="#">查看所有工作 <i class="m-icon-swapright"></i></a> </li>
+							</ul>
+						</li>
+						<!-- END TODO DROPDOWN -->
+						<!-- BEGIN USER LOGIN DROPDOWN -->
+						<li class="dropdown user">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<img alt="" src="media/image/avatar2.jpg" width="29px;" /> <span class="username">管理员</span> <i class="icon-angle-down"></i> </a>
+							<ul class="dropdown-menu">
+								<li><a href="extra_profile.html"><i class="icon-user"></i> 我的信息</a> </li>
+								<li><a href="page_calendar.html"><i class="icon-calendar"></i> 日历</a> </li>
+								<li><a href="inbox.html"><i class="icon-envelope"></i> 收件箱(3)</a> </li>
+								<li><a href="#"><i class="icon-tasks"></i> 今日任务</a> </li>
+								<li class="divider"></li>
+								<li><a href="extra_lock.html"><i class="icon-lock"></i> 锁屏</a> </li>
+								<li><a href="login.html"><i class="icon-key"></i> Log Out</a> </li>
+							</ul>
+						</li>
+						<!-- END USER LOGIN DROPDOWN -->
+					</ul>
+					<!-- END TOP NAVIGATION MENU -->
+				</div>
+			</div>
+			<!-- END TOP NAVIGATION BAR -->
+		</div>
+		<!-- END HEADER -->
+		<!-- BEGIN CONTAINER -->
+		<div class="page-container">
+			<!-- BEGIN SIDEBAR -->
+			<div class="page-sidebar nav-collapse collapse">
+				<!-- BEGIN SIDEBAR MENU -->
+				<ul class="page-sidebar-menu">
+					<li>
+						<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+						<div class="sidebar-toggler hidden-phone"></div>
+						<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					</li>
+					<li>
+						<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+						<form class="sidebar-search">
+							<div class="input-box">
+								<a href="javascript:;" class="remove"></a>
+								<input type="text" placeholder="Search..." />
+								<input type="button" class="submit" value=" " /> </div>
+						</form>
+						<!-- END RESPONSIVE QUICK SEARCH FORM -->
+					</li>
+					<li>
+						<a href="index.html"> <i class="icon-home"></i> <span class="title">Dashboard</span> <span class="selected"></span> </a>
+					</li>
+					<!-- ################ Start 产品数据分析###############-->
+					<li class="start">
+						<a href="javascript:;"> <i class="icon-table"></i> <span class="title">产品数据分析</span> <span class="arrow"></span> </a>
+						<ul class="sub-menu">
+							<li> <a href="javascript:;">新增数据<span class="arrow"></span></a>
+								<ul class="sub-menu">
+									<li><a href="table-pg1.html">新增</a> </li>
+									<li><a href="table-pg2.html">活跃</a> </li>
+									<li><a href="table-pg3.html">存留</a> </li>
+									<li><a href="#">使用时长</a> </li>
+								</ul>
+							</li>
+							<li> <a href="javascript:;">渠道数据<span class="arrow"></span></a>
+								<ul class="sub-menu">
+									<li><a href="#">渠道花费</a> </li>
+									<li><a href="#">获取用户成本</a> </li>
+									<li><a href="#">渠道ROI</a> </li>
+									<li><a href="#">使用时长</a> </li>
+								</ul>
+							</li>
+							<li> <a href="#">市场数据</a> </li>
+							<li> <a href="javascript:;">客服数据<span class="arrow"></span></a>
+								<ul class="sub-menu">
+									<li><a href="#">注册</a> </li>
+									<li><a href="#">日审核</a> </li>
+									<li><a href="#">过往待审核</a> </li>
+								</ul>
+							</li>
+							<li> <a href="javascript:;">社区活跃<span class="arrow"></span></a>
+								<ul class="sub-menu">
+									<li><a href="#">主题</a> </li>
+									<li><a href="#">回复</a> </li>
+									<li><a href="#">点赞</a> </li>
+									<li><a href="#">社区活跃值</a> </li>
+								</ul>
+							</li>
+							<li> <a href="#">分享数据</a> </li>
+							<li> <a href="javascript:;">推送数据<span class="arrow"></span></a>
+								<ul class="sub-menu">
+									<li><a href="#">推送用户数</a> </li>
+									<li><a href="#">打开数</a> </li>
+									<li><a href="#">打开率</a> </li>
+								</ul>
+							</li>
+							<li> <a href="javascript:;">星星糖<span class="arrow"></span></a>
+								<ul class="sub-menu">
+									<li><a href="#">购买量</a> </li>
+									<li><a href="#">日变化</a> </li>
+									<li><a href="#">保有量</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<!-- ################ End 产品数据分析 ###############-->
+					<!-- ################ Start 社区 ###############-->
+					<li class="start">
+						<a href="javascript:;"> <i class="icon-camera"></i> <span class="title">社区</span> <span class="arrow"></span> </a>
+						<ul class="sub-menu">
+							<li> <a href="javascript:;">官方<span class="arrow"></span></a>
+								<ul class="sub-menu">
+									<li><a href="official-list.html">官方帖子列表</a> </li>
+									<li><a href="official-form.html">官方发帖</a> </li>
+									<li><a href="official-event.html">官方活动</a> </li>
+									<li><a href="official-edit.html">官方帖子编辑</a> </li>
+								</ul>
+							</li>
+							<li> <a href="javascript:;">用户<span class="arrow"></span></a>
+								<ul class="sub-menu">
+									<li><a href="form-list.html">帖子列表</a> </li>
+									<li><a href="form-list-1.html">主题内帖子</a> </li>
+									<li><a href="forum-edit.html">帖子详情</a> </li>
+									<li><a href="user-file.html">用户详情</a> </li>
+								</ul>
+							</li>
+							<li> <a href="question-list.html">题库</a> </li>
+							<li> <a href="history.html">热门贴历史</a> </li>
+						</ul>
+					</li>
+					<!-- ################ End 社区 ###############-->
+					<!-- ################ Start 社团###############-->
+					<li class="start">
+						<a href="javascript:;"> <i class="icon-bullhorn"></i> <span class="title">社团</span> <span class="arrow"></span> </a>
+						<ul class="sub-menu">
+							<li><a href="social-list.html">社团列表</a> </li>
+							<li><a href="social-list-detail.html">社团详情</a> </li>
+							<li><a href="social-detail.html">帖子</a> </li>
+						</ul>
+					</li>
+					<!-- ################ End 社团 ###############-->
+					<!-- ################ Start 用户 ###############-->
+					<li class="start">
+						<a href="javascript:;"> <i class="icon-group"></i> <span class="title">用户</span> <span class="arrow"></span> </a>
+						<ul class="sub-menu">
+							<li> <a href="people.html">用户列表</a> </li>
+							<li> <a href="about&help.html">Help</a> </li>
+							<li> <a href="feedback.html">Feedback</a> </li>
+							<li> <a href="comment.html">反馈</a> </li>
+							<li> <a href="javascript:;">财富<span class="arrow"></span></a>
+								<ul class="sub-menu">
+									<li><a href="pay.html">星星糖列表</a> </li>
+									<li><a href="pay-list.html">订单历史</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<!-- ################ End 用户 ###############-->
+					<!-- ################ Start 审核 ###############-->
+					<li class="start">
+						<a href="javascript:;"> <i class="icon-check"></i> <span class="title">审核</span> <span class="arrow"></span> </a>
+						<ul class="sub-menu">
+							<li> <a href="verify.html">用户审核</a> </li>
+							<li> <a href="verify-image.html">头像审核（最后归在上面）</a> </li>
+							<li> <a href="verify-page.html">审核页面（最后归在上面）</a> </li>
+							<li> <a href="social-verify-list.html">社团审核列表</a> </li>
+							<li> <a href="social-verify.html">社团审核（最后归在上面）</a> </li>
+						</ul>
+					</li>
+					<!-- ################ End 审核 ###############-->
+					<!-- ################ Start 推送 ###############-->
+					<li class="start">
+						<a href="javascript:;"> <i class="icon-external-link"></i> <span class="title">信息推送</span> <span class="arrow"></span> </a>
+						<ul class="sub-menu">
+							<li> <a href="message.html">信息推送</a> </li>
+							<li> <a href="group-manage.html">推送组设置</a> </li>
+						</ul>
+					</li>
+					<!-- ################ End 推送 ###############-->
+					<!-- ################ Start 服务器 ###############-->
+					<li class="start">
+						<a href="javascript:;"> <i class="icon-tasks"></i> <span class="title">服务器端</span> <span class="arrow"></span> </a>
+						<ul class="sub-menu">
+							<li> <a href="configure.html">客户端升级配置</a> </li>
+							<li> <a href="monitor.html">服务器监控</a> </li>
+						</ul>
+					</li>
+					<!-- ################ End 服务器 ###############-->
+					<!-- ################ Start 成员管理###############-->
+					<li class="start">
+						<a href="javascript:;"> <i class="icon-user"></i> <span class="title">成员管理</span> <span class="arrow"></span> </a>
+						<ul class="sub-menu">
+							<li> <a href="member-list.html">成员管理列表</a> </li>
+							<li> <a href="member.html">成员权限管理</a> </li>
+						</ul>
+					</li>
+					<!-- ################ End 成员管理 ###############-->
+					<li class="last ">
+						<a href="charts.html"> <i class="icon-bar-chart"></i> <span class="title">Visual Charts</span> </a>
+					</li>
+				</ul>
+				<!-- END SIDEBAR MENU -->
+			</div>
+			<!-- END SIDEBAR -->
+
+		<!-- BEGIN PAGE -->
+
+		<div class="page-content">
+
+			<!-- BEGIN PAGE CONTAINER-->
+
+			<div class="container-fluid">
+
+				<!-- BEGIN PAGE HEADER-->
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<h3 class="page-title">
+
+							配置信息汇总
+
+							 <small>小嗒嗒的大心脏~</small>
+
+						</h3>
+
+						<ul class="breadcrumb">
+
+							<li>
+
+								<i class="icon-home"></i>
+
+								<a href="index.html">Home</a>
+
+								<span class="icon-angle-right"></span>
+
+							</li>
+
+
+							<li><a href="#">配置</a></li>
+
+						</ul>
+
+					</div>
+
+				</div>
+				<!-- END PAGE HEADER-->
+
+				<!-- BEGIN PAGE CONTENT-->
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<!--BEGIN TABS-->
+
+						<div class="tabbable tabbable-custom tabbable-full-width">
+
+							<ul class="nav nav-tabs">
+
+								<li class="active"><a href="#tab_1_1" data-toggle="tab">获奖名单</a></li>
+
+                                <li><a href="#tab_1_2" data-toggle="tab">问题列表</a></li>
+
+
+							</ul>
+
+							<div class="tab-content">
+
+								<!--tab_1_2-->
+
+								<div class="tab-pane row-fluid active" id="tab_1_1">
+
+									<div class="row-fluid">
+
+                                        <div class="span12">
+
+                                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+                                            <div class="portlet box light-grey">
+
+                                                <div class="portlet-title">
+
+                                                    <div class="caption"><i class="icon-globe"></i>获奖名单</div>
+
+                                                </div>
+
+                                                <div class="portlet-body">
+
+                                                    <div class="clearfix">
+
+
+                                                        <div class="btn-group pull-right">
+
+															<a href="#myModal1" role="button" class="btn green" data-toggle="modal">
+
+																Add New <i class="icon-plus"></i>
+
+															</a>
+
+                                                        </div>
+
+
+                                                    </div>
+
+													<table class="table table-bordered table-hover">
+
+														<thead>
+
+														<tr>
+
+															<th style="width:8px;">
+																<input type="checkbox" class="group-checkable" data-set="#sample_2 .checkboxes" />
+															</th>
+
+															<th>ID</th>
+
+															<th>省份</th>
+
+															<th>城市</th>
+
+															<th>国家</th>
+
+															<th>学校</th>
+
+															<th>学历</th>
+
+															<th>别名</th>
+
+															<th>是否开放</th>
+
+															<th>修改</th>
+
+
+
+
+														</tr>
+
+														</thead>
+
+														<tbody>
+
+														<tr>
+
+															<td><input type="checkbox" class="checkboxes" value="1" /></td>
+
+															<td>3838</td>
+
+															<td>北京</td>
+
+															<td>北京</td>
+
+															<td>中国</td>
+
+															<td>北京大学</td>
+
+															<td>一本</td>
+
+															<td>北大，pku</td>
+
+															<td>是</td>
+
+															<td><a href="#myModal2" role="button" class="btn mini green-stripe" data-toggle="modal">修改</a>
+															</td>
+
+														</tr>
+
+														</tbody>
+
+													</table>
+
+                                                </div>
+
+                                            </div>
+
+                                            <!-- END EXAMPLE TABLE PORTLET-->
+
+                                        </div>
+
+									</div>
+
+								</div>
+
+								<!--end tab-pane-->
+								<!--  ==================  -->
+								<!--  = 这里是弹窗确定按钮 =  -->
+								<!--  ==================  -->
+								<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+									<div class="modal-header">
+
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+
+										<h3 id="myModalLabel">增加</h3>
+
+									</div>
+
+									<div class="modal-body">
+
+										<label class="control-label"> 省份</label>
+										<input class="m-wrap medium" type="text" placeholder="北京">
+										<label class="control-label"> 城市</label>
+										<input class="m-wrap medium" type="text" placeholder="北京">
+										<label class="control-label"> 国家</label>
+										<input class="m-wrap medium" type="text" placeholder="中国">
+										<label class="control-label"> 学校名</label>
+										<input class="m-wrap medium" type="text" placeholder="北京大学">
+										<label class="control-label"> 别名</label>
+										<input class="m-wrap medium" type="text" placeholder="北大,pku">
+										<label class="control-label"> 选择学历</label>
+										<select class="span3" data-placeholder="Choose a Category" tabindex="2">
+
+											<option value="Category 1">Category 1</option>
+
+											<option value="Category 2">Category 2</option>
+
+											<option selected="selected" value="Category 3">Category 5</option>
+
+											<option value="Category 4">Category 4</option>
+
+										</select>
+
+									</div>
+
+									<div class="modal-footer">
+
+										<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+
+										<button class="btn yellow">确定</button>
+
+									</div>
+
+								</div>
+								<!--  ==================  -->
+								<!--  = 这里是弹窗确定按钮 end =  -->
+								<!--  ==================  -->
+                                <!--tab_1_2-->
+
+                                <div class="tab-pane row-fluid" id="tab_1_2">
+
+                                    <div class="row-fluid">
+
+                                        <div class="span12">
+
+                                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+											<div class="portlet box green">
+
+												<div class="portlet-title">
+
+													<div class="caption"><i class="icon-globe"></i>获奖名单</div>
+
+												</div>
+
+												<div class="portlet-body">
+
+													<div class="clearfix">
+
+
+														<div class="btn-group pull-right">
+
+															<a href="#myModal1" role="button" class="btn green" data-toggle="modal">
+
+																Add New <i class="icon-plus"></i>
+
+															</a>
+
+														</div>
+
+
+													</div>
+
+													<table class="table table-bordered table-hover">
+
+														<thead>
+
+														<tr>
+
+															<th style="width:8px;">
+																<input type="checkbox" class="group-checkable" data-set="#sample_2 .checkboxes" />
+															</th>
+
+															<th>ID</th>
+
+															<th>省份</th>
+
+															<th>城市</th>
+
+															<th>国家</th>
+
+															<th>学校</th>
+
+															<th>学历</th>
+
+															<th>别名</th>
+
+															<th>是否开放</th>
+
+															<th>修改</th>
+
+
+
+
+														</tr>
+
+														</thead>
+
+														<tbody>
+
+														<tr>
+
+															<td><input type="checkbox" class="checkboxes" value="1" /></td>
+
+															<td>3838</td>
+
+															<td>北京</td>
+
+															<td>北京</td>
+
+															<td>中国</td>
+
+															<td>北京大学</td>
+
+															<td>一本</td>
+
+															<td>北大，pku</td>
+
+															<td>是</td>
+
+															<td><a href="#myModal2" role="button" class="btn mini green-stripe" data-toggle="modal">修改</a>
+															</td>
+
+														</tr>
+
+														</tbody>
+
+													</table>
+
+												</div>
+
+											</div>
+
+                                            <!-- END EXAMPLE TABLE PORTLET-->
+
+
+                                            <!--  ==================  -->
+                                            <!--  = 这里是弹窗确定按钮 =  -->
+                                            <!--  ==================  -->
+                                            <div id="myModal1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+
+                                                <div class="modal-header">
+
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+
+                                                    <h3 id="myModalLabel1">请修改</h3>
+
+                                                </div>
+
+                                                <div class="modal-body">
+
+                                                    <label class="control-label"> 题目</label>
+                                                    <input class="m-wrap large" type="text" placeholder="题目是啥。。。">
+                                                    <label class="control-label"> 答案1</label>
+                                                    <input class="m-wrap medium" type="text" placeholder="">
+                                                    <label class="control-label"> 答案2</label>
+                                                    <input class="m-wrap medium" type="text" placeholder="">
+                                                    <label class="control-label"> 答案3</label>
+                                                    <input class="m-wrap medium" type="text" placeholder="">
+
+
+                                                </div>
+
+                                                <div class="modal-footer">
+
+                                                    <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+
+                                                    <button class="btn yellow">确定</button>
+
+                                                </div>
+
+                                            </div>
+                                            <!--  ==================  -->
+                                            <!--  = 这里是弹窗确定按钮 end =  -->
+                                            <!--  ==================  -->
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!--end tab-pane-->
+
+							</div>
+
+						</div>
+
+						<!--END TABS-->
+
+					</div>
+
+				</div>
+
+				<!-- END PAGE CONTENT-->
+
+			</div>
+
+			<!-- END PAGE CONTAINER-->
+
+		</div>
+
+		<!-- END PAGE -->
+
+	</div>
+
+	<!-- END CONTAINER -->
+
+	<!-- BEGIN FOOTER -->
+	<div class="footer">
+		<div class="footer-inner">
+			2015 &copy; TaTaufo后台服务系统. <a href="http://manager.tataufo.com" style="font-size:1.2em;color:#4dc3ff;text-decoration:none;">审核平台</a> <a href="http://tataufo.com/manager" style="font-size:1.2em;color:#4dc3ff;text-decoration:none;">管理平台</a>
+		</div>
+		<div class="footer-tools">
+			<span class="go-top">
+			<i class="icon-angle-up"></i>
+			</span>
+		</div>
+	</div>
+
+	<!-- END FOOTER -->
+
+	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+
+	<!-- BEGIN CORE PLUGINS -->
+
+	<script src="media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+
+	<script src="media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+
+	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+
+	<script src="media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+
+	<script src="media/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--[if lt IE 9]>
+
+	<script src="media/js/excanvas.min.js"></script>
+
+	<script src="media/js/respond.min.js"></script>
+
+	<![endif]-->
+
+	<script src="media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+
+	<script src="media/js/jquery.blockui.min.js" type="text/javascript"></script>
+
+	<script src="media/js/jquery.cookie.min.js" type="text/javascript"></script>
+
+	<script src="media/js/jquery.uniform.min.js" type="text/javascript" ></script>
+
+	<!-- END CORE PLUGINS -->
+
+	<!-- BEGIN PAGE LEVEL PLUGINS -->
+
+	<script type="text/javascript" src="media/js/select2.min.js"></script>
+
+	<script type="text/javascript" src="media/js/jquery.dataTables.js"></script>
+
+	<script type="text/javascript" src="media/js/DT_bootstrap.js"></script>
+
+	<!-- END PAGE LEVEL PLUGINS -->
+
+	<!-- BEGIN PAGE LEVEL SCRIPTS -->
+
+	<script src="media/js/app.js"></script>
+
+	<script src="media/js/table-managed.js"></script>
+
+	<script>
+
+		jQuery(document).ready(function() {
+
+		   App.init();
+
+		   TableManaged.init();
+
+		});
+
+	</script>
+
+</body>
+<!-- END BODY -->
+
+</html>
