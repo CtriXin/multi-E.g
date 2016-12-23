@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="wx_pic" content="">
+    <meta name="description" content="Mix周刊">
+    <title>Mix周刊-Vol3</title>
+    <link rel="stylesheet" href="/static/mix/css/frozen.css">
+    <link rel="stylesheet" href="/static/mix/css/idangerous.swiper.css">
+    <link rel="stylesheet" href="/static/mix/css/demo.css">
+    <script src="/static/mix/js/jquery-2.1.1.min.js"></script>
+    <script src="/static/mix/lib/zepto.min.js"></script>
+    <script src="/static/mix/js/frozen.js"></script>
+
+
+</head>
+
+<body ontouchstart>
+
+<section class="ui-container">
+
+    <section id="grid">
+
+
+        <magazine :list="weeks"></magazine>
+
+
+    </section>
+
+
+    <section class="history">
+        <%if(length>1){%>
+        <div class="demo-item part-3 ui-border-t">
+
+            <div class="demo-block">
+                <div class="ui-whitespace">
+
+                    <h1 class="h1-text">Mix Review</h1>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <%for(var i in data){%>
+                <div class="swiper-slide red-slide" style="width:200px">
+                    <div class="title">
+                        <a href="<%= data[i].season_url %>&isMix=1&shareDisable=0"><img src="<%= data[i].season_img %>" width="100%" alt=""></a>
+                    </div>
+                </div>
+                <%}%>
+
+            </div>
+            <div class="pagination"></div>
+        </div>
+        <%}else{%>
+
+        <%}%>
+    </section>
+
+
+    <script>
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = '/static/mix/lib/zepto.min.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+        (function () {
+            var po = document.createElement("script");
+            po.type = "text/javascript";
+            po.async = true;
+            po.src = "/static/mix/js/frozen.js";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(po, s);
+        })();
+
+
+    </script>
+
+
+</section><!-- /.ui-container-->
+
+<template id="magazine-template">
+
+    <a v-for="week in list" class="section-link" href="{{week.url}}">
+        <div :class="['demo-item',week.part1? 'part-1':'part-2',week.part1? 'part-1':'ui-border-t']">
+            <div class="demo-block">
+                <ul class="ui-row ui-whitespace">
+                    <img v-if="!week.scrolloading" src="{{week.headerSrc}}" style="vertical-align: middle" width="100%"
+                         alt="">
+                    <img v-if="week.scrolloading" class="scrollLoading" data-url="{{week.headerSrc}}"
+                         src="/static/mix/images/s3/placeholder.png" style="vertical-align: middle" width="100%" alt=""
+                         title="">
+
+                </ul>
+            </div>
+            <div class="demo-block">
+                <div class="ui-whitespace">
+
+                    <h1 class="h1-text"><img src="{{week.titleSrc}}" class="h1-pic" alt="">{{week.title}}</h1>
+                    <p class="ui-nowrap-multi">
+                        {{week.p}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </a>
+
+</template>
+
+</body>
+
+<script src="/static/mix/js/vue.min.js"></script>
+<script>
+    Vue.component('magazine', {
+        template: "#magazine-template",
+        props: ['list']
+    });
+    var vm = new Vue({
+        el: '#grid',
+        data: {
+            weeks: [
+                {
+                    url: '/mix/s3/page1.html?isMix=1&shareDisable=0&color=3c4535',
+                    part1: true,
+                    scrolloading: false,
+                    headerSrc: '/static/mix/images/s3/cuojin-header.png',
+                    titleSrc: '/static/mix/images/s3/cuojin-title.png',
+                    title: '12张逼死人的图 ',
+                    p: '上帝给了我们一双眼睛让我们去发现更美丽的世界，但有时候我们也会被自己的眼睛所欺骗，眼见不一定为实。不信？让我们来看看以下12张逼死人的错觉图。'
+                },
+                {
+                    url: '/mix/s3/page2.html?isMix=1&shareDisable=0&color=3c4535',
+                    part1: false,
+                    scrolloading: false,
+                    headerSrc: '/static/mix/images/s3/cuowu-header.png',
+                    titleSrc: '/static/mix/images/s3/cuowu-title.png',
+                    title: '设计师的小把戏',
+                    p: '溢出的牛奶：斯洛伐克设计师 Lenka Czereova 对早餐牛奶情有独钟，于是他设计了这样一款马克杯，里面装满牛奶，将杯子拿在手中，就和牛奶满溢的效果一样'
+                },
+                {
+                    url: '/mix/s3/page3.html?isMix=1&shareDisable=0&color=3c4535',
+                    part1: false,
+                    scrolloading: true,
+                    headerSrc: '/static/mix/images/s3/cuoying-header.png',
+                    titleSrc: '/static/mix/images/s3/cuoying-title.png',
+                    title: 'Metamorphosis · 蜕变',
+                    p: '人体彩绘师Leonie Gené和Joerg Duesterwald联合两位摄影师Laila Pregizer和Uwe Schmida一起完成了名为《Metamorphosis/蜕变》的创意视错觉项目。'
+                },
+                {
+                    url: '/mix/s3/page4.html?isMix=1&shareDisable=0&color=3c4535',
+                    part1: false,
+                    scrolloading: true,
+                    headerSrc: '/static/mix/images/s3/cuojue-header.png',
+                    titleSrc: '/static/mix/images/s3/cuojue-title.png',
+                    title: '如何穿衣才显瘦',
+                    p: '穿什么衣服显瘦？这问题看上去很简单，其实却没多少人能真正答出个所以然。因为显瘦不仅是时装方面的问题，还踏进了视错觉心理学的范畴。'
+                },
+                {
+                    url: '/mix/s3/page5.html?isMix=1&shareDisable=0&color=3c4535',
+                    part1: false,
+                    scrolloading: true,
+                    headerSrc: '/static/mix/images/s3/shige-header.png',
+                    titleSrc: '/static/mix/images/s3/shige-title.png',
+                    title: '不可能的世界',
+                    p: '埃舍尔（1898－1972）荷兰人，全世界最著名、最开脑洞的视错觉画家。他的成就无法匹及，他的绘画让人真正的感受到"眼见未必为实"。'
+                },
+                {
+                    url: '/mix/s3/page6.html?isMix=1&shareDisable=0&color=3c4535',
+                    part1: false,
+                    scrolloading: true,
+                    headerSrc: '/static/mix/images/s3/cuochu-header.png',
+                    titleSrc: '/static/mix/images/s3/cuochu-title.png',
+                    title: '纪念碑谷',
+                    p: '如果你不时感到心神疲倦，被快节奏的生活所束缚，不妨尝试下由ustwo game制作的3D视错觉游戏大作——《纪念碑谷》。'
+                }
+            ]
+
+
+        },
+        ready: function () {
+            jQuery.getScript("/static/mix/js/jquery.scrollLoading.js")
+                    .done(function () {
+                        /* 耶，没有问题，这里可以干点什么 */
+                        //滚动异步加载图片
+                        $(".scrollLoading").scrollLoading();
+                        jQuery.getScript("/static/mix/js/idangerous.swiper-2.1.min.js")
+                                .done(function () {
+                                    /* 耶，没有问题，这里可以干点什么 */
+                                    //滚动
+                                    var mySwiper = new Swiper('.swiper-container', {
+                                        pagination: '.pagination',
+                                        paginationClickable: true,
+                                        slidesPerView: 'auto'
+                                    })
+
+
+                                })
+                                .fail(function () {
+                                    console.log('js加载出错了');
+                                });
+                    })
+                    .fail(function () {
+                        console.log('js加载出错了');
+                    });
+        }
+    })
+</script>
+<script type="text/javascript">
+    function browserRedirect() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+            return;
+        } else {
+            var b = '<h1>请用手机访问此链接</h1>';
+            document.getElementsByTagName("body")[0].innerHTML = b;
+        }
+    }
+
+    browserRedirect();
+</script>
+
+</html>

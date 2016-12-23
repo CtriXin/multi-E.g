@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>帖子详情</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+<body>
+<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+<div class="page-group">
+    <div id="page-infinite-scroll-bottom" class="page page-current">
+        <div class="content infinite-scroll native-scroll" data-distance="100">
+            <div class="card no-margin">
+                <div class="list-block media-list">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><img class="/static/img-radias-50" src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">你管我叫啥呢 <img src="/static/img/male.png" class="sex" alt=""></div>
+                                    </div>
+                                    <div class="item-subtitle">子标题</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        这是一个用纯文本的简单卡片。但卡片可以包含自己的页头，页脚，列表视图，图像，和里面的任何元素。
+                        <div class=" grid-demo">
+
+                            <div class="row">
+                                <div class="col-33 col-30">
+                                    <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="100%">
+                                </div>
+                                <div class="col-33 col-30">
+                                    <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="100%">
+                                </div>
+                                <div class="col-33 col-30">
+                                    <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="100%">
+                                </div>
+                                <div class="col-33">
+                                    <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="100%">
+                                </div>
+                                <div class="col-33">
+                                    <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="100%">
+                                </div>
+                                <div class="col-33">
+                                    <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="100%">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-end-content">
+                    <div class="row row-right-1st">
+                        <div class="col-40 float-right">
+                            <div class="row row-right-2nd">
+                                <div class="col-60 comment-60 float-right">
+                                    <img src="/static/img/pinglun.png" width="100%" alt="">
+                                </div>
+                                <div class="col-40 zan-40 float-right">
+                                    <img src="/static/img/zan.png" width="100%" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class=" grid-demo">
+                        <div class="row content-padded-lanscape">
+                            <div class="col-12">
+                                <img  src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="100%">
+                            </div>
+                            <div class="col-12">
+                                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="100%">
+                            </div>
+                            <div class="col-12">
+                                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="100%">
+                            </div>
+                            <div class="col-12">
+                                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="100%">
+                            </div>
+                            <div class="col-12">
+                                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="100%">
+                            </div>
+                            <div class="col-12">
+                                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="100%">
+                            </div>
+                            <div class="col-12">
+                                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="100%">
+                            </div>
+                            <div class="col-12">
+                                <img src="/static/img/more.png" width="100%">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="reply-content">
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">你管我叫啥呢</div>
+                                        </div>
+                                        <div class="item-subtitle">3.14</div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    这里是萌萌哒的回复回复回复哦～
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+            <!-- 加载提示符 -->
+            <div class="infinite-scroll-preloader">
+                <div class="preloader">
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
+
+
+<script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script>
+    $(function () {
+        'use strict';
+
+        //无限滚动
+        $(document).on("pageInit", "#page-infinite-scroll-bottom", function(e, id, page) {
+            var loading = false;
+            // 每次加载添加多少条目
+            var itemsPerLoad = 20;
+            // 最多可加载的条目
+            var maxItems = 100;
+            var lastIndex = $('.reply-content .media-list').length;
+            function addItems(number, lastIndex) {
+                // 生成新条目的HTML
+                var html = '';
+                for (var i = lastIndex + 1; i <= lastIndex + number; i++) {
+
+                    html += '<div class="list-block media-list"><ul><li><div class="item-content"><div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style="width: 2.2rem;"></div><div class="item-inner"><div class="item-title-row"><div class="item-title">你管我叫啥呢</div></div><div class="item-subtitle">3.14</div></div></div><p class="reply-message-inner">这里是萌萌哒的回复回复回复哦~</p></li></ul></div>'
+
+// html += '<li class="item-content"><div class="item-inner"><div class="item-title">新条目</div></div></li>';
+//                    html+= '<div class="list-block media-list"> <ul> <li> <div class="item-content"> <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div> <div class="item-inner"> <div class="item-title-row"> <div class="item-title">你管我叫啥呢</div> </div> <div class="item-subtitle">3.14</div> </div> </div> <p class="reply-message-inner">这里是萌萌哒的回复回复回复哦～ </p> </li> </ul> </div>'
+                }
+                // 添加新条目
+                $('.infinite-scroll .reply-content').append(html);
+            }
+            $(page).on('infinite', function() {
+                // 如果正在加载，则退出
+                if (loading) return;
+                // 设置flag
+                loading = true;
+                // 模拟1s的加载过程
+                setTimeout(function() {
+                    // 重置加载flag
+                    loading = false;
+                    if (lastIndex >= maxItems) {
+                        // 加载完毕，则注销无限加载事件，以防不必要的加载
+                        $.detachInfiniteScroll($('.infinite-scroll'));
+                        // 删除加载提示符
+                        $('.infinite-scroll-preloader').remove();
+                        return;
+                    }
+                    addItems(itemsPerLoad,lastIndex);
+                    // 更新最后加载的序号
+                    lastIndex = $('.reply-content .media-list').length;
+                    $.refreshScroller();
+                }, 1000);
+            });
+        });
+
+
+        $.init();
+    });
+
+</script>
+</body>
+</html>

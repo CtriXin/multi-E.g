@@ -1,0 +1,125 @@
+html{
+    font-size: 20px !important;
+}
+.page{
+    background: #fff;
+}
+.img-radias-50{
+    border-radius: 50%;
+}
+.no-padding{
+    padding:0 !important;
+}
+.no-margin{
+    margin: 0 !important;
+}
+.content-padded{
+    margin: .75rem;
+}
+.content-padded-vertical{
+    margin: .75rem 0;
+}
+.content-padded-lanscape{
+    margin: 0 .75rem;
+}
+.float-right{
+    float: right !important;
+}
+.col-12{
+    width:11%;
+    margin: .75%;
+}
+.col-12 img{
+    border-radius: 50%;
+}
+.col-30{
+    margin-bottom: 2% !important;
+}
+.bar-tab{
+    height: 3rem;
+    background: #fff3f6;
+}
+.bar-tab img{
+    height:2rem;
+}
+.footer-left{
+    padding:10px 0 10px 10px;
+    text-align: left !important;
+}
+.footer-right{
+    text-align: right !important;
+    padding: 10px 10px 10px 0;
+}
+a.footer-btn{
+    padding: .4rem 1.2rem;
+    background: #116ef4;
+    text-align: center;
+    color: white;
+    border-radius: 50rem;
+}
+
+/*卡片header*/
+.sex{
+    height:.7rem;
+    vertical-align: text-bottom;
+}
+.list-block.media-list .item-media{
+    padding-top:0;
+    padding-bottom: 0;
+
+}
+.list-block.media-list .item-inner{
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+}
+
+.card{
+    box-shadow: none;
+}
+/*卡片content*/
+.card-content-inner{
+    padding: 0 .75rem;
+}
+.row-right-1st{
+    margin: 0 .75rem;
+}
+.row-right-2nd{
+    margin: 0 0 0 1.5rem;
+}
+.comment-60{
+    padding-left: .5rem !important;
+    margin-left: 0 !important;
+}
+.zan-40{
+    padding-right: .4rem !important;
+    margin-left: 0 !important;
+}
+
+.card-end-content{
+    border-bottom: 1px solid #f2f2f2;
+    padding: 1rem 0;
+}
+
+/*回复内容*/
+.item-media img{
+    border-radius: 50%;
+}
+.item-inner .item-title{
+    font-size: .7rem;
+    color: #116ef4;
+
+}
+.item-inner .item-subtitle{
+    font-size: .6rem;
+    color: #999999;
+}
+
+.reply-message-inner{
+    margin: 0;
+    margin-left: 3.7rem;
+    color: #333333;
+    font-size: .6rem;
+    font-weight: normal;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+}

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>帖子详情</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="/static/forum/css/style.css">
+
+
+
+
+</head>
+<body>
+
+
+
+<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+<div class="page-group">
+    <div id="page-infinite-scroll-bottom" class="page page-current">
+
+        <!-- 工具栏 -->
+        <nav class="bar bar-tab">
+            <div class="tab-item external footer-left" >
+                <img src="/static/forum/img/logo.png" alt="">
+            </div>
+            <div class="tab-item external footer-right" >
+                <a class="footer-btn" href="/tataufo/download">去下载</a>
+            </div>
+        </nav>
+
+
+        <div class="content infinite-scroll native-scroll" data-distance="100">
+            <div class="card no-margin">
+                <div class="list-block mediadia-list">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <img class="/static/forum/img-radias-50"
+                                         src="http://imagecloud.tataufo.com/<%= data.author.avatarurl%>?imageView2/5/w/200/h/200"
+                                         style='width: 2.2rem;'>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">
+                                            <%= data.author.nickname %>
+                                            <% if(data.author.sex == 1){%>
+                                            <img src="/static/forum/img/sex_male.png" class="sex" alt="">
+                                            <%}else{%>
+                                            <img src="/static/forum/img/sex_female.png" class="sex" alt="">
+                                            <%}%>
+                                        </div>
+                                    </div>
+                                    <div class="item-subtitle"><%= formatMonth(data.addtime*1000) %></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!--动态更改页数-->
+                <p style="display: none" id="pageIndex"><%= page_index +1  %></p>
+                <!--动态更改返回数据中评论的条数-->
+                <p id="length" style="display:none;"></p>
+
+
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <%= data.content %>
+                        <div class=" grid-demo">
+
+                            <div class="row">
+                                <% for( i in data.media_urls ){%>
+                                <div class="col-33 col-30">
+                                    <img src="http://imagecloud.tataufo.com/<%= data.media_urls[i]%>?imageView2/5/w/200/h/200"
+                                         width="100%">
+                                </div>
+                                <%}%>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-end-content">
+                    <div class="row row-right-1st">
+                        <div class="col-40 float-right">
+                            <div class="row row-right-2nd">
+                                <div class="col-60 comment-60 float-right">
+                                    <img src="/static/forum/img/pinglun.png" width="100%" alt="">
+                                </div>
+                                <div class="col-40 zan-40 float-right">
+                                    <img src="/static/forum/img/zan.png" width="100%" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class=" grid-demo">
+                        <div class="row content-padded-lanscape likelist">
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="reply-content">
+
+                    <% for (var i in data_reply){%>
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <% if(data_reply[i].commenter.avatarurl == "") {%>
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDg3ODMxMkQ1OUY2MTFFNTlDRjY5MEZBRDgzMEE3MEEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDg3ODMxMkU1OUY2MTFFNTlDRjY5MEZBRDgzMEE3MEEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpEODc4MzEyQjU5RjYxMUU1OUNGNjkwRkFEODMwQTcwQSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpEODc4MzEyQzU5RjYxMUU1OUNGNjkwRkFEODMwQTcwQSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PhwD5pkAAAlFSURBVHja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"
+                                             style='width: 2.2rem;'>
+                                        <% } else {%>
+                                        <img src="http://imagecloud.tataufo.com/<%= data_reply[i].commenter.avatarurl %>?imageView2/5/w/100/h/100"
+                                             style='width: 2.2rem;'>
+                                        <%}%>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">
+                                                <%= data_reply[i].commenter.nickname %>
+                                                <% if(data_reply[i].commenter.sex == 1){%>
+                                                <img src="/static/forum/img/sex_male.png" class="sex" alt="">
+                                                <%}else{%>
+                                                <img src="/static/forum/img/sex_female.png" class="sex" alt="">
+                                                <%}%>
+                                            </div>
+                                        </div>
+                                        <div class="item-subtitle"><%= formatMonthpoint(data_reply[i].addtime*1000) %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="reply-message-inner">
+                                    <% if(data_reply[i].comment_target){%>
+                                        <span>回复<%= data_reply[i].comment_target.nickname %>
+                                            <% if(data_reply[i].comment_target.sex==1){%>
+                                                <img src="/static/forum/img/sex_male.png" style="height: .6rem" alt="">
+                                            <%}else{%>
+                                                <img src="/static/forum/img/sex_female.png" style="height: .6rem" alt="">
+                                            <%}%>
+                                            :
+                                        </span>
+                                    <%}%>
+
+                                    <%= data_reply[i].body %>
+                                </p>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <%}%>
+
+
+                </div>
+
+
+
+
+                <% if(data_reply == ''){%>
+                <%}else{%>
+                <!-- 加载提示符 -->
+                <div class="infinite-scroll-preloader">
+                    <div class="preloader">
+                    </div>
+                </div>
+                <%}%>
+
+
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+    <!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
+
+
+    <script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <script>
+        $(function () {
+            'use strict';
+
+            function formatMonthpoint(time){
+                var date = new Date(time);
+                var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+                var currentDate = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+                return month + '.' + currentDate;
+            }
+
+            $(document).ready(function () {
+                //获取点赞列表
+                $.ajax({
+                    type: "post",
+                    url: "/forum/index/getlike",
+                    data: {
+                        topic_id: '<%= topic_id %>',
+                        page_index: '<%= page_index %>'
+                    },
+                    beforeSend: function (XMLHttpRequest) {
+                        //ShowLoading();
+                    },
+                    success: function (data, textStatus) {
+                        //Something show's here
+                        console.log(data);
+                        var html = '';
+                        var hhh = '';
+                        for (var i in data) {
+                            html = '<div class="col-12">' +
+                                    '<img src="http://imagecloud.tataufo.com/' + data[i].avatarurl + '?imageView2/5/w/100/h/100" width="100%">' +
+                                    '</div>';
+                            hhh += html;
+
+                        }
+                        console.log(hhh);
+                        $('.likelist').append(hhh)
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        //HideLoading();
+                    },
+                    error: function () {
+                        //请求出错处理
+                    }
+                });
+
+
+
+
+            });
+
+            //无限滚动
+            $(document).on("pageInit", "#page-infinite-scroll-bottom", function (e, id, page) {
+                var loading = false;
+                // 每次加载添加多少条目
+                var itemsPerLoad = 10;
+                // 最多可加载的条目
+                var maxItems = 100;
+                var lastIndex = $('.reply-content .media-list').length;
+                console.log(lastIndex);
+                function addItems(number, lastIndex) {
+                    // 生成新条目的HTML
+                    var html = '';
+
+                    //获取评论
+                    $.ajax({
+                        type: "post",
+                        url: "/forum/index/getreply",
+                        data: {
+                            topic_id: '<%= topic_id %>',
+                            page_index: $('#pageIndex').text()
+                        },
+                        beforeSend: function (XMLHttpRequest) {
+                            //ShowLoading();
+                        },
+                        success: function (data, textStatus) {
+                            //Something show's here
+                            console.log(data);
+                            var html = '';
+                            var length = data.length;
+
+                            console.log(length);
+                            $('#length').text(length);
+                            if(length == 0){
+                                $('.infinite-scroll-preloader').remove();
+
+                            }
+
+                            for (var i = lastIndex + 1; i <= lastIndex + length; i++) {
+//                                var data_reply = data.comments[i];
+                                var o = i -11;
+                                var data_reply = data[o];
+
+
+
+                                //第一个if判断
+                                var ifhtmlI = '';
+                                if(data_reply.commenter.avatarurl == ""){
+                                    ifhtmlI = '<img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style="width: 2.2rem;">'
+                                }else{
+                                    ifhtmlI = '<img src="http://imagecloud.tataufo.com/'+ data_reply.commenter.avatarurl +'?imageView2/5/w/100/h/100" style="width: 2.2rem;">'
+                                }
+
+
+
+
+                                //第二个if判断
+                                var ifhtmlII = '';
+                                if(data_reply.commenter.sex==1){
+                                    ifhtmlII = '<img src="/static/forum/img/sex_male.png" style="height: .6rem" alt="">'
+                                }else{
+                                    ifhtmlII = '<img src="/static/forum/img/sex_female.png" style="height: .6rem" alt="">'
+                                }
+
+
+
+
+                                //第三个if判断
+                                var ifhtmlIIII = '';
+                                if(data_reply.comment_target){
+                                    //第四个if判断
+                                    var ifhtmlIII = '';
+                                    if(data_reply.comment_target.sex==1){
+                                        ifhtmlII = '<img src="/static/forum/img/sex_male.png" style="height: .6rem" alt="">'
+                                    }else{
+                                        ifhtmlII = '<img src="/static/forum/img/sex_female.png" style="height: .6rem" alt="">'
+                                    }
+                                    ifhtmlIIII = '<span>回复'+ data_reply.commenter.nickname +''+ifhtmlIII+'</span>'
+
+                                }
+
+
+
+
+
+                                html += ' <div class="list-block media-list"> ' +
+                                            '<ul> ' +
+                                                '<li> ' +
+                                                    '<div class="item-content"> ' +
+                                                        '<div class="item-media">' +
+                                                            ifhtmlI+
+                                                            '</div> ' +
+                                                        '<div class="item-inner"> ' +
+                                                            '<div class="item-title-row"> ' +
+                                                                '<div class="item-title">'+ data_reply.commenter.nickname + ifhtmlII+ '</div> ' +
+                                                            '</div> ' +
+                                                            '<div class="item-subtitle">'+ formatMonthpoint(data_reply.addtime*1000)  +
+                                                            '</div> ' +
+                                                        '</div>'+
+                                                    '</div> ' +
+                                                    '<p class="reply-message-inner">' +
+                                                    ifhtmlIII + data_reply.body +
+                                                    '</p> ' +
+                                                '</li> ' +
+                                            '</ul> ' +
+                                        '</div>';
+
+
+                            }
+
+
+
+                            // 添加新条目
+                            $('.infinite-scroll .reply-content').append(html);
+
+
+
+                            var pageIndex_orignal = $('#pageIndex').text();
+                            pageIndex_orignal ++;
+                            $('#pageIndex').text(pageIndex_orignal);
+                            console.log(pageIndex_orignal)
+
+
+                        },
+                        complete: function (XMLHttpRequest, textStatus) {
+                            //HideLoading();
+                        },
+                        error: function () {
+                            //请求出错处理
+                        }
+                    });
+
+                    console.log(lastIndex)
+                }
+
+                $(page).on('infinite', function () {
+                    // 如果正在加载，则退出
+                    if (loading) return;
+                    // 设置flag
+                    loading = true;
+                    // 模拟1s的加载过程
+                    setTimeout(function () {
+                        // 重置加载flag
+                        loading = false;
+                        if (lastIndex >= maxItems ) {
+                            // 加载完毕，则注销无限加载事件，以防不必要的加载
+                            $.detachInfiniteScroll($('.infinite-scroll'));
+                            // 删除加载提示符
+                            $('.infinite-scroll-preloader').remove();
+                            return;
+                        }
+                        addItems(itemsPerLoad, lastIndex);
+
+                        // 更新最后加载的序号
+                        lastIndex = $('.reply-content .media-list').length;
+
+
+
+
+
+                        $.refreshScroller();
+                    }, 1000);
+                });
+            });
+
+
+            $.init();
+        });
+
+    </script>
+    <script type="text/javascript">
+        function browserRedirect() {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+            if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+                return;
+            } else {
+                var b = '<h1>请用手机访问此链接</h1>';
+                document.getElementsByTagName("body")[0].innerHTML = b;
+            }
+        }
+
+        browserRedirect();
+    </script>
+</body>
+</html>

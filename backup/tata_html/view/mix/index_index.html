@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="wx_pic" content="">
+    <meta name="description" content="Mix周刊">
+    <title>Mix周刊</title>
+    <link rel="stylesheet" href="/static/mix/css/frozen.css">
+    <link rel="stylesheet" href="/static/mix/css/idangerous.swiper.css">
+    <link rel="stylesheet" href="/static/mix/css/demo.css">
+    <script src="/static/mix/js/jquery-2.1.1.min.js"></script>
+    <script src="/static/mix/lib/zepto.min.js"></script>
+    <script src="/static/mix/js/frozen.js"></script>
+
+
+</head>
+
+<body ontouchstart>
+
+<section class="ui-container">
+
+    <section id="grid">
+
+
+        <magazine :list="weeks"></magazine>
+
+
+    </section>
+
+
+    <section class="history">
+        <%if(length>1){%>
+        <div class="demo-item part-3 ui-border-t">
+
+            <div class="demo-block">
+                <div class="ui-whitespace">
+
+                    <h1 class="h1-text">Mix Review</h1>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <%for(var i in data){%>
+                <div class="swiper-slide red-slide" style="width:200px">
+                    <div class="title">
+                        <a href="<%= data[i].season_url %>&isMix=1&shareDisable=0"><img src="<%= data[i].season_img %>" width="100%" alt=""></a>
+                    </div>
+                </div>
+                <%}%>
+
+            </div>
+            <div class="pagination"></div>
+        </div>
+        <%}else{%>
+
+        <%}%>
+    </section>
+
+
+    <script>
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = '/static/mix/lib/zepto.min.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+        (function () {
+            var po = document.createElement("script");
+            po.type = "text/javascript";
+            po.async = true;
+            po.src = "/static/mix/js/frozen.js";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(po, s);
+        })();
+
+
+    </script>
+
+
+</section><!-- /.ui-container-->
+
+<template id="magazine-template">
+
+    <a v-for="week in list" class="section-link" href="{{week.url}}">
+        <div :class="['demo-item',week.part1? 'part-1':'part-2',week.part1? 'part-1':'ui-border-t']">
+            <div class="demo-block">
+                <ul class="ui-row ui-whitespace">
+                    <img v-if="!week.scrolloading" src="{{week.headerSrc}}" style="vertical-align: middle" width="100%"
+                         alt="">
+                    <img v-if="week.scrolloading" class="scrollLoading" data-url="{{week.headerSrc}}"
+                         src="/static/mix/images/placeholder.png" style="vertical-align: middle" width="100%" alt=""
+                         title="">
+
+                </ul>
+            </div>
+            <div class="demo-block">
+                <div class="ui-whitespace">
+
+                    <h1 class="h1-text"><img src="{{week.titleSrc}}" class="h1-pic" alt="">{{week.title}}</h1>
+                    <p class="ui-nowrap-multi">
+                        {{week.p}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </a>
+
+</template>
+
+</body>
+
+<script src="/static/mix/js/vue.min.js"></script>
+<script>
+    Vue.component('magazine', {
+        template: "#magazine-template",
+        props: ['list']
+    });
+    var vm = new Vue({
+        el: '#grid',
+        data: {
+            weeks: [
+                {
+                    url: '/mix/index/page1.html?isMix=1&shareDisable=0&color=8900FF',
+                    part1: true,
+                    scrolloading: false,
+                    headerSrc: '/static/mix/images/zatan-header.png',
+                    titleSrc: '/static/mix/images/zatan-title.png',
+                    title: '一只专偷裤衩儿的猫',
+                    p: '养一只喵星人很幸福，但这只有些例外。因为它不爱抓老鼠什么的，只爱偷别人家的内裤，偷一条不够，必须偷一堆。'
+                },
+                {
+                    url: '/mix/index/page2.html?isMix=1&shareDisable=0&color=8900FF',
+                    part1: false,
+                    scrolloading: false,
+                    headerSrc: '/static/mix/images/zawua-header.png',
+                    titleSrc: '/static/mix/images/zawua-title.png',
+                    title: '杂物再生',
+                    p: '这些会卖萌的茶壶，全是用废弃铁罐和破掉的茶壶等重新组装出来的。如果受到启发，你会不会也做一把?'
+                },
+                {
+                    url: '/mix/index/page3.html?isMix=1&shareDisable=0&color=8900FF',
+                    part1: false,
+                    scrolloading: true,
+                    headerSrc: '/static/mix/images/zawub-header.png',
+                    titleSrc: '/static/mix/images/zawub-title.png',
+                    title: '杂货设计师',
+                    p: '这堆巧夺天工、出神入化的人体运动纸模来自西班牙艺术家Raya Sader Bujana。好吧，我承认这名字很难念，也记不住。要知道，每个模型需要用到的小纸卡多达数百张，且每张纸卡的曲度、间隙都要精确到毫厘，完美度堪称难死处女座。而且我还知道，你们的人机工程学作业没救了！'
+                },
+                {
+                    url: '/mix/index/page4.html?isMix=1&shareDisable=0&color=8900FF',
+                    part1: false,
+                    scrolloading: true,
+                    headerSrc: '/static/mix/images/zajia-header.png',
+                    titleSrc: '/static/mix/images/zajia-title.png',
+                    title: '杂货依赖重症患者',
+                    p: '若是问你生活中最依赖哪些物品？恐怕答案最多的就是“手机钱包钥匙”三件套了吧。然而苏黎世设计大学的讲师Franco Clivio先生，则是一枚如假包换的收藏癖。'
+                },
+                {
+                    url: '/mix/index/page5.html?isMix=1&shareDisable=0&color=8900FF',
+                    part1: false,
+                    scrolloading: true,
+                    headerSrc: '/static/mix/images/zawen-header.png',
+                    titleSrc: '/static/mix/images/zawen-title.png',
+                    title: '解忧杂货店',
+                    p: '你画的地图是一张白纸，所以，即使想决定目的地，也不知道路在哪里。地图是白纸当然很伤脑筋，任何人都会不知所措。但是不妨换一个角度思考，正因为是白纸，所以可以画任何地图，一切都掌握在你自己手上。你很自由，充满无限可能。'
+                },
+                {
+                    url: '/mix/index/page6.html?isMix=1&shareDisable=0&color=8900FF',
+                    part1: false,
+                    scrolloading: true,
+                    headerSrc: '/static/mix/images/zaqu-header.png',
+                    titleSrc: '/static/mix/images/zaqu-title.png',
+                    title: '昭和杂货店物语',
+                    p: '这是一个能够回味儿时的感觉，让人不禁眼角湿润的养成游戏。玩家通过游戏可以看到昭和年代的浓重气氛，有些古旧的店面，来往的人群，慈祥的婆婆与她的茶等等。一个有点特别，又有点感人的故事即将开始了'
+                },
+            ]
+
+
+        },
+        ready: function () {
+            jQuery.getScript("/static/mix/js/jquery.scrollLoading.js")
+                    .done(function () {
+                        /* 耶，没有问题，这里可以干点什么 */
+                        //滚动异步加载图片
+                        $(".scrollLoading").scrollLoading();
+                        jQuery.getScript("/static/mix/js/idangerous.swiper-2.1.min.js")
+                                .done(function () {
+                                    /* 耶，没有问题，这里可以干点什么 */
+                                    //滚动
+                                    var mySwiper = new Swiper('.swiper-container', {
+                                        pagination: '.pagination',
+                                        paginationClickable: true,
+                                        slidesPerView: 'auto'
+                                    })
+
+
+                                })
+                                .fail(function () {
+                                    console.log('js加载出错了');
+                                });
+                    })
+                    .fail(function () {
+                        console.log('js加载出错了');
+                    });
+        }
+    })
+</script>
+<script type="text/javascript">
+    function browserRedirect() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+            return;
+        } else {
+            var b = '<h1>请用手机访问此链接</h1>';
+            document.getElementsByTagName("body")[0].innerHTML = b;
+        }
+    }
+
+    browserRedirect();
+</script>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>昭和杂货店物语</title>
+    <link rel="stylesheet" href="/static/mix/css/frozen.css">
+    <link rel="stylesheet" href="/static/mix/css/demo.css">
+    <link rel="stylesheet" href="/static/mix/css/simplelightbox.min.css">
+
+    <script src="/static/mix/js/jquery-2.1.1.min.js"></script>
+
+
+</head>
+
+<body ontouchstart>
+
+<section class="ui-container">
+
+
+    <section id="grid">
+        <div class="demo-item">
+            <div class="demo-block">
+                <section class="ui-placehold-img">
+                    <span style="background-image:url('/static/mix/images/zaqu-placeholder.png')"></span>
+                </section>
+            </div>
+        </div>
+
+        <div class="demo-item">
+            <div class="demo-block">
+                <div class="ui-whitespace">
+
+                    <h1 class="h1-text"><img src="/static/mix/images/zaqu-title.png" class="h1-pic" alt="">昭和杂货店物语</h1>
+                    <p>
+                        这是一个能够回味儿时的感觉，让人不禁眼角湿润的养成游戏。玩家通过游戏可以看到昭和年代的浓重气氛，有些古旧的店面，来往的人群，慈祥的婆婆与她的茶等等。一个有点特别，又有点感人的故事即将开始了……
+                    </p>
+                    <div class="ui-row-flex ">
+                        <div class="ui-col flex-center">
+                            <a href="/static/mix/images/zaqu-1.png"><img class="scrollLoading" data-url="/static/mix/images/zaqu-1.png"  src="/static/mix/images/placeholder.png" alt="" title=""></a>
+                        </div>
+                    </div>
+
+
+                    <div class="ui-row-flex ">
+                        <div class="ui-col flex-center">
+                            <a href="/static/mix/images/zaqu-2.png"><img class="scrollLoading" data-url="/static/mix/images/zaqu-2.png"  src="/static/mix/images/placeholder.png" alt="" title=""></a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="ui-row-flex ">
+                        <div class="ui-col flex-center">
+                            <a href="/static/mix/images/zaqu-3.png"><img class="scrollLoading" data-url="/static/mix/images/zaqu-3.png"  src="/static/mix/images/placeholder.png" alt="" title=""></a>
+                        </div>
+
+                    </div>
+
+                    <div class="ui-row-flex ">
+                        <div class="ui-col flex-center">
+                            <a href="/static/mix/images/zaqu-4.png"><img class="scrollLoading" data-url="/static/mix/images/zaqu-4.png"  src="/static/mix/images/placeholder.png" alt="" title=""></a>
+                        </div>
+
+                    </div>
+
+                    <div class="ui-row-flex ">
+                        <div class="ui-col flex-center">
+                            <a href="/static/mix/images/zaqu-5.png"><img class="scrollLoading" data-url="/static/mix/images/zaqu-5.png"  src="/static/mix/images/placeholder.png" alt="" title=""></a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="ui-row-flex ">
+                        <div class="ui-col flex-center">
+                            <a href="/static/mix/images/zaqu-6.png"><img class="scrollLoading" data-url="/static/mix/images/zaqu-6.png"  src="/static/mix/images/placeholder.png" alt="" title=""></a>
+                        </div>
+
+                    </div>
+
+                    <div class="ui-row-flex ">
+                        <div class="ui-col flex-center">
+                            <a href="/static/mix/images/zaqu-7.png"><img class="scrollLoading" data-url="/static/mix/images/zaqu-7.png"  src="/static/mix/images/placeholder.png" alt="" title=""></a>
+                        </div>
+
+                    </div>
+
+                    <p>
+                        就在那边街角，那间小小杂货店里。收音机的音乐、刨冰、水滴、蝉鸣的叫声，交替而至。曾真心希望永远别结束，某一天，在某个夏天。
+                    </p>
+
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+        <div class="dwo-control">
+            <span class="dwo-prev"></span>
+            <span class="dwo-next"></span>
+            <span class="dwo-close"></span>
+        </div>
+
+
+    </section>
+
+
+
+</section><!-- /.ui-container-->
+
+
+<!--异步加载-->
+<script>
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = '/static/mix/lib/zepto.min.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+    (function () {
+        var po = document.createElement("script");
+        po.type = "text/javascript";
+        po.async = true;
+        po.src = "/static/mix/js/frozen.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(po, s);
+    })();
+
+    jQuery.getScript("/static/mix/js/jquery.scrollLoading.js")
+            .done(function () {
+                /* 耶，没有问题，这里可以干点什么 */
+                //滚动异步加载图片
+                $(".scrollLoading").scrollLoading();
+                jQuery.getScript("/static/mix/js/simple-lightbox.min.js")
+                        .done(function () {
+                            /* 耶，没有问题，这里可以干点什么 */
+                            //点击查看大图
+                            var $dowebok = $('.demo-block a').simpleLightbox({
+                                nav: false,
+                                close: false,
+                                captions: false,
+                                widthRatio: 1,
+                                heightRatio: 1,
+                                swipeTolerance: 100
+                            });
+
+                            $dowebok.on('show.simplelightbox', function () {
+                                $('.dwo-control').show();
+                            });
+                            $dowebok.on('close.simplelightbox', function () {
+                                $('.dwo-control').hide();
+                            });
+
+                            $('.dwo-prev').on('click', function () {
+                                $dowebok.prev();
+                                return false;
+                            });
+                            $('.dwo-next').on('click', function () {
+                                $dowebok.next();
+                                return false;
+                            });
+                            $('.dwo-close').on('click', function () {
+                                $dowebok.close();
+                                return false;
+                            });
+                            $('.sl-overlay').on('click', function () {
+                                $dowebok.close();
+                                return false;
+                            });
+
+
+                        })
+                        .fail(function () {
+                            console.log('js加载出错了');
+                        });
+            })
+            .fail(function () {
+                console.log('js加载出错了');
+            });
+</script>
+<!--计算图片高度-->
+<script>
+    $(document).ready(function() {
+        $width = $(window).width()-20;
+        $imgheight = $width/1.633;
+        console.log($imgheight);
+        $('.flex-center a img').css({'height':$imgheight+'px'})
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+
+    <title>下载tataUFO</title>
+
+
+    <style>
+        body {
+            background: #fff;
+            background-size: cover;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            font: 17px/1.5 	SimHei, arial, sans-serif;
+        }
+
+        p {
+            padding: 15px;
+            background-color: white;
+            margin: 30px 10px;
+            color: #116ef4;
+            font-weight: 600;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .1);
+            border: 2px solid #116ef4;
+            border-radius: 5px;
+        }
+
+        .arrow {
+            width: 20px;
+            height: 38px;
+            float: right;
+            margin-right: 8px;
+            margin-top: -24px;
+        }
+
+    </style>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?448ca7d6d20edb948b3040f5c0a9b81f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<!--<img class="arrow" src="http://imagecloud.tataufo.com/situ/static/download_arrow.png"/>-->
+<input type="hidden" value= "<?php echo $distribution ?>" id="distribution">
+<p>请点击右上角按钮，然后在弹出窗口里选择“在<span id="browser">Safari</span>中打开”，即可下载。</p>
+
+<div style="text-align: center"><img src="/static/footer-logo.png" width="80"/></div>
+</body>
+<script>
+    (function () {
+        var     iOS = 'https://itunes.apple.com/cn/app/da-xue-sheng-pai-tuo-bi-bei/id721033608',
+                android = 'http://tataufo.com/android/tataufo.apk',
+                homepage = 'http://tataufo.com';
+
+        if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+            window.location = iOS;
+        } else if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
+            document.getElementById('browser').innerHTML = '浏览器';
+            window.location = android;
+        } else {
+            window.location = homepage;
+        }
+    })();
+</script>
+</html>

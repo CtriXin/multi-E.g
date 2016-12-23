@@ -1,0 +1,16 @@
+{
+  "apps": [{
+    "name": "tata_html",
+    "script": "www/production.js",
+    "cwd": "/Users/xin/Documents/learning-step/tata_html",
+    "exec_mode": "cluster",
+    "instances": 0,
+    "max_memory_restart": "1G",
+    "autorestart": true,
+    "node_args": [],
+    "args": [],
+    "env": {
+      
+    }
+  }]
+}

@@ -1,0 +1,234 @@
+body{
+  -webkit-user-select:initial;
+  background-color: #fff;
+}
+body>a{display: none;}
+.demo-desc{
+    padding: 10px;
+    font-size: 16px;
+    color: #7CAE23;
+}
+.demo-block{
+    position: relative;
+}
+.demo-block .ui-header,
+.demo-block .ui-footer{
+    position: absolute;
+}
+.ui-tab-nav{
+    top: 45px;
+}
+.ui-tab-content{
+    margin-top: 45px;
+}
+.demo-block > .ui-list,.demo-block >.ui-form,.demo-block >.ui-tooltips{margin-bottom: 20px;}
+.content h3{
+    padding: 0 15px;
+    line-height: 44px;
+    font-size: 15px;  
+}
+.border-list{
+    background-color: #fff;
+}
+.border-list li{
+    width: 100px;
+    margin: 10px auto;
+    -webkit-box-pack: center;
+    text-align: center;
+}
+.ui-btn-group-bottom{bottom: 56px;}
+.ui-table{
+    line-height: 40px;
+    text-align: center;
+    background-color: #fff;
+}
+.ui-scroller {width:auto;height:300px;margin:20px;padding:10px;overflow:hidden;}
+.ui-scroller li {margin-bottom:10px;}
+.ui-notice{
+    top: 0;
+    z-index: -1;
+    height: 400px;
+}
+.icon-lists li{
+  float:left;
+  height: 100px;
+  width: 103px;
+  text-align: center;
+  
+}
+.icon-lists li i{
+    font-size: 32px;
+    line-height: 44px;
+}
+.icon-lists .ui-icon,.icon-lists [class^="ui-icon-"]{
+  margin: 10px 0;
+  color: #000;
+}
+.code,.fontclass{
+    font-size: 12px;
+}
+.ui-col{
+    padding: 5px;
+    background: #777;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+}
+.ui-flex{
+    border: 1px solid #ddd;
+    min-height: 80px;
+    /*margin-bottom: 10px;*/
+}
+.ui-flex-ver{
+    border: 1px solid #ddd;
+    min-height: 80px;
+    margin-bottom: 10px;
+}
+.ui-row-flex-ver{
+    border: 1px solid #ddd;
+    min-height: 100px;
+}
+.test-img {
+    width: 50px;
+    height: 50px;
+    background: #777;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ui-footer{
+    height:70px;
+}
+.ui-footer li{
+    padding:10px 0 0 10px;
+}
+.footer-logo {
+    height:50px;
+}
+.footer-link{
+    -webkit-box-align: end !important;
+    padding-right:13px !important;
+}
+.footer-link>.ui-btn{
+    border-radius: 50px;
+    border:none !important;
+    background: #116ef4;
+}
+.footer-link>.ui-btn:before{
+    border:none !important;
+}
+.ui-footer-btn{
+    background: #fff3f6 !important;
+}
+
+
+
+
+
+
+
+
+/*内容*/
+#layout{
+    /* background: url("img/section-bg.png"); */
+    /* background-size: 100% 100%; */
+    /* padding: 50px 50px 0 55px; */
+    position: absolute;
+    top: 10%;
+    width: 66%;
+    left: 17%;
+    height: 30%;
+}
+.ui-avatar-lg{
+    height: 60px;
+    width: 60px;
+}
+#layout .ui-btn-wrap{
+    width: 35%;
+    margin: 0 auto;
+}
+#layout .ui-flex{
+    background: none;
+    min-height: 0;
+    border: none;
+}
+.ui-list-info >h5{
+    color: #116ef4;
+}
+/*内容btn*/
+.ui-btn-lg{
+    height:35px;
+    line-height: 35px;
+    border-radius:50px;
+    background: #116ef4 !important;
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+}
+.ui-btn-lg:before{
+    border:none !important;
+}
+
+
+/*性别*/
+.sex-icon{
+    height:14px;
+    margin-right: 10px;
+    vertical-align: text-bottom;
+}
+.ui-txt-info{
+    font-size: 14px;
+    color: #ff6b8e;
+    font-weight: 200;
+}
+
+/*tata-number*/
+.tata-number{
+    color: #116ef4;
+}
+.tata-number span{
+    padding: 0 5px;
+    background: #cfe2fd;
+}
+
+.ui-list-info{
+    padding-left: 10px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 359px) {
+    .ui-container > section {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    #layout{
+        width: 74% !important;
+        left: 13%;
+    }
+}
+
+
+
+.part3{
+    padding-top: 10px;
+    height: auto; !important;
+}
+.ui-center >h2{
+    color: #116ef4;
+}
+.center-link-part3{
+    font-size: 25px;
+    color: #116ef4;
+    text-decoration: underline;
+}
+

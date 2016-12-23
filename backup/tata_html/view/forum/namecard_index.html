@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="测试测试测试测试测试测试测试">
+    <meta name="wx_pic" content="http://img.iknow.bdimg.com/avatar/100/r6s1g4.gif">
+    <title>名片分享页</title>
+    <link rel="stylesheet" href="/static/namecard/css/frozen.css">
+    <link rel="stylesheet" href="/static/namecard/css/demo.css">
+    <script src="/static/mix/js/jquery-2.1.1.min.js"></script>
+
+</head>
+
+<body ontouchstart>
+
+<footer class="ui-footer ui-footer-btn">
+    <ul class="ui-tiled ui-border-t">
+        <li data-href="#">
+            <img src="/static/namecard/img/logo.png" class="footer-logo" alt="">
+        </li>
+        <li data-href="#" class="footer-link">
+            <a href="/tataufo/download" class="ui-btn ui-btn-primary ">去下载</a>
+        </li>
+    </ul>
+</footer>
+<section class="ui-container">
+
+    <section style="margin-top: 20px;width: 90%;margin-left: 5%" >
+        <img src="/static/namecard/img/section-bg.png" id="img_inside" width="100%" alt="">
+    </section>
+
+
+    <section id="layout">
+        <div class="demo-item">
+            <div class="demo-block">
+                <div class="ui-avatar-lg" style="float: left;margin-left: 15px;border: 2px solid #116ef4">
+                    <span style="background-image:url('http://7xnvzn.com1.z0.glb.clouddn.com/<%= avatar %>?imageView2/5/w/120/h/120')"></span>
+                </div>
+                <div class="ui-list-info" >
+                    <h5 class="ui-nowrap"><%= nickname %></h5>
+                    <div class="ui-txt-info">
+                        <% if(sex == 1){%>
+                        <img src="/static/namecard/img/sex_male.png" class="sex-icon" alt="">
+                        <%}else{%>
+                        <img src="/static/namecard/img/sex_female.png" class="sex-icon" alt="">
+                        <%}%>
+
+                        from:tataUFO
+                    </div>
+                </div>
+                <ul class="ui-row-flex">
+
+                    <li class="ui-col ui-flex ui-flex-pack-center tata-number"><h1>tata号: t<span><%= tataid %></span></h1></li>
+                </ul>
+                <div class="ui-btn-wrap">
+                    <a href="/tataufo/download" class="ui-btn-lg">加为好友</a>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class=" ui-center part3">
+        <h2>准备好了，就一起加入</h2>
+        <a href="/tataufo/download" class="center-link-part3">不一样的探险之旅吧！</a>
+    </section>
+
+
+</section><!-- /.ui-container-->
+
+
+<!--计算图片高度-->
+<script>
+    //监听加载状态改变
+    document.onreadystatechange = completeLoading;
+
+    //加载状态为complete时移除loading效果
+    function completeLoading() {
+        if (document.readyState == "complete") {
+            var loadingMask = document.getElementById('img_inside');
+            var layout_message = document.getElementById('layout');
+            var img_height = loadingMask.clientHeight ;
+            var insidemargin = img_height/5 ;
+            layout_message.style.top = insidemargin+'px';
+        }
+    }
+</script>
+<!--这个是loading的js-->
+
+<script type="text/javascript">
+    function browserRedirect() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+            return;
+        } else {
+            var b = '<h1>请用手机访问此链接</h1>';
+            document.getElementsByTagName("body")[0].innerHTML = b;
+        }
+    }
+
+    browserRedirect();
+</script>
+
+</body>
+</html>

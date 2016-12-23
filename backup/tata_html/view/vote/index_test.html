@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="wx_pic" content="http://imagecloud.tataufo.com/doulian/season1/img/doulian-300.jpg">
+    <meta name="description" content="斗脸——川美最美班级评选">
+    <meta name="format-detection" content="telephone=no">
+    <title>斗脸——川美最美班级评选</title>
+    <link rel="stylesheet" href="/static/mix/css/frozen.css">
+    <link rel="stylesheet" href="/static/mix/css/demo.css">
+    <link rel="stylesheet" href="/static/mix/css/simplelightbox.min.css">
+
+    <script src="/static/mix/js/jquery-2.1.1.min.js"></script>
+
+    <style>
+        .btn_style {
+            width: 100%;
+            height: 100%;
+            color: #3a7042;
+            background: #8eed9e;
+            border-radius: 3px;
+        }
+
+        .cannotvote {
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn_style_not {
+            width: 100%;
+            height: 100%;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+        .ui-list-img{
+            width: 80px;
+        }
+        .vote-number{
+            font-size: .7em;
+        }
+        .vote-txt{
+            line-height: 1em;
+            padding-top: 10px;
+        }
+    </style>
+
+    <style>
+
+        .footer-mobile {
+            position: fixed;
+            bottom: -1px;
+            left: 0;
+            z-index: 99;
+            width: 100%;
+            height: 10%;
+            color: #fff;
+            text-align: center;
+            background-color: #fff3f6
+        }
+
+        .footer-logo {
+            margin-left: 2%;
+            -webkit-transform: scale(.9);
+            -ms-transform: scale(.9);
+            -o-transform: scale(.9);
+            transform: scale(.9)
+        }
+
+        .footer-text {
+            width: 26%;
+            margin: 4%
+        }
+
+        .pull-left{
+            float: left;
+        }
+        .pull-right{
+            float: right;
+        }
+        .btn-success {
+            color: #fff;
+            background-color: #116ef4;
+            border-color: #116ef4;
+        }
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 50px;
+        }
+        .bgg{
+            background: url("/static/forum/img/logo.png");
+            background-size: cover;
+            width: 154px;
+            height: 47px;
+            background-position: 0 0;
+        }
+    </style>
+
+</head>
+
+<body ontouchstart id="app">
+
+
+
+<section class="ui-container">
+
+    <div id="footer-mobile" class="footer-mobile">
+        <div class="footer-logo pull-left bgg" id="footer-logo"></div>
+        <a href="/tataufo/download" id="footer-btn" class="btn btn-success pull-right" style="margin-right: 5%">去下载</a>
+    </div>
+
+    <div class="demo-item">
+        <div class="">
+            <div class="ui-whitespace">
+
+                <h1 class="h1-text"><%= season_title %></h1>
+
+                <p>
+                    在这个看脸的时代，颜值即正义！小嗒嗒特携“川美学塘”，为大家寻找校园的颜王班级！用一张班级合影，定格一段美好的大学回忆~<br>
+                    不必担心网红脸盲尴尬症，这里只有属于校园的青春闪耀的脸。来为你心中的最美颜值班级集赞吧！
+                    <br><br>
+                    投票时间：2016年5月26号--5月28号
+                    投票规则：在规定的投票时间内，每天都能为你喜欢的所有班级投票一次。
+                </p>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <%for(var i in data){%>
+    <div class="demo-item">
+        <div class="demo-block">
+            <div class="ui-whitespace">
+
+
+
+                <div class="ui-row-flex ">
+                    <div class="ui-col flex-center">
+                        <a href="<%= data[i].img_url%>"><img class="scrollLoading" data-url="<%= data[i].img_url%>" src="/static/mix/images/placeholder.png" alt="" title=""></a>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="">
+        <ul class="ui-list ui-border-b ">
+
+
+            <li class="ui-border-b">
+
+                <div class="ui-list-info">
+                    <h4 class="ui-nowrap"><%= data[i].class_name%></h4>
+                    <span class="">口号</span>
+                    <p class="ui-nowrap"><%= data[i].slogn%></p>
+                </div>
+                <my-counter :info="classArr[<%= i %>]" :canvotechild="canvote"></my-counter>
+
+            </li>
+
+        </ul>
+        <ul class="ui-list-text border-list">
+            <li></li>
+        </ul>
+    </div>
+
+
+    <%}%>
+
+
+    <div class="dwo-control">
+        <span class="dwo-prev"></span>
+        <span class="dwo-next"></span>
+        <span class="dwo-close"></span>
+    </div>
+
+
+</section><!-- /.ui-container-->
+
+
+
+
+
+
+
+
+<template id="counter-template">
+    <div class="ui-list-img">
+        <a @click="changeactive" v-if="canvotechild">
+            <div class="btn_style ui-center">
+                <h4  class="vote-txt">投&nbsp;&nbsp;票</h4>
+                <span class="vote-number">{{info.vote_number}}票</span>
+            </div>
+        </a>
+        <div class="cannotvote" v-else>
+            <div class="btn_style_not ui-center">
+                <h4 class="vote-txt">今日 <br> 已投票</h4>
+                <span class="vote-number">{{info.vote_number}}票</span>
+            </div>
+        </div>
+
+    </div>
+</template>
+
+
+<!--异步加载-->
+<script>
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = '/static/mix/lib/zepto.min.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+    (function () {
+        var po = document.createElement("script");
+        po.type = "text/javascript";
+        po.async = true;
+        po.src = "/static/mix/js/frozen.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(po, s);
+    })();
+
+    jQuery.getScript("/static/mix/js/jquery.scrollLoading.js")
+            .done(function () {
+                /* 耶，没有问题，这里可以干点什么 */
+                //滚动异步加载图片
+                $(".scrollLoading").scrollLoading();
+                jQuery.getScript("/static/mix/js/simple-lightbox.min.js")
+                        .done(function () {
+                            /* 耶，没有问题，这里可以干点什么 */
+                            //点击查看大图
+                            var $dowebok = $('.demo-block a').simpleLightbox({
+                                nav: false,
+                                close: false,
+                                captions: false,
+                                widthRatio: 1,
+                                heightRatio: 1,
+                                swipeTolerance: 100
+                            });
+
+                            $dowebok.on('show.simplelightbox', function () {
+                                $('.dwo-control').show();
+                            });
+                            $dowebok.on('close.simplelightbox', function () {
+                                $('.dwo-control').hide();
+                            });
+
+                            $('.dwo-prev').on('click', function () {
+                                $dowebok.prev();
+                                return false;
+                            });
+                            $('.dwo-next').on('click', function () {
+                                $dowebok.next();
+                                return false;
+                            });
+                            $('.dwo-close').on('click', function () {
+                                $dowebok.close();
+                                return false;
+                            });
+                            $('.sl-overlay').on('click', function () {
+                                $dowebok.close();
+                                return false;
+                            });
+
+
+                        })
+                        .fail(function () {
+                            console.log('js加载出错了');
+                        });
+            })
+            .fail(function () {
+                console.log('js加载出错了');
+            });
+</script>
+<!--计算图片高度-->
+<script>
+    $(document).ready(function () {
+        $width = $(window).width() - 20;
+        $imgheight = $width / 1.59;
+        console.log($imgheight);
+        $('.flex-center a img').css({'height': $imgheight + 'px'})
+
+        //位置
+        var footermobile = document.getElementById("footer-mobile").offsetHeight;
+        var footerbtn= document.getElementById("footer-btn").offsetHeight;
+        var footerlogo= document.getElementById("footer-logo").offsetHeight;
+        window.onload=function(){
+            document.getElementById("footer-btn").style.marginTop = (footermobile-footerbtn)/2 + 'px';
+            document.getElementById("footer-logo").style.marginTop = (footermobile-footerlogo)/2 + 'px';
+        };
+
+    });
+</script>
+
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.min.js"></script>
+
+<script>
+
+    var arr = JSON.parse('<%- vuedata %>');
+    console.log(arr);
+    Vue.component('my-counter', {
+        template: '#counter-template',
+        ready:function () {
+            console.log('a',this.info);
+            console.log(typeof ('b',this.info));
+        },
+        props: ['info','canvotechild'],
+        data: function () {
+            return {
+//                count: 20,
+
+//                class_id: 0
+            }
+        },
+        methods: {
+            changeactive: function () {
+                var self = this;
+                this.info.vote_number += 0;
+                this.canvotechild = false;
+                var id = this.info.class_id;
+                self.canvotechild = false;
+                alert('请到官网下载最新的更新包~ ');
+//                $.ajax({
+//                    url: '/vote/index/votejax?classid='+id,
+//                    type: 'post',
+//                    data: {
+//                        count: self.count
+//                    },
+//                    success: function (data) {
+//                        console.log(data);
+//
+//                    }
+//                })
+            }
+        }
+    });
+
+    var vm = new Vue({
+        el: '#app',
+        ready:function () {
+//          console.log(this.classArr,typeof (this.classArr))
+        },
+        data: {
+            classArr : arr,
+            canvote: <%= votestate %>,
+    }
+    });
+    console.log(vm)
+</script>
+</body>
+</html>
