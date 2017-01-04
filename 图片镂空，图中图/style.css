@@ -1,0 +1,29 @@
+body {
+	background-color: #000000;
+	color: #cdcdcd;
+	font-family: helvetica, arial, sans-serif;
+}
+
+a {
+	color: #ff7e00;
+}
+
+a:hover {
+	color: #ffb400;	
+}
+
+.content {
+	width: 500px;
+	margin: 0px auto;	
+}
+
+.scrollBg {
+	background-image: url(pattern_2.jpg);
+	background-color: #000000;
+	width: 487px;
+	height: 83px;
+}
+
+.scrollBg  img {
+	display: block;
+}
